@@ -31,8 +31,8 @@ namespace Abhi_Silver_Plating_Shop
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,17 +57,17 @@ namespace Abhi_Silver_Plating_Shop
             this.menuFile.Size = new System.Drawing.Size(46, 24);
             this.menuFile.Text = "File";
             // 
-            // menuReports
-            // 
-            this.menuReports.Name = "menuReports";
-            this.menuReports.Size = new System.Drawing.Size(74, 24);
-            this.menuReports.Text = "Reports";
-            // 
             // fileMenuClose
             // 
             this.fileMenuClose.Name = "fileMenuClose";
             this.fileMenuClose.Size = new System.Drawing.Size(128, 26);
             this.fileMenuClose.Text = "Close";
+            // 
+            // menuReports
+            // 
+            this.menuReports.Name = "menuReports";
+            this.menuReports.Size = new System.Drawing.Size(74, 24);
+            this.menuReports.Text = "Reports";
             // 
             // MainForm
             // 
@@ -77,6 +77,7 @@ namespace Abhi_Silver_Plating_Shop
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

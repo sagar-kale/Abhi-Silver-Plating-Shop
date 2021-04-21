@@ -116,6 +116,7 @@ namespace Abhi_Silver_Plating_Shop
             this.Controls.Add(this.lblUsername);
             this.Font = new System.Drawing.Font("Arial Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
