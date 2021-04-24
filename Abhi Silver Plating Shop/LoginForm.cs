@@ -19,12 +19,11 @@ namespace Abhi_Silver_Plating_Shop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.loginPbar.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void label1_Click_2(object sender, EventArgs e)
@@ -47,15 +46,22 @@ namespace Abhi_Silver_Plating_Shop
         {
             string username = txtUsr.Text;
             string password = txtPwd.Text;
-            if (username.Equals("sagar") && password.Equals("sagar"))
+            Repository.Connection connection = new Repository.Connection();
+
+            Model.User user = connection.FetchUser(username, password);
+
+            if (user != null && user.Username != null)
             {
+                MessageBox.Show("Welcome " + user.Name);
                 this.Hide();
+                ResetMyForm();
                 MainForm mainForm = new MainForm();
                 mainForm.Show();
             }
             else
             {
                 MessageBox.Show("Incorrect username and password!!");
+                ResetMyForm();
             }
         }
 
@@ -63,6 +69,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             txtUsr.Text = "";
             txtPwd.Text = "";
+            txtUsr.Focus();
         }
 
         private void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
@@ -74,6 +81,29 @@ namespace Abhi_Silver_Plating_Shop
             if (e.KeyChar == (char)Keys.Escape)
             {
                 ResetMyForm();
+            }
+        }
+
+        private void lblCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            txtUsr.Text = "";
+            txtPwd.Text = "";
+        }
+
+        private void ckbkShowPwd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbkShowPwd.Checked == true)
+            {
+                txtPwd.Password = false;
+            }
+            else
+            {
+                txtPwd.Password = true;
             }
         }
     }
