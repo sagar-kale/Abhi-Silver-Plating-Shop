@@ -39,19 +39,23 @@ namespace Abhi_Silver_Plating_Shop
         {
             string query = "select * from user_auth";
             Repository.Connection connection = new Repository.Connection();
-            BindingSource bindingSource = connection.populateDataSourceData(query);
-            //dataGridView1.DataSource = bindingSource;
+            DataTable dataTable = connection.PopulateDataSourceData(query);
+            userGridView.DataSource = dataTable;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void userGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           // dataGridView1.Rows.Add();
+         
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void userGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //int count = dataGridView1.SelectedRows.Count;
-            MessageBox.Show("");
+            userGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void menuCustomer_Click(object sender, EventArgs e)
+        {
+            new CustomerForm().Show();
         }
     }
 }

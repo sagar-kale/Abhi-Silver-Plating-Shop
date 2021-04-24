@@ -32,9 +32,11 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.userGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -42,10 +44,11 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
+            this.menuCustomer,
             this.menuReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1084, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -65,28 +68,43 @@ namespace Abhi_Silver_Plating_Shop
             this.fileMenuClose.Text = "Close";
             this.fileMenuClose.Click += new System.EventHandler(this.fileMenuClose_Click);
             // 
+            // menuCustomer
+            // 
+            this.menuCustomer.Name = "menuCustomer";
+            this.menuCustomer.Size = new System.Drawing.Size(86, 24);
+            this.menuCustomer.Text = "Customer";
+            this.menuCustomer.Click += new System.EventHandler(this.menuCustomer_Click);
+            // 
             // menuReports
             // 
             this.menuReports.Name = "menuReports";
             this.menuReports.Size = new System.Drawing.Size(74, 24);
             this.menuReports.Text = "Reports";
             // 
-            // button1
+            // userGridView
             // 
-            this.button1.Location = new System.Drawing.Point(49, 374);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.userGridView.AllowUserToAddRows = false;
+            this.userGridView.AllowUserToDeleteRows = false;
+            this.userGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGridView.Location = new System.Drawing.Point(436, 130);
+            this.userGridView.Name = "userGridView";
+            this.userGridView.ReadOnly = true;
+            this.userGridView.RowHeadersWidth = 51;
+            this.userGridView.RowTemplate.Height = 29;
+            this.userGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userGridView.Size = new System.Drawing.Size(618, 309);
+            this.userGridView.TabIndex = 1;
+            this.userGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellContentClick);
+            this.userGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.userGridView_DataBindingComplete);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1084, 538);
+            this.Controls.Add(this.userGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -96,6 +114,7 @@ namespace Abhi_Silver_Plating_Shop
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +126,7 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem fileMenuClose;
         private System.Windows.Forms.ToolStripMenuItem menuReports;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView userGridView;
+        private System.Windows.Forms.ToolStripMenuItem menuCustomer;
     }
 }

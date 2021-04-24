@@ -120,53 +120,60 @@ namespace Abhi_Silver_Plating_Shop.Repository
             //Create a user to store the result
             Model.User user = new Model.User();
 
-            //Open connection
-            if (this.Open() == true)
+            try
             {
-                Console.WriteLine("conection.....opened");
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.Parameters.AddWithValue("@val1", username);
-                cmd.Parameters.AddWithValue("@val2", password);
-                cmd.Prepare();
-
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-                //Read the data and store them in the list
-                while (dataReader.Read())
+                //Open connection
+                if (this.Open() == true)
                 {
-                    user.Name = dataReader["name"] + "";
-                    user.Username = dataReader["username"] + "";
-                    user.Password = dataReader["password"] + "";
+                    Console.WriteLine("conection.....opened");
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@val1", username);
+                    cmd.Parameters.AddWithValue("@val2", password);
+                    cmd.Prepare();
+
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    //Read the data and store them in the list
+                    while (dataReader.Read())
+                    {
+                        user.Name = dataReader["name"] + "";
+                        user.Username = dataReader["username"] + "";
+                        user.Password = dataReader["password"] + "";
+                    }
+
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    this.Close();
                 }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                this.Close();
-
-                //return list to be displayed
-                return user;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             return user;
 
         }
 
-        public BindingSource populateDataSourceData(string query)
+        public DataTable PopulateDataSourceData(string query)
         {
-            if (this.Open() == true)
+            DataTable dataTable = new DataTable();
+            try
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-                MySqlCommand command = new MySqlCommand(query, connection);
-                adapter.SelectCommand = command;
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = dataTable;
-                this.Close();
-                return bindingSource;
+                if (this.Open() == true)
+                {
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    dataTable.Load(reader);
+                    return dataTable;
+                }
             }
-            return null;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return dataTable;
         }
 
 
