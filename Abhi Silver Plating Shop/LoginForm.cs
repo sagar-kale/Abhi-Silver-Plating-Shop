@@ -46,9 +46,9 @@ namespace Abhi_Silver_Plating_Shop
         {
             string username = txtUsr.Text;
             string password = txtPwd.Text;
-            Repository.Connection connection = new Repository.Connection();
+            Repository.BaseDao baseDao = new Repository.BaseDao();
 
-            Model.User user = connection.FetchUser(username, password);
+            Model.User user = baseDao.FetchUser(username, password);
 
             if (user != null && user.Username != null)
             {

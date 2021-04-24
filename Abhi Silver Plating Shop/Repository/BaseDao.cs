@@ -9,7 +9,7 @@ using System.Data;
 
 namespace Abhi_Silver_Plating_Shop.Repository
 {
-    class Connection
+    class BaseDao
     {
         MySql.Data.MySqlClient.MySqlConnection connection;
 
@@ -17,13 +17,15 @@ namespace Abhi_Silver_Plating_Shop.Repository
         static readonly string db = "plating_shop";
         static readonly string username = "root";
         static readonly string password = "root";
-        public static string strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password;
+        public static string strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password+ ";CharSet=utf8";
 
-        public Connection()
+        public MySqlConnection Connection { get => connection;}
+
+        public BaseDao()
         {
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
-        public bool Open()
+        public bool OpenConnection()
         {
             try
             {
@@ -53,7 +55,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 return false;
             }
         }
-        public void Close()
+        public void CloseConnection()
         {
             connection.Close();
             connection.Dispose();
@@ -123,7 +125,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
             try
             {
                 //Open connection
-                if (this.Open() == true)
+                if (this.OpenConnection() == true)
                 {
                     Console.WriteLine("conection.....opened");
                     MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -144,7 +146,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                     dataReader.Close();
 
                     //close Connection
-                    this.Close();
+                    this.CloseConnection();
                 }
             }
             catch (Exception ex)
@@ -161,7 +163,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
             DataTable dataTable = new DataTable();
             try
             {
-                if (this.Open() == true)
+                if (this.OpenConnection() == true)
                 {
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataReader reader = command.ExecuteReader();

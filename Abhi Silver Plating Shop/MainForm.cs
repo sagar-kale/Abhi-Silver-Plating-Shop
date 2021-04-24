@@ -38,7 +38,7 @@ namespace Abhi_Silver_Plating_Shop
         void populateData()
         {
             string query = "select * from user_auth";
-            Repository.Connection connection = new Repository.Connection();
+            Repository.BaseDao connection = new Repository.BaseDao();
             DataTable dataTable = connection.PopulateDataSourceData(query);
             userGridView.DataSource = dataTable;
         }

@@ -29,7 +29,9 @@ namespace Abhi_Silver_Plating_Shop
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.customerGridView = new System.Windows.Forms.DataGridView();
@@ -41,20 +43,35 @@ namespace Abhi_Silver_Plating_Shop
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
             this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            this.mobErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobErrProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Crimson;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1102, 83);
+            this.panel1.Size = new System.Drawing.Size(1105, 105);
             this.panel1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(400, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(235, 27);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Manage Customers";
             // 
             // label2
             // 
@@ -71,12 +88,13 @@ namespace Abhi_Silver_Plating_Shop
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(327, 18);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(281, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(407, 49);
+            this.label1.Size = new System.Drawing.Size(464, 44);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Manage Customers";
+            this.label1.Text = "MANGALMURTI VIBRATOR";
             // 
             // customerGridView
             // 
@@ -86,13 +104,13 @@ namespace Abhi_Silver_Plating_Shop
             this.customerGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.customerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerGridView.Location = new System.Drawing.Point(479, 173);
+            this.customerGridView.Location = new System.Drawing.Point(400, 173);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.ReadOnly = true;
             this.customerGridView.RowHeadersWidth = 51;
             this.customerGridView.RowTemplate.Height = 29;
             this.customerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customerGridView.Size = new System.Drawing.Size(595, 309);
+            this.customerGridView.Size = new System.Drawing.Size(666, 512);
             this.customerGridView.TabIndex = 3;
             this.customerGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerGridView_CellContentClick);
             // 
@@ -152,13 +170,14 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustMob.ForeColor = System.Drawing.Color.Crimson;
             this.txtCustMob.Hint = "Mobile";
             this.txtCustMob.Location = new System.Drawing.Point(53, 341);
-            this.txtCustMob.MaxLength = 50;
+            this.txtCustMob.MaxLength = 10;
             this.txtCustMob.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustMob.Multiline = false;
             this.txtCustMob.Name = "txtCustMob";
             this.txtCustMob.Size = new System.Drawing.Size(278, 50);
             this.txtCustMob.TabIndex = 7;
             this.txtCustMob.Text = "";
+            this.txtCustMob.TextChanged += new System.EventHandler(this.txtCustMob_TextChanged);
             // 
             // btnAdd
             // 
@@ -180,6 +199,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = true;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // materialButton1
             // 
@@ -201,6 +221,7 @@ namespace Abhi_Silver_Plating_Shop
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.materialButton1.UseAccentColor = true;
             this.materialButton1.UseVisualStyleBackColor = false;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // materialButton2
             // 
@@ -245,11 +266,25 @@ namespace Abhi_Silver_Plating_Shop
             this.materialButton3.UseVisualStyleBackColor = false;
             this.materialButton3.Click += new System.EventHandler(this.materialButton3_Click);
             // 
+            // mobErrProvider
+            // 
+            this.mobErrProvider.ContainerControl = this;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Crimson;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 711);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1105, 21);
+            this.panel2.TabIndex = 12;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 585);
+            this.ClientSize = new System.Drawing.Size(1105, 732);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.materialButton3);
             this.Controls.Add(this.materialButton2);
             this.Controls.Add(this.materialButton1);
@@ -264,10 +299,11 @@ namespace Abhi_Silver_Plating_Shop
             this.Name = "CustomerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ItemForm";
-            this.Load += new System.EventHandler(this.ItemForm_Load);
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mobErrProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +322,8 @@ namespace Abhi_Silver_Plating_Shop
         private MaterialSkin.Controls.MaterialButton materialButton2;
         private MaterialSkin.Controls.MaterialButton materialButton3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ErrorProvider mobErrProvider;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
     }
 }

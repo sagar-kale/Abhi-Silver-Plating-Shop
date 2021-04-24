@@ -48,7 +48,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1084, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1130, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -88,7 +88,7 @@ namespace Abhi_Silver_Plating_Shop
             this.userGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(436, 130);
+            this.userGridView.Location = new System.Drawing.Point(470, 188);
             this.userGridView.Name = "userGridView";
             this.userGridView.ReadOnly = true;
             this.userGridView.RowHeadersWidth = 51;
@@ -103,7 +103,9 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 538);
+            this.BackgroundImage = global::Abhi_Silver_Plating_Shop.Properties.Resources.eberhard_grossgasteiger_S_2Ukb_VqpA_unsplash;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1130, 732);
             this.Controls.Add(this.userGridView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
