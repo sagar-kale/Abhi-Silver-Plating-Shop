@@ -21,5 +21,10 @@ namespace Abhi_Silver_Plating_Shop.Repository
         public const string UNIT_UPATE_QUERY = "UPDATE `units` SET `rate` = @rate WHERE `unitId` = @unitId;";
         public const string UNIT_DELETE_QUERY = "DELETE FROM units WHERE unitId = @unitId;";
 
+        public const string USER_SELECT_QUERY = "Select * from user_auth;";
+        public const string USER_INSERT_QUERY = "INSERT INTO user_auth VALUES(@username, @password, @name, @role);";
+        public const string USER_UPATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
+        public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";
+
     }
 }

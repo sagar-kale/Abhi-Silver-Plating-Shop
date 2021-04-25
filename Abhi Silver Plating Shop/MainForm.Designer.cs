@@ -32,13 +32,12 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.userGridView = new System.Windows.Forms.DataGridView();
             this.menuRate = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -46,6 +45,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
+            this.menuUser,
             this.menuCustomer,
             this.menuItem,
             this.menuRate,
@@ -53,9 +53,8 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1130, 28);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // menuFile
             // 
@@ -72,6 +71,13 @@ namespace Abhi_Silver_Plating_Shop
             this.fileMenuClose.Text = "Close";
             this.fileMenuClose.Click += new System.EventHandler(this.fileMenuClose_Click);
             // 
+            // menuUser
+            // 
+            this.menuUser.Name = "menuUser";
+            this.menuUser.Size = new System.Drawing.Size(58, 24);
+            this.menuUser.Text = "Users";
+            this.menuUser.Click += new System.EventHandler(this.menuUser_Click);
+            // 
             // menuCustomer
             // 
             this.menuCustomer.Name = "menuCustomer";
@@ -86,36 +92,18 @@ namespace Abhi_Silver_Plating_Shop
             this.menuItem.Text = "Items";
             this.menuItem.Click += new System.EventHandler(this.menuItem_Click);
             // 
-            // menuReports
-            // 
-            this.menuReports.Name = "menuReports";
-            this.menuReports.Size = new System.Drawing.Size(74, 24);
-            this.menuReports.Text = "Reports";
-            // 
-            // userGridView
-            // 
-            this.userGridView.AllowUserToAddRows = false;
-            this.userGridView.AllowUserToDeleteRows = false;
-            this.userGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userGridView.Location = new System.Drawing.Point(470, 188);
-            this.userGridView.Name = "userGridView";
-            this.userGridView.ReadOnly = true;
-            this.userGridView.RowHeadersWidth = 51;
-            this.userGridView.RowTemplate.Height = 29;
-            this.userGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.userGridView.Size = new System.Drawing.Size(618, 309);
-            this.userGridView.TabIndex = 1;
-            this.userGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellContentClick);
-            this.userGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.userGridView_DataBindingComplete);
-            // 
             // menuRate
             // 
             this.menuRate.Name = "menuRate";
             this.menuRate.Size = new System.Drawing.Size(59, 24);
             this.menuRate.Text = "Rates";
             this.menuRate.Click += new System.EventHandler(this.menuRate_Click);
+            // 
+            // menuReports
+            // 
+            this.menuReports.Name = "menuReports";
+            this.menuReports.Size = new System.Drawing.Size(74, 24);
+            this.menuReports.Text = "Reports";
             // 
             // MainForm
             // 
@@ -124,9 +112,7 @@ namespace Abhi_Silver_Plating_Shop
             this.BackgroundImage = global::Abhi_Silver_Plating_Shop.Properties.Resources.eberhard_grossgasteiger_S_2Ukb_VqpA_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1130, 732);
-            this.Controls.Add(this.userGridView);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
@@ -135,21 +121,19 @@ namespace Abhi_Silver_Plating_Shop
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuFile;
         private System.Windows.Forms.ToolStripMenuItem fileMenuClose;
-        private System.Windows.Forms.ToolStripMenuItem menuReports;
-        private System.Windows.Forms.DataGridView userGridView;
+        private System.Windows.Forms.ToolStripMenuItem menuUser;
         private System.Windows.Forms.ToolStripMenuItem menuCustomer;
         private System.Windows.Forms.ToolStripMenuItem menuItem;
         private System.Windows.Forms.ToolStripMenuItem menuRate;
+        private System.Windows.Forms.ToolStripMenuItem menuReports;
     }
 }

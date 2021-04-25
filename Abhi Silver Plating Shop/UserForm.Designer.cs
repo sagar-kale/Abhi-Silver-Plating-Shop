@@ -1,7 +1,7 @@
 ﻿
 namespace Abhi_Silver_Plating_Shop
 {
-    partial class UnitForm
+    partial class UserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,26 +32,24 @@ namespace Abhi_Silver_Plating_Shop
             this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.unitNameErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.usernameErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnHome = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnEdit = new MaterialSkin.Controls.MaterialButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.unitGridView = new System.Windows.Forms.DataGridView();
+            this.txtName = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtUsername = new MaterialSkin.Controls.MaterialTextBox();
+            this.userGridView = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtUnitName = new System.Windows.Forms.TextBox();
+            this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtRate = new System.Windows.Forms.TextBox();
-            this.unitRateErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.unitNameErrProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitGridView)).BeginInit();
+            this.cmbRole = new MaterialSkin.Controls.MaterialComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameErrProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unitRateErrProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -59,11 +57,11 @@ namespace Abhi_Silver_Plating_Shop
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label4.Location = new System.Drawing.Point(696, 219);
+            this.label4.Location = new System.Drawing.Point(685, 165);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 27);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Rate List";
+            this.label4.Size = new System.Drawing.Size(99, 27);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "User List";
             // 
             // panel2
             // 
@@ -72,11 +70,11 @@ namespace Abhi_Silver_Plating_Shop
             this.panel2.Location = new System.Drawing.Point(0, 711);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1105, 21);
-            this.panel2.TabIndex = 36;
+            this.panel2.TabIndex = 25;
             // 
-            // unitNameErrProvider
+            // usernameErrProvider
             // 
-            this.unitNameErrProvider.ContainerControl = this;
+            this.usernameErrProvider.ContainerControl = this;
             // 
             // btnHome
             // 
@@ -88,12 +86,12 @@ namespace Abhi_Silver_Plating_Shop
             this.btnHome.DrawShadows = true;
             this.btnHome.HighEmphasis = true;
             this.btnHome.Icon = null;
-            this.btnHome.Location = new System.Drawing.Point(321, 502);
+            this.btnHome.Location = new System.Drawing.Point(256, 538);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnHome.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(88, 34);
-            this.btnHome.TabIndex = 37;
+            this.btnHome.TabIndex = 9;
             this.btnHome.Text = "Home";
             this.btnHome.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnHome.UseAccentColor = true;
@@ -109,12 +107,12 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(131, 502);
+            this.btnClear.Location = new System.Drawing.Point(66, 538);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 34);
-            this.btnClear.TabIndex = 35;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnClear.UseAccentColor = true;
@@ -131,12 +129,12 @@ namespace Abhi_Silver_Plating_Shop
             this.btnDelete.DrawShadows = true;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = null;
-            this.btnDelete.Location = new System.Drawing.Point(321, 456);
+            this.btnDelete.Location = new System.Drawing.Point(256, 492);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(88, 34);
-            this.btnDelete.TabIndex = 34;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = true;
@@ -153,12 +151,12 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(227, 456);
+            this.btnEdit.Location = new System.Drawing.Point(162, 492);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 34);
-            this.btnEdit.TabIndex = 33;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEdit.UseAccentColor = true;
@@ -173,48 +171,84 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Depth = 0;
             this.btnAdd.DrawShadows = true;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnAdd.ForeColor = System.Drawing.Color.Crimson;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(131, 456);
+            this.btnAdd.Location = new System.Drawing.Point(66, 492);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 34);
-            this.btnAdd.TabIndex = 32;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = true;
+            this.btnAdd.UseCompatibleTextRendering = true;
+            this.btnAdd.UseMnemonic = false;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // unitGridView
+            // txtName
             // 
-            this.unitGridView.AllowUserToAddRows = false;
-            this.unitGridView.AllowUserToDeleteRows = false;
-            this.unitGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.unitGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.unitGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.unitGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.unitGridView.Location = new System.Drawing.Point(586, 267);
-            this.unitGridView.Name = "unitGridView";
-            this.unitGridView.ReadOnly = true;
-            this.unitGridView.RowHeadersWidth = 51;
-            this.unitGridView.RowTemplate.Height = 29;
-            this.unitGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unitGridView.Size = new System.Drawing.Size(437, 297);
-            this.unitGridView.TabIndex = 31;
-            this.unitGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unitGridView_CellContentClick);
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtName.Depth = 0;
+            this.txtName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.ForeColor = System.Drawing.Color.Crimson;
+            this.txtName.Hint = "Name";
+            this.txtName.Location = new System.Drawing.Point(68, 300);
+            this.txtName.MaxLength = 50;
+            this.txtName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtName.Multiline = false;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(278, 50);
+            this.txtName.TabIndex = 2;
+            this.txtName.Text = "";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsername.Depth = 0;
+            this.txtUsername.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUsername.ForeColor = System.Drawing.Color.Crimson;
+            this.txtUsername.Hint = "Username";
+            this.txtUsername.Location = new System.Drawing.Point(68, 244);
+            this.txtUsername.MaxLength = 50;
+            this.txtUsername.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtUsername.Multiline = false;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(278, 50);
+            this.txtUsername.TabIndex = 1;
+            this.txtUsername.Text = "";
+            // 
+            // userGridView
+            // 
+            this.userGridView.AllowUserToAddRows = false;
+            this.userGridView.AllowUserToDeleteRows = false;
+            this.userGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.userGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.userGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.userGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.userGridView.Location = new System.Drawing.Point(478, 229);
+            this.userGridView.Name = "userGridView";
+            this.userGridView.ReadOnly = true;
+            this.userGridView.RowHeadersWidth = 51;
+            this.userGridView.RowTemplate.Height = 29;
+            this.userGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.userGridView.Size = new System.Drawing.Size(575, 397);
+            this.userGridView.TabIndex = 10;
+            this.userGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellContentClick);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(400, 64);
+            this.label3.Location = new System.Drawing.Point(426, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 27);
+            this.label3.Size = new System.Drawing.Size(173, 27);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Manage Rate";
+            this.label3.Text = "Manage Users";
             // 
             // label2
             // 
@@ -233,30 +267,29 @@ namespace Abhi_Silver_Plating_Shop
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(227, 9);
+            this.label1.Location = new System.Drawing.Point(241, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(571, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "MANGALMURTI VIBRATOR SHOP";
             // 
-            // label5
+            // txtPassword
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label5.Location = new System.Drawing.Point(130, 223);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 23);
-            this.label5.TabIndex = 40;
-            this.label5.Text = "Unit Name";
-            // 
-            // txtUnitName
-            // 
-            this.txtUnitName.Location = new System.Drawing.Point(130, 267);
-            this.txtUnitName.Name = "txtUnitName";
-            this.txtUnitName.Size = new System.Drawing.Size(278, 27);
-            this.txtUnitName.TabIndex = 39;
-            this.txtUnitName.TextChanged += new System.EventHandler(this.txtUnitName_TextChanged);
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPassword.Depth = 0;
+            this.txtPassword.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.ForeColor = System.Drawing.Color.Crimson;
+            this.txtPassword.Hint = "Password";
+            this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtPassword.Location = new System.Drawing.Point(68, 356);
+            this.txtPassword.MaxLength = 50;
+            this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtPassword.Multiline = false;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Password = true;
+            this.txtPassword.Size = new System.Drawing.Size(278, 50);
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.Text = "";
             // 
             // panel1
             // 
@@ -268,38 +301,43 @@ namespace Abhi_Silver_Plating_Shop
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1105, 105);
-            this.panel1.TabIndex = 30;
+            this.panel1.TabIndex = 15;
             // 
-            // label6
+            // cmbRole
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Location = new System.Drawing.Point(131, 320);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 23);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Rate";
+            this.cmbRole.AutoCompleteCustomSource.AddRange(new string[] {
+            "ADMIN",
+            "USER"});
+            this.cmbRole.AutoResize = false;
+            this.cmbRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cmbRole.Depth = 0;
+            this.cmbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cmbRole.DropDownHeight = 174;
+            this.cmbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRole.DropDownWidth = 121;
+            this.cmbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cmbRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cmbRole.FormattingEnabled = true;
+            this.cmbRole.Hint = "Role";
+            this.cmbRole.IntegralHeight = false;
+            this.cmbRole.ItemHeight = 43;
+            this.cmbRole.Items.AddRange(new object[] {
+            "ADMIN",
+            "USER"});
+            this.cmbRole.Location = new System.Drawing.Point(68, 421);
+            this.cmbRole.MaxDropDownItems = 4;
+            this.cmbRole.MouseState = MaterialSkin.MouseState.OUT;
+            this.cmbRole.Name = "cmbRole";
+            this.cmbRole.Size = new System.Drawing.Size(278, 49);
+            this.cmbRole.StartIndex = 0;
+            this.cmbRole.TabIndex = 4;
             // 
-            // txtRate
-            // 
-            this.txtRate.Location = new System.Drawing.Point(130, 358);
-            this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(278, 27);
-            this.txtRate.TabIndex = 41;
-            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
-            // 
-            // unitRateErrProvider
-            // 
-            this.unitRateErrProvider.ContainerControl = this;
-            // 
-            // UnitForm
+            // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 732);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtRate);
+            this.Controls.Add(this.cmbRole);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnHome);
@@ -307,20 +345,20 @@ namespace Abhi_Silver_Plating_Shop
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.unitGridView);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtUnitName);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.userGridView);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "UnitForm";
+            this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UnitForm";
-            this.Load += new System.EventHandler(this.UnitForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.unitNameErrProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.unitGridView)).EndInit();
+            this.Text = "UserForm";
+            this.Load += new System.EventHandler(this.UserForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.usernameErrProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unitRateErrProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,21 +368,20 @@ namespace Abhi_Silver_Plating_Shop
 
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ErrorProvider unitNameErrProvider;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtRate;
+        private System.Windows.Forms.ErrorProvider usernameErrProvider;
+        private MaterialSkin.Controls.MaterialComboBox cmbRole;
         private MaterialSkin.Controls.MaterialButton btnHome;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnEdit;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private System.Windows.Forms.DataGridView unitGridView;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtUnitName;
+        private MaterialSkin.Controls.MaterialTextBox txtName;
+        private MaterialSkin.Controls.MaterialTextBox txtUsername;
+        private System.Windows.Forms.DataGridView userGridView;
+        private MaterialSkin.Controls.MaterialTextBox txtPassword;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ErrorProvider unitRateErrProvider;
     }
 }

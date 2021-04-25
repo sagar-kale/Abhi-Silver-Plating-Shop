@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Abhi_Silver_Plating_Shop.Utils;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +13,18 @@ namespace Abhi_Silver_Plating_Shop
 {
     public partial class MainForm : Form
     {
+        readonly MaterialSkinManager manager;
         public MainForm()
         {
             InitializeComponent();
+            manager = MaterialSkinManager.Instance;
+            manager.Theme = MaterialSkinManager.Themes.LIGHT;
+            manager.ColorScheme = new ColorScheme(
+                Primary.Blue400, Primary.Blue500,
+                Primary.Blue500, Accent.Pink200,
+                TextShade.WHITE
+                );
+            manager.EnforceBackcolorOnAllComponents = false;
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -32,25 +44,10 @@ namespace Abhi_Silver_Plating_Shop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            populateData();
-        }
-
-        void populateData()
-        {
-            string query = "select * from user_auth";
-            Repository.BaseDao connection = new Repository.BaseDao();
-            DataTable dataTable = connection.PopulateDataSourceData(query);
-            userGridView.DataSource = dataTable;
-        }
-
-        private void userGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-         
-        }
-
-        private void userGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            userGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (Model.LoginInfo.UserRole == AppConstants.USER)
+            {
+                menuUser.Enabled = false;
+            }
         }
 
         private void menuCustomer_Click(object sender, EventArgs e)
@@ -66,6 +63,11 @@ namespace Abhi_Silver_Plating_Shop
         private void menuRate_Click(object sender, EventArgs e)
         {
             new UnitForm().Show();
+        }
+
+        private void menuUser_Click(object sender, EventArgs e)
+        {
+            new UserForm().Show();
         }
     }
 }
