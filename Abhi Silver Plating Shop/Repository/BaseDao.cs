@@ -138,6 +138,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                     while (dataReader.Read())
                     {
                         user.Name = dataReader["name"] + "";
+                        user.Role = dataReader["role"] + "";
                         user.Username = dataReader["username"] + "";
                         user.Password = dataReader["password"] + "";
                     }

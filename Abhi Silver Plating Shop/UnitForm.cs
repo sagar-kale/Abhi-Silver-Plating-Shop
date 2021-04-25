@@ -45,6 +45,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateUnitGrid();
             ClearForm();
+            MessageBox.Show("username :" + Model.LoginInfo.UserID + " has role " + Model.LoginInfo.UserRole);
         }
 
         bool RecordExists()

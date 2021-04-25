@@ -53,6 +53,8 @@ namespace Abhi_Silver_Plating_Shop
             if (user != null && user.Username != null)
             {
                 MessageBox.Show("Welcome " + user.Name);
+                Model.LoginInfo.UserID = user.Username;
+                Model.LoginInfo.UserRole = user.Role;
                 this.Hide();
                 ResetMyForm();
                 MainForm mainForm = new MainForm();

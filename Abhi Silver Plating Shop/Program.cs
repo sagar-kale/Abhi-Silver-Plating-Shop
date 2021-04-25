@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,10 +15,21 @@ namespace Abhi_Silver_Plating_Shop
         [STAThread]
         static void Main()
         {
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            // we need to get the current process name
+            string strProcessName = Process.GetCurrentProcess().ProcessName;
+            Process[] processes = Process.GetProcessesByName(strProcessName);
+            if (processes.Length == 1)
+            {
+                Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+            else
+            {
+                MessageBox.Show("The application is already running.");
+            }
         }
+
     }
 }
