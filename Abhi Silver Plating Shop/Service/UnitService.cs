@@ -45,7 +45,6 @@ namespace Abhi_Silver_Plating_Shop.Service
                 {
                     MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.UNIT_UPATE_QUERY, baseDao.Connection);
                     insertCommand.Parameters.AddWithValue("@unitId", unit.Id);
-                    insertCommand.Parameters.AddWithValue("@name", unit.Name);
                     insertCommand.Parameters.AddWithValue("@rate", unit.Rate);
                     insertCommand.Prepare();
                     insertCommand.ExecuteNonQuery();

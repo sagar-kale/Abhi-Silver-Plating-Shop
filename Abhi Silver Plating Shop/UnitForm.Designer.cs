@@ -256,6 +256,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtUnitName.Name = "txtUnitName";
             this.txtUnitName.Size = new System.Drawing.Size(278, 27);
             this.txtUnitName.TabIndex = 39;
+            this.txtUnitName.TextChanged += new System.EventHandler(this.txtUnitName_TextChanged);
             // 
             // panel1
             // 

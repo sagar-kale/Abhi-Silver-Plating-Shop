@@ -17,9 +17,9 @@ namespace Abhi_Silver_Plating_Shop.Repository
         static readonly string db = "plating_shop";
         static readonly string username = "root";
         static readonly string password = "root";
-        public static string strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password+ ";CharSet=utf8";
+        public static string strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password + ";CharSet=utf8";
 
-        public MySqlConnection Connection { get => connection;}
+        public MySqlConnection Connection { get => connection; }
 
         public BaseDao()
         {
@@ -155,6 +155,43 @@ namespace Abhi_Silver_Plating_Shop.Repository
             }
 
             return user;
+
+        }
+
+        public bool IsRecordExits(string table, string column, string value)
+        {
+            bool isExits = false;
+            string query = "SELECT * FROM " + table + " where " + column + "=@" + column + ";";
+
+            try
+            {
+                //Open connection
+                if (this.OpenConnection() == true)
+                {
+                    Console.WriteLine("conection.....opened");
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@" + column, value);
+                    cmd.Prepare();
+
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    //Read the data and store them in the list
+                    if (dataReader.HasRows)
+                    {
+                        isExits = true;
+                    }
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    this.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            return isExits;
 
         }
 

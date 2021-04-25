@@ -47,6 +47,17 @@ namespace Abhi_Silver_Plating_Shop
             ClearForm();
         }
 
+        bool RecordExists()
+        {
+            if (new Repository.BaseDao().IsRecordExits("units", "name", txtUnitName.Text))
+            {
+                MessageBox.Show("Record Already Present, Please Edit Exiting Record !");
+                ClearForm();
+                return true;
+            }
+            return false;
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtUnitName.Text) && string.IsNullOrWhiteSpace(txtRate.Text))
@@ -69,17 +80,20 @@ namespace Abhi_Silver_Plating_Shop
             else
             {
                 Model.Unit unit = new Model.Unit(null, txtUnitName.Text, Double.Parse(txtRate.Text));
-                bool isAdded = unitService.AddUnit(unit);
-                if (isAdded)
+                if (!RecordExists())
                 {
-                    MessageBox.Show("Rate Added !!");
-                    ClearForm();
+                    bool isAdded = unitService.AddUnit(unit);
+                    if (isAdded)
+                    {
+                        MessageBox.Show("Rate Added !!");
+                        ClearForm();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rate adding failed..");
+                    }
+                    PopulateUnitGrid();
                 }
-                else
-                {
-                    MessageBox.Show("Rate adding failed..");
-                }
-                PopulateUnitGrid();
 
             }
         }
@@ -88,19 +102,18 @@ namespace Abhi_Silver_Plating_Shop
         {
             if (updateUnit != null && !string.IsNullOrWhiteSpace(updateUnit.Id))
             {
-                if (Utils.Utility.IsNumeric(txtRate.Text) && !String.IsNullOrWhiteSpace(txtUnitName.Text))
+
+                if (Utils.Utility.IsNumeric(txtRate.Text))
                 {
-                    updateUnit.Name = txtUnitName.Text;
                     updateUnit.Rate = Double.Parse(txtRate.Text);
                     unitService.UpdateUnit(updateUnit);
-                    MessageBox.Show("Unit Updated Success.");
+                    MessageBox.Show("Rate Updated Success.");
                     PopulateUnitGrid();
-                    updateUnit = null;
                     ClearForm();
                 }
                 else
                 {
-                    MessageBox.Show("Enter valid details !");
+                    MessageBox.Show("Enter valid rate !");
                 }
             }
             else
@@ -120,14 +133,6 @@ namespace Abhi_Silver_Plating_Shop
                 unitRateErrProvider.Clear();
             }
 
-            if (String.IsNullOrWhiteSpace(txtUnitName.Text))
-            {
-                unitNameErrProvider.SetError(txtUnitName, "Please enter unit name");
-            }
-            else
-            {
-                unitNameErrProvider.Clear();
-            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -172,6 +177,18 @@ namespace Abhi_Silver_Plating_Shop
             txtUnitName.Text = Utils.Utility.CellValueByIndex(1, unitGridView);
             txtRate.Text = Utils.Utility.CellValueByIndex(2, unitGridView);
 
+        }
+
+        private void txtUnitName_TextChanged(object sender, EventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(txtUnitName.Text))
+            {
+                unitNameErrProvider.SetError(txtUnitName, "Please enter unit name");
+            }
+            else
+            {
+                unitNameErrProvider.Clear();
+            }
         }
     }
 }
