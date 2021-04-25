@@ -36,6 +36,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.userGridView = new System.Windows.Forms.DataGridView();
+            this.menuRate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userGridView)).BeginInit();
             this.SuspendLayout();
@@ -47,6 +48,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuFile,
             this.menuCustomer,
             this.menuItem,
+            this.menuRate,
             this.menuReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -108,6 +110,13 @@ namespace Abhi_Silver_Plating_Shop
             this.userGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGridView_CellContentClick);
             this.userGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.userGridView_DataBindingComplete);
             // 
+            // menuRate
+            // 
+            this.menuRate.Name = "menuRate";
+            this.menuRate.Size = new System.Drawing.Size(59, 24);
+            this.menuRate.Text = "Rates";
+            this.menuRate.Click += new System.EventHandler(this.menuRate_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -141,5 +150,6 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.ToolStripMenuItem menuCustomer;
         private System.Windows.Forms.ToolStripMenuItem menuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuRate;
     }
 }
