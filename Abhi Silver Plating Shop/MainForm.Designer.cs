@@ -33,6 +33,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCustomer = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
             this.userGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
@@ -45,6 +46,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
             this.menuCustomer,
+            this.menuItem,
             this.menuReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -74,6 +76,13 @@ namespace Abhi_Silver_Plating_Shop
             this.menuCustomer.Size = new System.Drawing.Size(86, 24);
             this.menuCustomer.Text = "Customer";
             this.menuCustomer.Click += new System.EventHandler(this.menuCustomer_Click);
+            // 
+            // menuItem
+            // 
+            this.menuItem.Name = "menuItem";
+            this.menuItem.Size = new System.Drawing.Size(59, 24);
+            this.menuItem.Text = "Items";
+            this.menuItem.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuReports
             // 
@@ -112,6 +121,7 @@ namespace Abhi_Silver_Plating_Shop
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -130,5 +140,6 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.ToolStripMenuItem menuReports;
         private System.Windows.Forms.DataGridView userGridView;
         private System.Windows.Forms.ToolStripMenuItem menuCustomer;
+        private System.Windows.Forms.ToolStripMenuItem menuItem;
     }
 }

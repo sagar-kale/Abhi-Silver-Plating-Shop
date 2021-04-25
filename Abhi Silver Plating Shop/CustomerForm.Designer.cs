@@ -40,11 +40,13 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustEmail = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCustMob = new MaterialSkin.Controls.MaterialTextBox();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            this.btnEdit = new MaterialSkin.Controls.MaterialButton();
+            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.mobErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnHome = new MaterialSkin.Controls.MaterialButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mobErrProvider)).BeginInit();
@@ -104,7 +106,7 @@ namespace Abhi_Silver_Plating_Shop
             this.customerGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.customerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customerGridView.Location = new System.Drawing.Point(400, 173);
+            this.customerGridView.Location = new System.Drawing.Point(386, 173);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.ReadOnly = true;
             this.customerGridView.RowHeadersWidth = 51;
@@ -201,70 +203,71 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // materialButton1
+            // btnEdit
             // 
-            this.materialButton1.AutoSize = false;
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.BackColor = System.Drawing.Color.Crimson;
-            this.materialButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.DrawShadows = true;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(147, 421);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.Size = new System.Drawing.Size(88, 34);
-            this.materialButton1.TabIndex = 9;
-            this.materialButton1.Text = "Edit";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = true;
-            this.materialButton1.UseVisualStyleBackColor = false;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.btnEdit.AutoSize = false;
+            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEdit.BackColor = System.Drawing.Color.Crimson;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnEdit.Depth = 0;
+            this.btnEdit.DrawShadows = true;
+            this.btnEdit.HighEmphasis = true;
+            this.btnEdit.Icon = null;
+            this.btnEdit.Location = new System.Drawing.Point(147, 421);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(88, 34);
+            this.btnEdit.TabIndex = 9;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnEdit.UseAccentColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
-            // materialButton2
+            // btnDelete
             // 
-            this.materialButton2.AutoSize = false;
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.BackColor = System.Drawing.Color.Crimson;
-            this.materialButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.DrawShadows = true;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(241, 421);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.Size = new System.Drawing.Size(88, 34);
-            this.materialButton2.TabIndex = 10;
-            this.materialButton2.Text = "DELETE";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = true;
-            this.materialButton2.UseVisualStyleBackColor = false;
+            this.btnDelete.AutoSize = false;
+            this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnDelete.Depth = 0;
+            this.btnDelete.DrawShadows = true;
+            this.btnDelete.HighEmphasis = true;
+            this.btnDelete.Icon = null;
+            this.btnDelete.Location = new System.Drawing.Point(241, 421);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(88, 34);
+            this.btnDelete.TabIndex = 10;
+            this.btnDelete.Text = "DELETE";
+            this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDelete.UseAccentColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // materialButton3
+            // btnClear
             // 
-            this.materialButton3.AutoSize = false;
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.BackColor = System.Drawing.Color.Crimson;
-            this.materialButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.DrawShadows = true;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(147, 467);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.Size = new System.Drawing.Size(88, 34);
-            this.materialButton3.TabIndex = 11;
-            this.materialButton3.Text = "Home";
-            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = true;
-            this.materialButton3.UseVisualStyleBackColor = false;
-            this.materialButton3.Click += new System.EventHandler(this.materialButton3_Click);
+            this.btnClear.AutoSize = false;
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.BackColor = System.Drawing.Color.Crimson;
+            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClear.Depth = 0;
+            this.btnClear.DrawShadows = true;
+            this.btnClear.HighEmphasis = true;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(51, 467);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(88, 34);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClear.UseAccentColor = true;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // mobErrProvider
             // 
@@ -279,15 +282,49 @@ namespace Abhi_Silver_Plating_Shop
             this.panel2.Size = new System.Drawing.Size(1105, 21);
             this.panel2.TabIndex = 12;
             // 
+            // btnHome
+            // 
+            this.btnHome.AutoSize = false;
+            this.btnHome.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnHome.BackColor = System.Drawing.Color.Crimson;
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnHome.Depth = 0;
+            this.btnHome.DrawShadows = true;
+            this.btnHome.HighEmphasis = true;
+            this.btnHome.Icon = null;
+            this.btnHome.Location = new System.Drawing.Point(241, 467);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnHome.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(88, 34);
+            this.btnHome.TabIndex = 13;
+            this.btnHome.Text = "Home";
+            this.btnHome.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnHome.UseAccentColor = true;
+            this.btnHome.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label4.Location = new System.Drawing.Point(583, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(161, 27);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Customer List";
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 732);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.materialButton3);
-            this.Controls.Add(this.materialButton2);
-            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtCustMob);
             this.Controls.Add(this.txtCustEmail);
@@ -305,6 +342,7 @@ namespace Abhi_Silver_Plating_Shop
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mobErrProvider)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -318,12 +356,14 @@ namespace Abhi_Silver_Plating_Shop
         private MaterialSkin.Controls.MaterialTextBox txtCustEmail;
         private MaterialSkin.Controls.MaterialTextBox txtCustMob;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
+        private MaterialSkin.Controls.MaterialButton btnEdit;
+        private MaterialSkin.Controls.MaterialButton btnDelete;
+        private MaterialSkin.Controls.MaterialButton btnClear;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ErrorProvider mobErrProvider;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
+        private MaterialSkin.Controls.MaterialButton btnHome;
+        private System.Windows.Forms.Label label4;
     }
 }

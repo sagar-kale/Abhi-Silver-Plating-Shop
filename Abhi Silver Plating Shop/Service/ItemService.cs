@@ -6,22 +6,19 @@ using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop.Service
 {
-    class CustomerService
+    class ItemService
     {
         Repository.BaseDao baseDao = new Repository.BaseDao();
 
-        public bool AddCustomer(Model.Customer customer)
+        public bool AddItem(Model.Item item)
         {
             try
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.CUSTOMER_INSERT_QUERY, baseDao.Connection);
-                    insertCommand.Parameters.AddWithValue("@customerId", Utils.Utility.UniqueId());
-                    insertCommand.Parameters.AddWithValue("@name", customer.Name);
-                    insertCommand.Parameters.AddWithValue("@address", customer.Address);
-                    insertCommand.Parameters.AddWithValue("@email", customer.Email);
-                    insertCommand.Parameters.AddWithValue("@mobile", customer.Mobile);
+                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.ITEM_INSERT_QUERY, baseDao.Connection);
+                    insertCommand.Parameters.AddWithValue("@itemId", Utils.Utility.UniqueId());
+                    insertCommand.Parameters.AddWithValue("@name", item.Name);
                     insertCommand.Prepare();
                     int update = insertCommand.ExecuteNonQuery();
                     baseDao.CloseConnection();
@@ -39,18 +36,15 @@ namespace Abhi_Silver_Plating_Shop.Service
             }
             return true;
         }
-        public bool UpdateCustomer(Model.Customer customer)
+        public bool UpdateItem(Model.Item item)
         {
             try
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.CUSTOMER_UPATE_QUERY, baseDao.Connection);
-                    insertCommand.Parameters.AddWithValue("@customerId", customer.Id);
-                    insertCommand.Parameters.AddWithValue("@name", customer.Name);
-                    insertCommand.Parameters.AddWithValue("@address", customer.Address);
-                    insertCommand.Parameters.AddWithValue("@email", customer.Email);
-                    insertCommand.Parameters.AddWithValue("@mobile", customer.Mobile);
+                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.ITEM_UPATE_QUERY, baseDao.Connection);
+                    insertCommand.Parameters.AddWithValue("@itemId", item.Id);
+                    insertCommand.Parameters.AddWithValue("@name", item.Name);
                     insertCommand.Prepare();
                     insertCommand.ExecuteNonQuery();
                     baseDao.CloseConnection();
@@ -64,14 +58,14 @@ namespace Abhi_Silver_Plating_Shop.Service
             return true;
         }
 
-        public bool DeleteCustomer(Model.Customer customer)
+        public bool DeleteItem(Model.Item item)
         {
             try
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.CUSTOMER_DELETE_QUERY, baseDao.Connection);
-                    insertCommand.Parameters.AddWithValue("@customerId", customer.Id);
+                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.ITEM_DELETE_QUERY, baseDao.Connection);
+                    insertCommand.Parameters.AddWithValue("@itemId", item.Id);
                     insertCommand.Prepare();
                     insertCommand.ExecuteNonQuery();
                     baseDao.CloseConnection();
