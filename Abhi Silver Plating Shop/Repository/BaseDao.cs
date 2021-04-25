@@ -206,6 +206,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataReader reader = command.ExecuteReader();
                     dataTable.Load(reader);
+                    this.CloseConnection();
                     return dataTable;
                 }
             }

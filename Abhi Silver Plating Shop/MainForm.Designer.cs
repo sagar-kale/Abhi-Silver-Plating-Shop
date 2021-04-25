@@ -37,6 +37,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuFile,
+            this.menuOrder,
             this.menuUser,
             this.menuCustomer,
             this.menuItem,
@@ -105,6 +107,13 @@ namespace Abhi_Silver_Plating_Shop
             this.menuReports.Size = new System.Drawing.Size(74, 24);
             this.menuReports.Text = "Reports";
             // 
+            // menuOrder
+            // 
+            this.menuOrder.Name = "menuOrder";
+            this.menuOrder.Size = new System.Drawing.Size(67, 24);
+            this.menuOrder.Text = "Orders";
+            this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -135,5 +144,6 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.ToolStripMenuItem menuItem;
         private System.Windows.Forms.ToolStripMenuItem menuRate;
         private System.Windows.Forms.ToolStripMenuItem menuReports;
+        private System.Windows.Forms.ToolStripMenuItem menuOrder;
     }
 }
