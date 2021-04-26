@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using Abhi_Silver_Plating_Shop.Model;
 
 namespace Abhi_Silver_Plating_Shop.Service
 {
@@ -10,7 +11,7 @@ namespace Abhi_Silver_Plating_Shop.Service
     {
         Repository.BaseDao baseDao = new Repository.BaseDao();
 
-        public bool AddUnit(Model.Unit unit)
+        public bool AddUnit(Unit unit)
         {
             try
             {
@@ -37,13 +38,13 @@ namespace Abhi_Silver_Plating_Shop.Service
             }
             return true;
         }
-        public bool UpdateUnit(Model.Unit unit)
+        public bool UpdateUnit(Unit unit)
         {
             try
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.UNIT_UPATE_QUERY, baseDao.Connection);
+                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.UNIT_UPDATE_QUERY, baseDao.Connection);
                     insertCommand.Parameters.AddWithValue("@unitId", unit.Id);
                     insertCommand.Parameters.AddWithValue("@rate", unit.Rate);
                     insertCommand.Prepare();
@@ -59,7 +60,7 @@ namespace Abhi_Silver_Plating_Shop.Service
             return true;
         }
 
-        public bool DeleteUnit(Model.Unit unit)
+        public bool DeleteUnit(Unit unit)
         {
             try
             {
@@ -78,6 +79,32 @@ namespace Abhi_Silver_Plating_Shop.Service
                 return false;
             }
             return true;
+        }
+        public Unit FetchRate(Unit unit)
+        {
+            Unit reUnit = new Unit();
+            reUnit.Name = unit.Name;
+            try
+            {
+                if (baseDao.OpenConnection() == true)
+                {
+                    MySqlCommand selectCommand = new MySqlCommand(Repository.Queries.UNIT_SELECT_BY_UNITNAME_QUERY, baseDao.Connection);
+                    selectCommand.Parameters.AddWithValue("@unitName", unit.Name.ToUpper());
+                    selectCommand.Prepare();
+                    MySqlDataReader mySqlDataReader = selectCommand.ExecuteReader();
+                    while (mySqlDataReader.Read())
+                    {
+                        reUnit.Id = mySqlDataReader.GetString("unitId");
+                        reUnit.Rate = mySqlDataReader.GetDouble("rate");
+                    }
+                    baseDao.CloseConnection();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return reUnit;
         }
     }
 

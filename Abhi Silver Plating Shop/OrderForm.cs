@@ -1,4 +1,5 @@
-﻿using Abhi_Silver_Plating_Shop.Utils;
+﻿using Abhi_Silver_Plating_Shop.Service;
+using Abhi_Silver_Plating_Shop.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,12 @@ namespace Abhi_Silver_Plating_Shop
 {
     public partial class OrderForm : Form
     {
+        private OrderService orderService = null;
+        Model.Unit unit = null;
         public OrderForm()
         {
             InitializeComponent();
+            orderService = new OrderService();
         }
 
         void LoadItems()
@@ -31,6 +35,12 @@ namespace Abhi_Silver_Plating_Shop
             this.customerCombo.DisplayMember = "name";
             this.customerCombo.ValueMember = "customerId";
         }
+        void LoadLabour()
+        {
+            UnitService unitService = new UnitService();
+            unit = unitService.FetchRate(new Model.Unit(null, "KG", 0));
+            txtLabourRate.Text = unit.Rate.ToString();
+        }
 
         void PopulateOrderGrid()
         {
@@ -47,11 +57,51 @@ namespace Abhi_Silver_Plating_Shop
         {
             btnEdit.Enabled = false;
             btnAdd.Enabled = true;
+            txtOrderId.Clear();
+            txtFine.Text = "0";
+            txtInWeight.Text = "0";
+            txtOutWeight.Text = "0";
+            dateTimePicker.Value = DateTime.Now;
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(customerCombo.SelectedValue.ToString());
+            if (string.IsNullOrWhiteSpace(txtOrderId.Text))
+            {
+                MessageBox.Show("Please Enter Order Name");
+                ClearForm();
+            }
+            else
+            {
+
+                Model.Order order = new Model.Order(
+                    null,
+                    itemCombo.SelectedValue.ToString(),
+                    customerCombo.SelectedValue.ToString(),
+                    Double.Parse(txtInWeight.Text),
+                    Double.Parse(txtOutWeight.Text),
+                    Double.Parse(txtFine.Text),
+                    Double.Parse(txtLabourRate.Text),
+                    DateTime.Now,
+                    DateTime.Now,
+                    dateTimePicker.Value,
+                    statusCombo.Text
+                    );
+
+                bool isAdded = orderService.AddOrder(order);
+                if (isAdded)
+                {
+                    MessageBox.Show("Order Added !!");
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Order adding failed..");
+                }
+                PopulateOrderGrid();
+
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -63,6 +113,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             LoadItems();
             LoadCustomers();
+            LoadLabour();
             PopulateOrderGrid();
         }
 
@@ -72,9 +123,14 @@ namespace Abhi_Silver_Plating_Shop
             btnEdit.Enabled = true;
 
             txtOrderId.Text = Utility.CellValueByIndex(0, orderGridView);
-            customerCombo.SelectedText = Utility.CellValueByIndex(1, orderGridView);
-            //customerCombo.SelectedValue = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("customerId");
-
+            customerCombo.Text = Utility.CellValueByIndex(1, orderGridView);
+            itemCombo.Text = Utility.CellValueByIndex(2, orderGridView);
+            txtInWeight.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("in_weight");
+            txtOutWeight.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("out_weight");
+            txtFine.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("fine");
+            txtLabourRate.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("labour_rate");
+            dateTimePicker.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("date");
+            statusCombo.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("status");
 
         }
 
@@ -102,6 +158,10 @@ namespace Abhi_Silver_Plating_Shop
             new ItemForm().ShowDialog();
             LoadItems();
             this.Show();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
         }
     }
 }

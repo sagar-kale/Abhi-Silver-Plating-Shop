@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <RootNamespace>Abhi_Silver_Plating_Shop</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>Abhi_Silver_Plating_Shop.Program</StartupObject>

@@ -29,6 +29,7 @@ namespace Abhi_Silver_Plating_Shop
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.label5 = new System.Windows.Forms.Label();
             this.orderGridView = new Zuby.ADGV.AdvancedDataGridView();
@@ -93,11 +94,20 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.orderGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.orderGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Crimson;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.orderGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.orderGridView.ColumnHeadersHeight = 29;
             this.orderGridView.FilterAndSortEnabled = true;
             this.orderGridView.Location = new System.Drawing.Point(415, 183);
             this.orderGridView.MultiSelect = false;
             this.orderGridView.Name = "orderGridView";
+            this.orderGridView.ReadOnly = true;
             this.orderGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.orderGridView.RowHeadersWidth = 51;
             this.orderGridView.RowTemplate.Height = 29;
@@ -206,6 +216,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnEdit.UseAccentColor = true;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnClear
             // 
@@ -274,6 +285,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtInWeight.Name = "txtInWeight";
             this.txtInWeight.Size = new System.Drawing.Size(213, 27);
             this.txtInWeight.TabIndex = 3;
+            this.txtInWeight.Text = "0";
             // 
             // label7
             // 
@@ -326,6 +338,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtOutWeight.Name = "txtOutWeight";
             this.txtOutWeight.Size = new System.Drawing.Size(213, 27);
             this.txtOutWeight.TabIndex = 4;
+            this.txtOutWeight.Text = "0";
             // 
             // txtFine
             // 
@@ -333,6 +346,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtFine.Name = "txtFine";
             this.txtFine.Size = new System.Drawing.Size(213, 27);
             this.txtFine.TabIndex = 5;
+            this.txtFine.Text = "0";
             // 
             // txtLabourRate
             // 
@@ -494,7 +508,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.btnAddCust.Depth = 0;
             this.btnAddCust.Icon = global::Abhi_Silver_Plating_Shop.Properties.Resources.add_customer;
-            this.btnAddCust.Location = new System.Drawing.Point(280, 297);
+            this.btnAddCust.Location = new System.Drawing.Point(280, 290);
             this.btnAddCust.Mini = true;
             this.btnAddCust.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCust.Name = "btnAddCust";

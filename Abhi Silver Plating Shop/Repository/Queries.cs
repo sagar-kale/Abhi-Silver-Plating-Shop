@@ -12,7 +12,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public const string CUSTOMER_SELECT_QUERY = "Select customerId,name as Name,address as Address, email as Email, mobile as Mobile from customers";
         public const string CUSTOMER_INSERT_QUERY = "INSERT INTO customers VALUES (@customerId, @name, @email, @mobile, @address)";
-        public const string CUSTOMER_UPATE_QUERY = "UPDATE customers SET `name` = @name,`email` = @email,`mobile` = @mobile,`address` = @address WHERE `customerId` = @customerId;";
+        public const string CUSTOMER_UPDATE_QUERY = "UPDATE customers SET `name` = @name,`email` = @email,`mobile` = @mobile,`address` = @address WHERE `customerId` = @customerId;";
         public const string CUSTOMER_DELETE_QUERY = "DELETE FROM customers WHERE customerId=@customerId;";
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public const string ITEM_SELECT_QUERY = "Select itemId,name as Name from items;";
         public const string ITEM_INSERT_QUERY = "INSERT INTO items VALUES (@itemId, @name);";
-        public const string ITEM_UPATE_QUERY = "UPDATE `items` SET `name` = @name WHERE `itemId` = @itemId;";
+        public const string ITEM_UPDATE_QUERY = "UPDATE `items` SET `name` = @name WHERE `itemId` = @itemId;";
         public const string ITEM_DELETE_QUERY = "DELETE FROM items WHERE itemId = @itemId;";
 
         /// <summary>
@@ -30,8 +30,9 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public const string UNIT_SELECT_QUERY = "Select unitId, name as 'Unit Name', rate as Rate  from units;";
         public const string UNIT_INSERT_QUERY = "INSERT INTO units VALUES (@unitId, @rate, @name);";
-        public const string UNIT_UPATE_QUERY = "UPDATE `units` SET `rate` = @rate WHERE `unitId` = @unitId;";
+        public const string UNIT_UPDATE_QUERY = "UPDATE `units` SET `rate` = @rate WHERE `unitId` = @unitId;";
         public const string UNIT_DELETE_QUERY = "DELETE FROM units WHERE unitId = @unitId;";
+        public const string UNIT_SELECT_BY_UNITNAME_QUERY = "Select * from units where name=@unitName;";
 
         /// <summary>
         /// user_auth table queries
@@ -39,8 +40,8 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public const string USER_SELECT_QUERY = "Select * from user_auth;";
         public const string USER_INSERT_QUERY = "INSERT INTO user_auth VALUES(@username, @password, @name, @role);";
-        public const string USER_UPATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
-        public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";
+        public const string USER_UPDATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
+        public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";        
 
         /// <summary>
         /// orders table queries
@@ -60,20 +61,16 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 "`out_weight`,\n" +
                 "`fine`,\n" +
                 "`labour_rate`,\n" +
-                "`creation_date`,\n" +
-                "`last_modified`,\n" +
                 "`date`,\n" +
                 "`status`)\n" +
                 "VALUES\n" +
                 "(@orderId,\n" +
                 "@itemId,\n" +
                 "@customerId,\n" +
-                "@in_weight: 0}>,\n" +
-                "@out_weight: 0}>,\n" +
+                "@in_weight,\n" +
+                "@out_weight,\n" +
                 "@fine,\n" +
                 "@labour_rate,\n" +
-                "@creation_date: CURRENT_TIMESTAMP}>,\n" +
-                "@last_modified: CURRENT_TIMESTAMP}>,\n" +
                 "@date,\n" +
                 "@status);";
 
@@ -81,8 +78,8 @@ namespace Abhi_Silver_Plating_Shop.Repository
         "SET\n" +
         "`itemId` = @itemId,\n" +
         "`customerId` = @customerId,\n" +
-        "`in_weight` = @in_weight: 0}>,\n" +
-        "`out_weight` = @out_weight: 0}>,\n" +
+        "`in_weight` = @in_weight,\n" +
+        "`out_weight` = @out_weight,\n" +
         "`fine` = @fine,\n" +
         "`labour_rate` = @labour_rate,\n" +
         "`date` = @date,\n" +

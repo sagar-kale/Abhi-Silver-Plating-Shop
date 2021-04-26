@@ -45,7 +45,7 @@ namespace Abhi_Silver_Plating_Shop.Service
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.USER_UPATE_QUERY, baseDao.Connection);
+                    MySqlCommand insertCommand = new MySqlCommand(Repository.Queries.USER_UPDATE_QUERY, baseDao.Connection);
                     insertCommand.Parameters.AddWithValue("@username", user.Username);
                     insertCommand.Parameters.AddWithValue("@name", user.Name);
                     insertCommand.Parameters.AddWithValue("@password", user.Password);
