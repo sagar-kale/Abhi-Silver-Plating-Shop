@@ -26,5 +26,11 @@ namespace Abhi_Silver_Plating_Shop.Repository
         public const string USER_UPATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
         public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";
 
+        public const string ORDER_SELECT_QUERY = "SELECT o.orderId, c.name as 'Customer Name'," +
+        " i.name as 'Item Name', o.itemId, o.customerId, COALESCE(o.in_weight, 0) as in_weight," +
+        " COALESCE(o.out_weight, 0) as out_weight, o.fine, o.labour_rate, o.creation_date, o.last_modified" +
+        " FROM orders o" + " INNER JOIN customers c ON o.customerId=c.customerId" +
+        " INNER JOIN items i ON o.itemId=i.itemId;";
+
     }
 }

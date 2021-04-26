@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,12 @@ namespace Abhi_Silver_Plating_Shop.Utils
             double num;
             if (culture == null) culture = CultureInfo.InvariantCulture;
             return Double.TryParse(str, style, culture, out num) && !String.IsNullOrWhiteSpace(str);
+        }
+
+        public static void FilterGrid(DataGridView gridView, string filterColumn, string filterCriteria, string filterText)
+        {
+            (gridView.DataSource as DataTable).DefaultView.RowFilter
+                = string.Format("{0} LIKE '{1}%' OR username LIKE '% {1}%'", filterColumn.Trim(), filterText);
         }
     }
 }

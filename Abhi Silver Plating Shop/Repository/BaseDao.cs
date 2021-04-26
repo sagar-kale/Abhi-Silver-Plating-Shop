@@ -17,7 +17,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         static readonly string db = "plating_shop";
         static readonly string username = "root";
         static readonly string password = "root";
-        public static string strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password + ";CharSet=utf8";
+        public static string strProvider = "server=" + host + ";database=" + db + ";userid=" + username + ";password=" + password + ";";
 
         public MySqlConnection Connection { get => connection; }
 
@@ -29,7 +29,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         {
             try
             {
-                strProvider = "server=" + host + ";Database=" + db + ";User ID=" + username + ";Password=" + password + ";CharSet=utf8;";
+                strProvider = "server=" + host + ";database=" + db + ";userid=" + username + ";password=" + password + ";";
                 connection = new MySqlConnection(strProvider);
                 connection.Open();
                 return true;

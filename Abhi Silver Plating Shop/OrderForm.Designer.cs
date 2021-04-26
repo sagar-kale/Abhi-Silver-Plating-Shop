@@ -33,17 +33,16 @@ namespace Abhi_Silver_Plating_Shop
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHome = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
-            this.btnDelete = new MaterialSkin.Controls.MaterialButton();
             this.btnEdit = new MaterialSkin.Controls.MaterialButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.orderGridView = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.itemCombo = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
+            this.orderGridView = new Zuby.ADGV.AdvancedDataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
@@ -76,12 +75,12 @@ namespace Abhi_Silver_Plating_Shop
             this.btnHome.DrawShadows = true;
             this.btnHome.HighEmphasis = true;
             this.btnHome.Icon = null;
-            this.btnHome.Location = new System.Drawing.Point(241, 467);
+            this.btnHome.Location = new System.Drawing.Point(147, 476);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnHome.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(88, 34);
-            this.btnHome.TabIndex = 6;
+            this.btnHome.TabIndex = 5;
             this.btnHome.Text = "Home";
             this.btnHome.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnHome.UseAccentColor = true;
@@ -97,37 +96,16 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(51, 467);
+            this.btnClear.Location = new System.Drawing.Point(241, 421);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 34);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
             this.btnClear.UseAccentColor = true;
             this.btnClear.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AutoSize = false;
-            this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDelete.Depth = 0;
-            this.btnDelete.DrawShadows = true;
-            this.btnDelete.HighEmphasis = true;
-            this.btnDelete.Icon = null;
-            this.btnDelete.Location = new System.Drawing.Point(241, 421);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 34);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "DELETE";
-            this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnDelete.UseAccentColor = true;
-            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
@@ -171,23 +149,6 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.UseAccentColor = true;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // orderGridView
-            // 
-            this.orderGridView.AllowUserToAddRows = false;
-            this.orderGridView.AllowUserToDeleteRows = false;
-            this.orderGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.orderGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.orderGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.orderGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orderGridView.Location = new System.Drawing.Point(386, 173);
-            this.orderGridView.Name = "orderGridView";
-            this.orderGridView.ReadOnly = true;
-            this.orderGridView.RowHeadersWidth = 51;
-            this.orderGridView.RowTemplate.Height = 29;
-            this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderGridView.Size = new System.Drawing.Size(666, 512);
-            this.orderGridView.TabIndex = 16;
             // 
             // label3
             // 
@@ -243,32 +204,53 @@ namespace Abhi_Silver_Plating_Shop
             this.itemCombo.Location = new System.Drawing.Point(51, 327);
             this.itemCombo.Name = "itemCombo";
             this.itemCombo.Size = new System.Drawing.Size(278, 28);
-            this.itemCombo.TabIndex = 28;
+            this.itemCombo.TabIndex = 1;
             this.itemCombo.SelectedIndexChanged += new System.EventHandler(this.itemCombo_SelectedIndexChanged_1);
+            // 
+            // orderGridView
+            // 
+            this.orderGridView.AllowUserToAddRows = false;
+            this.orderGridView.AllowUserToDeleteRows = false;
+            this.orderGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.orderGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.orderGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderGridView.FilterAndSortEnabled = true;
+            this.orderGridView.Location = new System.Drawing.Point(420, 178);
+            this.orderGridView.MultiSelect = false;
+            this.orderGridView.Name = "orderGridView";
+            this.orderGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.orderGridView.RowHeadersWidth = 51;
+            this.orderGridView.RowTemplate.Height = 29;
+            this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderGridView.ShowEditingIcon = false;
+            this.orderGridView.Size = new System.Drawing.Size(658, 463);
+            this.orderGridView.TabIndex = 29;
+            this.orderGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.orderGridView_FilterStringChanged);
+            this.orderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
             // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 732);
+            this.Controls.Add(this.orderGridView);
             this.Controls.Add(this.itemCombo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.orderGridView);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OrderForm";
             this.Load += new System.EventHandler(this.OrderForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,14 +262,13 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Panel panel2;
         private MaterialSkin.Controls.MaterialButton btnHome;
         private MaterialSkin.Controls.MaterialButton btnClear;
-        private MaterialSkin.Controls.MaterialButton btnDelete;
         private MaterialSkin.Controls.MaterialButton btnEdit;
         private MaterialSkin.Controls.MaterialButton btnAdd;
-        private System.Windows.Forms.DataGridView orderGridView;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox itemCombo;
+        private Zuby.ADGV.AdvancedDataGridView orderGridView;
     }
 }
