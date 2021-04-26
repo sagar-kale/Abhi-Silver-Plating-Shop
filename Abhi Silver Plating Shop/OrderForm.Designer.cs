@@ -68,6 +68,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtOrderId = new MaterialSkin.Controls.MaterialTextBox();
             this.btnAddCust = new MaterialSkin.Controls.MaterialFloatingActionButton();
             this.btnAddItem = new MaterialSkin.Controls.MaterialFloatingActionButton();
+            this.txtTotalAmt = new MaterialSkin.Controls.MaterialTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,7 +91,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.AllowUserToDeleteRows = false;
             this.orderGridView.AllowUserToResizeColumns = false;
             this.orderGridView.AllowUserToResizeRows = false;
-            this.orderGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.orderGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.orderGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.orderGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -104,7 +105,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.orderGridView.ColumnHeadersHeight = 29;
             this.orderGridView.FilterAndSortEnabled = true;
-            this.orderGridView.Location = new System.Drawing.Point(415, 183);
+            this.orderGridView.Location = new System.Drawing.Point(373, 183);
             this.orderGridView.MultiSelect = false;
             this.orderGridView.Name = "orderGridView";
             this.orderGridView.ReadOnly = true;
@@ -113,7 +114,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.RowTemplate.Height = 29;
             this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGridView.ShowEditingIcon = false;
-            this.orderGridView.Size = new System.Drawing.Size(957, 453);
+            this.orderGridView.Size = new System.Drawing.Size(999, 453);
             this.orderGridView.TabIndex = 29;
             this.orderGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.orderGridView_FilterStringChanged);
             this.orderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
@@ -184,7 +185,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.DrawShadows = true;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(16, 666);
+            this.btnAdd.Location = new System.Drawing.Point(23, 711);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -206,7 +207,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(129, 666);
+            this.btnEdit.Location = new System.Drawing.Point(136, 711);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -228,7 +229,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(241, 666);
+            this.btnClear.Location = new System.Drawing.Point(248, 711);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -310,18 +311,18 @@ namespace Abhi_Silver_Plating_Shop
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(14, 447);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 20);
+            this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 37;
-            this.label9.Text = "Fine:";
+            this.label9.Text = "Fine(wt):";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 501);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 20);
+            this.label10.Size = new System.Drawing.Size(74, 20);
             this.label10.TabIndex = 38;
-            this.label10.Text = "Labour Rate:";
+            this.label10.Text = "Rate (Rs.):";
             // 
             // label11
             // 
@@ -339,9 +340,11 @@ namespace Abhi_Silver_Plating_Shop
             this.txtOutWeight.Size = new System.Drawing.Size(213, 27);
             this.txtOutWeight.TabIndex = 4;
             this.txtOutWeight.Text = "0";
+            this.txtOutWeight.TextChanged += new System.EventHandler(this.txtOutWeight_TextChanged);
             // 
             // txtFine
             // 
+            this.txtFine.Enabled = false;
             this.txtFine.Location = new System.Drawing.Point(116, 444);
             this.txtFine.Name = "txtFine";
             this.txtFine.Size = new System.Drawing.Size(213, 27);
@@ -350,6 +353,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             // txtLabourRate
             // 
+            this.txtLabourRate.Enabled = false;
             this.txtLabourRate.Location = new System.Drawing.Point(116, 494);
             this.txtLabourRate.Name = "txtLabourRate";
             this.txtLabourRate.Size = new System.Drawing.Size(213, 27);
@@ -374,7 +378,7 @@ namespace Abhi_Silver_Plating_Shop
             "IN PROGRESS",
             "COMPLETED",
             "CANCELLED"});
-            this.statusCombo.Location = new System.Drawing.Point(14, 587);
+            this.statusCombo.Location = new System.Drawing.Point(12, 644);
             this.statusCombo.MaxDropDownItems = 4;
             this.statusCombo.MouseState = MaterialSkin.MouseState.OUT;
             this.statusCombo.Name = "statusCombo";
@@ -387,7 +391,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel3.BackColor = System.Drawing.Color.MediumVioletRed;
             this.panel3.Controls.Add(this.lblCount);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(415, 666);
+            this.panel3.Location = new System.Drawing.Point(373, 666);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(207, 107);
             this.panel3.TabIndex = 45;
@@ -397,7 +401,7 @@ namespace Abhi_Silver_Plating_Shop
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCount.ForeColor = System.Drawing.Color.White;
-            this.lblCount.Location = new System.Drawing.Point(45, 45);
+            this.lblCount.Location = new System.Drawing.Point(26, 45);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(100, 34);
             this.lblCount.TabIndex = 46;
@@ -420,7 +424,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel4.BackColor = System.Drawing.Color.ForestGreen;
             this.panel4.Controls.Add(this.lblAmt);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Location = new System.Drawing.Point(801, 666);
+            this.panel4.Location = new System.Drawing.Point(650, 666);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(207, 107);
             this.panel4.TabIndex = 46;
@@ -430,7 +434,7 @@ namespace Abhi_Silver_Plating_Shop
             this.lblAmt.AutoSize = true;
             this.lblAmt.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblAmt.ForeColor = System.Drawing.Color.White;
-            this.lblAmt.Location = new System.Drawing.Point(45, 45);
+            this.lblAmt.Location = new System.Drawing.Point(26, 45);
             this.lblAmt.Name = "lblAmt";
             this.lblAmt.Size = new System.Drawing.Size(124, 34);
             this.lblAmt.TabIndex = 46;
@@ -453,7 +457,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel5.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel5.Controls.Add(this.lblFine);
             this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(1165, 666);
+            this.panel5.Location = new System.Drawing.Point(939, 666);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(207, 107);
             this.panel5.TabIndex = 47;
@@ -463,7 +467,7 @@ namespace Abhi_Silver_Plating_Shop
             this.lblFine.AutoSize = true;
             this.lblFine.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFine.ForeColor = System.Drawing.Color.White;
-            this.lblFine.Location = new System.Drawing.Point(45, 45);
+            this.lblFine.Location = new System.Drawing.Point(24, 45);
             this.lblFine.Name = "lblFine";
             this.lblFine.Size = new System.Drawing.Size(71, 34);
             this.lblFine.TabIndex = 46;
@@ -532,11 +536,28 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
             // 
+            // txtTotalAmt
+            // 
+            this.txtTotalAmt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTotalAmt.Depth = 0;
+            this.txtTotalAmt.Enabled = false;
+            this.txtTotalAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotalAmt.Hint = "Total Amount (Rs.)";
+            this.txtTotalAmt.Location = new System.Drawing.Point(12, 586);
+            this.txtTotalAmt.MaxLength = 50;
+            this.txtTotalAmt.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtTotalAmt.Multiline = false;
+            this.txtTotalAmt.Name = "txtTotalAmt";
+            this.txtTotalAmt.Size = new System.Drawing.Size(315, 50);
+            this.txtTotalAmt.TabIndex = 53;
+            this.txtTotalAmt.Text = "0";
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1393, 816);
+            this.Controls.Add(this.txtTotalAmt);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnAddCust);
             this.Controls.Add(this.txtOrderId);
@@ -623,5 +644,6 @@ namespace Abhi_Silver_Plating_Shop
         private MaterialSkin.Controls.MaterialTextBox txtOrderId;
         private MaterialSkin.Controls.MaterialFloatingActionButton btnAddCust;
         private MaterialSkin.Controls.MaterialFloatingActionButton btnAddItem;
+        private MaterialSkin.Controls.MaterialTextBox txtTotalAmt;
     }
 }

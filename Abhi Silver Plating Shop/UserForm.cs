@@ -66,6 +66,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             // DelayTextBoxTyping();
             PopulateUserGrid();
+            ClearForm();
         }
 
         void PopulateUserGrid()

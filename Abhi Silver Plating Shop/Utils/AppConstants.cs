@@ -8,5 +8,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
     {
         public const string ADMIN = "ADMIN";
         public const string USER = "USER";
+        public const string TOTAL_AMOUNT = "TOTAL_AMOUNT";
+        public const string TOTAL_FINE= "TOTAL_FINE";
     }
 }

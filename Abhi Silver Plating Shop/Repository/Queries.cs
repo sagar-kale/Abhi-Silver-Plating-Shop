@@ -49,7 +49,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public const string ORDER_SELECT_QUERY = "SELECT o.orderId, c.name as 'Customer Name'," +
         " i.name as 'Item Name', o.itemId, o.customerId,  o.in_weight, o.out_weight," +
-        " o.fine, o.labour_rate, o.date, o.creation_date, o.last_modified, o.status" +
+        " o.fine, o.labour_rate, o.date, o.creation_date, o.last_modified, o.status, o.total_amount" +
         " FROM orders o" + " INNER JOIN customers c ON o.customerId=c.customerId" +
         " INNER JOIN items i ON o.itemId=i.itemId;";
 
@@ -62,7 +62,8 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 "`fine`,\n" +
                 "`labour_rate`,\n" +
                 "`date`,\n" +
-                "`status`)\n" +
+                "`status`,\n" +
+                "`total_amount`)\n" +
                 "VALUES\n" +
                 "(@orderId,\n" +
                 "@itemId,\n" +
@@ -72,7 +73,8 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 "@fine,\n" +
                 "@labour_rate,\n" +
                 "@date,\n" +
-                "@status);";
+                "@status,\n" +
+                "@total_amount);";
 
         public const string ORDER_UPDATE_QUERY = "UPDATE `orders`\n" +
         "SET\n" +
@@ -83,9 +85,12 @@ namespace Abhi_Silver_Plating_Shop.Repository
         "`fine` = @fine,\n" +
         "`labour_rate` = @labour_rate,\n" +
         "`date` = @date,\n" +
-        "`status` = @status\n" +
-        "WHERE `orderId` = @orderId;\n";
+        "`status` = @status,\n" +
+        "`total_amount` = @total_amount\n" +
+        "WHERE `orderId` = @orderId;";
 
         public const string ORDER_DELETE_QUERY = "DELETE FROM orders WHERE orderId=@orderId;";
+        public const string ORDER_TOTAL_FINE = "select sum(fine) as total_fine from orders; ";
+        public const string ORDER_TOTAL_AMOUNT = "select sum(total_amount) as total_amount from orders; ";
     }
 }

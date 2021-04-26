@@ -42,6 +42,14 @@ namespace Abhi_Silver_Plating_Shop
             txtLabourRate.Text = unit.Rate.ToString();
         }
 
+        void LoadStats()
+        {
+            double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
+            double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
+            lblAmt.Text = "Rs. " + totalAmt;
+            lblFine.Text = "Rs. " + totalFine;
+        }
+
         void PopulateOrderGrid()
         {
             DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Repository.Queries.ORDER_SELECT_QUERY);
@@ -51,6 +59,8 @@ namespace Abhi_Silver_Plating_Shop
             orderGridView.Columns["itemId"].Visible = false;
             orderGridView.Columns["creation_date"].Visible = false;
             orderGridView.Columns["last_modified"].Visible = false;
+            lblCount.Text = dataTable.Rows.Count.ToString();
+            LoadStats();
         }
 
         void ClearForm()
@@ -67,41 +77,33 @@ namespace Abhi_Silver_Plating_Shop
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtOrderId.Text))
+            Model.Order order = new Model.Order(
+                null,
+                itemCombo.SelectedValue.ToString(),
+                customerCombo.SelectedValue.ToString(),
+                Convert.ToDouble(txtInWeight.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtOutWeight.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtFine.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtTotalAmt.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtLabourRate.Text.ZeroIfEmpty()),
+                DateTime.Now,
+                DateTime.Now,
+                dateTimePicker.Value,
+                statusCombo.Text
+                );
+
+            bool isAdded = orderService.AddOrder(order);
+            if (isAdded)
             {
-                MessageBox.Show("Please Enter Order Name");
+                MessageBox.Show("Order Added !!");
                 ClearForm();
             }
             else
             {
-
-                Model.Order order = new Model.Order(
-                    null,
-                    itemCombo.SelectedValue.ToString(),
-                    customerCombo.SelectedValue.ToString(),
-                    Double.Parse(txtInWeight.Text),
-                    Double.Parse(txtOutWeight.Text),
-                    Double.Parse(txtFine.Text),
-                    Double.Parse(txtLabourRate.Text),
-                    DateTime.Now,
-                    DateTime.Now,
-                    dateTimePicker.Value,
-                    statusCombo.Text
-                    );
-
-                bool isAdded = orderService.AddOrder(order);
-                if (isAdded)
-                {
-                    MessageBox.Show("Order Added !!");
-                    ClearForm();
-                }
-                else
-                {
-                    MessageBox.Show("Order adding failed..");
-                }
-                PopulateOrderGrid();
-
+                MessageBox.Show("Order adding failed..");
             }
+            PopulateOrderGrid();
+
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -131,6 +133,7 @@ namespace Abhi_Silver_Plating_Shop
             txtLabourRate.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("labour_rate");
             dateTimePicker.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("date");
             statusCombo.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("status");
+            txtTotalAmt.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("total_amount");
 
         }
 
@@ -162,6 +165,60 @@ namespace Abhi_Silver_Plating_Shop
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (!String.IsNullOrWhiteSpace(txtOrderId.Text))
+            {
+
+                Model.Order order = new Model.Order(
+                txtOrderId.Text,
+                itemCombo.SelectedValue.ToString(),
+                customerCombo.SelectedValue.ToString(),
+                Convert.ToDouble(txtInWeight.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtOutWeight.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtFine.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtTotalAmt.Text.ZeroIfEmpty()),
+                Convert.ToDouble(txtLabourRate.Text.ZeroIfEmpty()),
+                DateTime.Now,
+                DateTime.Now,
+                dateTimePicker.Value,
+                statusCombo.Text
+                );
+
+                orderService.UpdateOrder(order);
+                MessageBox.Show("Order Updated Success.");
+                PopulateOrderGrid();
+                ClearForm();
+            }
+            else
+            {
+                MessageBox.Show("Please select order from list in order to edit.");
+            }
+        }
+
+        private void txtOutWeight_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrWhiteSpace(txtInWeight.Text) && !String.IsNullOrWhiteSpace(txtOutWeight.Text))
+            {
+                double fine;
+                double inWeight = Convert.ToDouble(txtInWeight.Text);
+                double outWeight = Convert.ToDouble(txtOutWeight.Text.ZeroIfEmpty());
+                double labourRate = Convert.ToDouble(txtLabourRate.Text);
+
+                if (outWeight != 0)
+                    fine = outWeight - inWeight;
+                else
+                    fine = 0;
+
+                fine = Math.Round(fine, 2);
+                txtFine.Text = fine.ToString();
+                double sum = outWeight * labourRate;
+                sum = Math.Round(sum, 2);
+                txtTotalAmt.Text = sum.ToString();
+            }
+            else
+            {
+                txtFine.Text = "0";
+                txtTotalAmt.Text = "0";
+            }
         }
     }
 }

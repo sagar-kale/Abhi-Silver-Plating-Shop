@@ -11,6 +11,7 @@ namespace Abhi_Silver_Plating_Shop.Model
         private double inWeight;
         private double outWeight;
         private double fine;
+        private double totalAmount;
         private double labourRate;
         private DateTime createdDate;
         private DateTime lasModifiedDate;
@@ -21,19 +22,20 @@ namespace Abhi_Silver_Plating_Shop.Model
         {
         }
 
-        public Order(string orderId, string itemId, string customerId, double inWeight, double outWeight, double fine, double labourRate, DateTime createdDate, DateTime lasModifiedDate, DateTime date, string status)
+        public Order(string orderId, string itemId, string customerId, double inWeight, double outWeight, double fine, double totalAmount, double labourRate, DateTime createdDate, DateTime lasModifiedDate, DateTime date, string status)
         {
-            this.OrderId = orderId;
-            this.ItemId = itemId;
-            this.CustomerId = customerId;
-            this.InWeight = inWeight;
-            this.OutWeight = outWeight;
-            this.Fine = fine;
-            this.LabourRate = labourRate;
-            this.CreatedDate = createdDate;
-            this.LasModifiedDate = lasModifiedDate;
-            this.Date = date;
-            this.Status = status;
+            this.orderId = orderId;
+            this.itemId = itemId;
+            this.customerId = customerId;
+            this.inWeight = inWeight;
+            this.outWeight = outWeight;
+            this.fine = fine;
+            this.TotalAmount = totalAmount;
+            this.labourRate = labourRate;
+            this.createdDate = createdDate;
+            this.lasModifiedDate = lasModifiedDate;
+            this.date = date;
+            this.status = status;
         }
 
         public string OrderId { get => orderId; set => orderId = value; }
@@ -47,5 +49,6 @@ namespace Abhi_Silver_Plating_Shop.Model
         public DateTime LasModifiedDate { get => lasModifiedDate; set => lasModifiedDate = value; }
         public DateTime Date { get => date; set => date = value; }
         public string Status { get => status; set => status = value; }
+        public double TotalAmount { get => totalAmount; set => totalAmount = value; }
     }
 }

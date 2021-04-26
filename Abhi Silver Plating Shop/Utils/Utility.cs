@@ -61,5 +61,9 @@ namespace Abhi_Silver_Plating_Shop.Utils
         {
             return gridView.SelectedRows[0].Cells;
         }
+        public static string ZeroIfEmpty(this string s)
+        {
+            return string.IsNullOrWhiteSpace(s) ? "0" : s;
+        }
     }
 }
