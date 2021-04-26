@@ -63,6 +63,16 @@ namespace Abhi_Silver_Plating_Shop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_customer {
+            get {
+                object obj = ResourceManager.GetObject("add-customer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brandi_redd_aJTiW00qqtI_unsplash {
             get {
                 object obj = ResourceManager.GetObject("brandi-redd-aJTiW00qqtI-unsplash", resourceCulture);

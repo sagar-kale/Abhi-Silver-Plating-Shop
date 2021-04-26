@@ -95,7 +95,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             if (updateItem != null && !string.IsNullOrWhiteSpace(updateItem.Id))
             {
-                updateItem.Name = txtItemName.Text;              
+                updateItem.Name = txtItemName.Text;
                 itemService.UpdateItem(updateItem);
                 MessageBox.Show("Item Updated Success.");
                 PopulateItemGrid();
@@ -142,6 +142,11 @@ namespace Abhi_Silver_Plating_Shop
         private void btnClear_Click(object sender, EventArgs e)
         {
             ClearForm();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

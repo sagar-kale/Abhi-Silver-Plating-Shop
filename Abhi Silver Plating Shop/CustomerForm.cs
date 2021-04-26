@@ -155,5 +155,10 @@ namespace Abhi_Silver_Plating_Shop
                 MessageBox.Show("PLease select customer from list in order to delete.");
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop.Utils
 {
-    class Utility
+    public static class Utility
     {
         public static string UniqueId()
         {
@@ -51,6 +51,15 @@ namespace Abhi_Silver_Plating_Shop.Utils
         {
             (gridView.DataSource as DataTable).DefaultView.RowFilter
                 = string.Format("{0} LIKE '{1}%' OR username LIKE '% {1}%'", filterColumn.Trim(), filterText);
+        }
+
+        public static string GetCellValueFromColumnHeader(this DataGridViewCellCollection CellCollection, string HeaderText)
+        {
+            return CellCollection.Cast<DataGridViewCell>().First(c => c.OwningColumn.HeaderText == HeaderText).Value.ToString();
+        }
+        public static DataGridViewCellCollection GetCells(DataGridView gridView)
+        {
+            return gridView.SelectedRows[0].Cells;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.mobErrProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnHome = new MaterialSkin.Controls.MaterialButton();
+            this.btnBack = new MaterialSkin.Controls.MaterialButton();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerGridView)).BeginInit();
@@ -282,26 +282,27 @@ namespace Abhi_Silver_Plating_Shop
             this.panel2.Size = new System.Drawing.Size(1105, 21);
             this.panel2.TabIndex = 12;
             // 
-            // btnHome
+            // btnBack
             // 
-            this.btnHome.AutoSize = false;
-            this.btnHome.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnHome.BackColor = System.Drawing.Color.Crimson;
-            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnHome.Depth = 0;
-            this.btnHome.DrawShadows = true;
-            this.btnHome.HighEmphasis = true;
-            this.btnHome.Icon = null;
-            this.btnHome.Location = new System.Drawing.Point(241, 467);
-            this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnHome.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(88, 34);
-            this.btnHome.TabIndex = 13;
-            this.btnHome.Text = "Home";
-            this.btnHome.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnHome.UseAccentColor = true;
-            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnBack.AutoSize = false;
+            this.btnBack.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBack.BackColor = System.Drawing.Color.Crimson;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBack.Depth = 0;
+            this.btnBack.DrawShadows = true;
+            this.btnBack.HighEmphasis = true;
+            this.btnBack.Icon = null;
+            this.btnBack.Location = new System.Drawing.Point(241, 467);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(88, 34);
+            this.btnBack.TabIndex = 13;
+            this.btnBack.Text = "BACK";
+            this.btnBack.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnBack.UseAccentColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label4
             // 
@@ -320,7 +321,7 @@ namespace Abhi_Silver_Plating_Shop
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1105, 732);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnHome);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnDelete);
@@ -363,7 +364,7 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.ErrorProvider mobErrProvider;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
-        private MaterialSkin.Controls.MaterialButton btnHome;
+        private MaterialSkin.Controls.MaterialButton btnBack;
         private System.Windows.Forms.Label label4;
     }
 }
