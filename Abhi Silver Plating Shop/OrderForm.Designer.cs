@@ -78,7 +78,7 @@ namespace Abhi_Silver_Plating_Shop
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 252);
+            this.label5.Location = new System.Drawing.Point(15, 273);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 20);
             this.label5.TabIndex = 31;
@@ -113,7 +113,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.RowTemplate.Height = 29;
             this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGridView.ShowEditingIcon = false;
-            this.orderGridView.Size = new System.Drawing.Size(999, 453);
+            this.orderGridView.Size = new System.Drawing.Size(999, 483);
             this.orderGridView.TabIndex = 29;
             this.orderGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.orderGridView_FilterStringChanged);
             this.orderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
@@ -123,7 +123,7 @@ namespace Abhi_Silver_Plating_Shop
             this.itemCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.itemCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.itemCombo.FormattingEnabled = true;
-            this.itemCombo.Location = new System.Drawing.Point(116, 249);
+            this.itemCombo.Location = new System.Drawing.Point(117, 270);
             this.itemCombo.Name = "itemCombo";
             this.itemCombo.Size = new System.Drawing.Size(148, 28);
             this.itemCombo.TabIndex = 1;
@@ -184,7 +184,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.DrawShadows = true;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(23, 711);
+            this.btnAdd.Location = new System.Drawing.Point(15, 779);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -206,7 +206,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(136, 711);
+            this.btnEdit.Location = new System.Drawing.Point(128, 779);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -228,7 +228,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(248, 711);
+            this.btnClear.Location = new System.Drawing.Point(240, 779);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -244,7 +244,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.panel2.BackColor = System.Drawing.Color.Crimson;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 795);
+            this.panel2.Location = new System.Drawing.Point(0, 857);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1393, 21);
             this.panel2.TabIndex = 25;
@@ -265,7 +265,7 @@ namespace Abhi_Silver_Plating_Shop
             this.customerCombo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.customerCombo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.customerCombo.FormattingEnabled = true;
-            this.customerCombo.Location = new System.Drawing.Point(116, 297);
+            this.customerCombo.Location = new System.Drawing.Point(117, 318);
             this.customerCombo.Name = "customerCombo";
             this.customerCombo.Size = new System.Drawing.Size(148, 28);
             this.customerCombo.TabIndex = 2;
@@ -273,7 +273,7 @@ namespace Abhi_Silver_Plating_Shop
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 300);
+            this.label6.Location = new System.Drawing.Point(13, 321);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 33;
@@ -281,7 +281,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             // txtInWeight
             // 
-            this.txtInWeight.Location = new System.Drawing.Point(116, 347);
+            this.txtInWeight.Location = new System.Drawing.Point(117, 368);
             this.txtInWeight.Name = "txtInWeight";
             this.txtInWeight.Size = new System.Drawing.Size(213, 27);
             this.txtInWeight.TabIndex = 3;
@@ -290,7 +290,7 @@ namespace Abhi_Silver_Plating_Shop
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 350);
+            this.label7.Location = new System.Drawing.Point(13, 371);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 20);
             this.label7.TabIndex = 35;
@@ -299,7 +299,7 @@ namespace Abhi_Silver_Plating_Shop
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 399);
+            this.label8.Location = new System.Drawing.Point(13, 420);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 20);
             this.label8.TabIndex = 36;
@@ -308,7 +308,7 @@ namespace Abhi_Silver_Plating_Shop
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 447);
+            this.label9.Location = new System.Drawing.Point(15, 468);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 37;
@@ -317,7 +317,7 @@ namespace Abhi_Silver_Plating_Shop
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 501);
+            this.label10.Location = new System.Drawing.Point(13, 522);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 20);
             this.label10.TabIndex = 38;
@@ -326,7 +326,7 @@ namespace Abhi_Silver_Plating_Shop
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 544);
+            this.label11.Location = new System.Drawing.Point(13, 565);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(44, 20);
             this.label11.TabIndex = 39;
@@ -334,7 +334,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             // txtOutWeight
             // 
-            this.txtOutWeight.Location = new System.Drawing.Point(116, 396);
+            this.txtOutWeight.Location = new System.Drawing.Point(117, 417);
             this.txtOutWeight.Name = "txtOutWeight";
             this.txtOutWeight.Size = new System.Drawing.Size(213, 27);
             this.txtOutWeight.TabIndex = 4;
@@ -344,7 +344,7 @@ namespace Abhi_Silver_Plating_Shop
             // txtFine
             // 
             this.txtFine.Enabled = false;
-            this.txtFine.Location = new System.Drawing.Point(116, 444);
+            this.txtFine.Location = new System.Drawing.Point(117, 465);
             this.txtFine.Name = "txtFine";
             this.txtFine.Size = new System.Drawing.Size(213, 27);
             this.txtFine.TabIndex = 5;
@@ -353,7 +353,7 @@ namespace Abhi_Silver_Plating_Shop
             // txtLabourRate
             // 
             this.txtLabourRate.Enabled = false;
-            this.txtLabourRate.Location = new System.Drawing.Point(116, 494);
+            this.txtLabourRate.Location = new System.Drawing.Point(117, 515);
             this.txtLabourRate.Name = "txtLabourRate";
             this.txtLabourRate.Size = new System.Drawing.Size(213, 27);
             this.txtLabourRate.TabIndex = 6;
@@ -367,7 +367,7 @@ namespace Abhi_Silver_Plating_Shop
             this.statusCombo.DropDownHeight = 174;
             this.statusCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusCombo.DropDownWidth = 121;
-            this.statusCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.statusCombo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.statusCombo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.statusCombo.FormattingEnabled = true;
             this.statusCombo.Hint = "Status";
@@ -377,7 +377,7 @@ namespace Abhi_Silver_Plating_Shop
             "IN PROGRESS",
             "COMPLETED",
             "CANCELLED"});
-            this.statusCombo.Location = new System.Drawing.Point(12, 644);
+            this.statusCombo.Location = new System.Drawing.Point(12, 684);
             this.statusCombo.MaxDropDownItems = 4;
             this.statusCombo.MouseState = MaterialSkin.MouseState.OUT;
             this.statusCombo.Name = "statusCombo";
@@ -390,7 +390,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel3.BackColor = System.Drawing.Color.MediumVioletRed;
             this.panel3.Controls.Add(this.lblCount);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(373, 666);
+            this.panel3.Location = new System.Drawing.Point(373, 706);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(207, 107);
             this.panel3.TabIndex = 45;
@@ -423,7 +423,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel4.BackColor = System.Drawing.Color.ForestGreen;
             this.panel4.Controls.Add(this.lblAmt);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Location = new System.Drawing.Point(650, 666);
+            this.panel4.Location = new System.Drawing.Point(625, 706);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(207, 107);
             this.panel4.TabIndex = 46;
@@ -456,7 +456,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel5.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel5.Controls.Add(this.lblFine);
             this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(939, 666);
+            this.panel5.Location = new System.Drawing.Point(872, 706);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(207, 107);
             this.panel5.TabIndex = 47;
@@ -486,7 +486,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(116, 539);
+            this.dateTimePicker.Location = new System.Drawing.Point(117, 560);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(213, 27);
             this.dateTimePicker.TabIndex = 7;
@@ -511,7 +511,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.btnAddCust.Depth = 0;
             this.btnAddCust.Icon = global::Abhi_Silver_Plating_Shop.Properties.Resources.add_customer;
-            this.btnAddCust.Location = new System.Drawing.Point(280, 290);
+            this.btnAddCust.Location = new System.Drawing.Point(271, 311);
             this.btnAddCust.Mini = true;
             this.btnAddCust.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCust.Name = "btnAddCust";
@@ -525,7 +525,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.btnAddItem.Depth = 0;
             this.btnAddItem.Icon = global::Abhi_Silver_Plating_Shop.Properties.Resources.add_item;
-            this.btnAddItem.Location = new System.Drawing.Point(280, 242);
+            this.btnAddItem.Location = new System.Drawing.Point(271, 263);
             this.btnAddItem.Mini = true;
             this.btnAddItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddItem.Name = "btnAddItem";
@@ -542,7 +542,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtTotalAmt.Enabled = false;
             this.txtTotalAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTotalAmt.Hint = "Total Amount (Rs.)";
-            this.txtTotalAmt.Location = new System.Drawing.Point(12, 586);
+            this.txtTotalAmt.Location = new System.Drawing.Point(15, 616);
             this.txtTotalAmt.MaxLength = 50;
             this.txtTotalAmt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtTotalAmt.Multiline = false;
@@ -555,7 +555,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1393, 816);
+            this.ClientSize = new System.Drawing.Size(1393, 878);
             this.Controls.Add(this.txtTotalAmt);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnAddCust);

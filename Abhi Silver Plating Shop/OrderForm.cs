@@ -117,6 +117,7 @@ namespace Abhi_Silver_Plating_Shop
             LoadCustomers();
             LoadLabour();
             PopulateOrderGrid();
+            ClearForm();
         }
 
         private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
