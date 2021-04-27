@@ -86,7 +86,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnHome.DrawShadows = true;
             this.btnHome.HighEmphasis = true;
             this.btnHome.Icon = null;
-            this.btnHome.Location = new System.Drawing.Point(256, 538);
+            this.btnHome.Location = new System.Drawing.Point(258, 596);
             this.btnHome.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnHome.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHome.Name = "btnHome";
@@ -107,7 +107,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(66, 538);
+            this.btnClear.Location = new System.Drawing.Point(68, 596);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -129,7 +129,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnDelete.DrawShadows = true;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = null;
-            this.btnDelete.Location = new System.Drawing.Point(256, 492);
+            this.btnDelete.Location = new System.Drawing.Point(258, 550);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -151,7 +151,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(162, 492);
+            this.btnEdit.Location = new System.Drawing.Point(164, 550);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -175,7 +175,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.ForeColor = System.Drawing.Color.Crimson;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(66, 492);
+            this.btnAdd.Location = new System.Drawing.Point(68, 550);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -196,7 +196,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtName.ForeColor = System.Drawing.Color.Crimson;
             this.txtName.Hint = "Name";
-            this.txtName.Location = new System.Drawing.Point(68, 300);
+            this.txtName.Location = new System.Drawing.Point(68, 305);
             this.txtName.MaxLength = 50;
             this.txtName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtName.Multiline = false;
@@ -212,7 +212,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtUsername.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUsername.ForeColor = System.Drawing.Color.Crimson;
             this.txtUsername.Hint = "Username";
-            this.txtUsername.Location = new System.Drawing.Point(68, 244);
+            this.txtUsername.Location = new System.Drawing.Point(68, 229);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUsername.Multiline = false;
@@ -220,6 +220,8 @@ namespace Abhi_Silver_Plating_Shop
             this.txtUsername.Size = new System.Drawing.Size(278, 50);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "";
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
+            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsername_KeyPress);
             // 
             // userGridView
             // 
@@ -281,7 +283,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtPassword.ForeColor = System.Drawing.Color.Crimson;
             this.txtPassword.Hint = "Password";
             this.txtPassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtPassword.Location = new System.Drawing.Point(68, 356);
+            this.txtPassword.Location = new System.Drawing.Point(68, 384);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
             this.txtPassword.Multiline = false;
@@ -324,7 +326,7 @@ namespace Abhi_Silver_Plating_Shop
             this.cmbRole.Items.AddRange(new object[] {
             "ADMIN",
             "USER"});
-            this.cmbRole.Location = new System.Drawing.Point(68, 421);
+            this.cmbRole.Location = new System.Drawing.Point(68, 461);
             this.cmbRole.MaxDropDownItems = 4;
             this.cmbRole.MouseState = MaterialSkin.MouseState.OUT;
             this.cmbRole.Name = "cmbRole";

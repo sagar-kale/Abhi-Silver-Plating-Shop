@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using Abhi_Silver_Plating_Shop.Repository;
 
@@ -9,7 +6,6 @@ namespace Abhi_Silver_Plating_Shop.Service
 {
     class UserService
     {
-        BaseDao baseDao = new BaseDao();
         private readonly IDataAccess dataAccess = DataAccess.Instance;
         public bool AddUser(Model.User user)
         {
@@ -28,18 +24,7 @@ namespace Abhi_Silver_Plating_Shop.Service
         {
             try
             {
-                if (baseDao.OpenConnection() == true)
-                {
-                    MySqlCommand insertCommand = new MySqlCommand(Queries.USER_UPDATE_QUERY, baseDao.Connection);
-                    insertCommand.Parameters.AddWithValue("@username", user.Username);
-                    insertCommand.Parameters.AddWithValue("@name", user.Name);
-                    insertCommand.Parameters.AddWithValue("@password", user.Password);
-                    insertCommand.Parameters.AddWithValue("@role", user.Role);
-                    insertCommand.Prepare();
-
-                    insertCommand.ExecuteNonQuery();
-                    baseDao.CloseConnection();
-                }
+                dataAccess.SaveData(Queries.USER_UPDATE_QUERY, user);
             }
             catch (MySqlException ex)
             {
@@ -53,14 +38,7 @@ namespace Abhi_Silver_Plating_Shop.Service
         {
             try
             {
-                if (baseDao.OpenConnection() == true)
-                {
-                    MySqlCommand insertCommand = new MySqlCommand(Queries.USER_DELETE_QUERY, baseDao.Connection);
-                    insertCommand.Parameters.AddWithValue("@username", user.Username);
-                    insertCommand.Prepare();
-                    insertCommand.ExecuteNonQuery();
-                    baseDao.CloseConnection();
-                }
+                dataAccess.SaveData(Queries.USER_DELETE_QUERY, user);
             }
             catch (MySqlException ex)
             {

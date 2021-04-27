@@ -30,7 +30,6 @@ namespace Abhi_Silver_Plating_Shop
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.label5 = new System.Windows.Forms.Label();
             this.orderGridView = new Zuby.ADGV.AdvancedDataGridView();
             this.itemCombo = new System.Windows.Forms.ComboBox();
@@ -525,7 +524,7 @@ namespace Abhi_Silver_Plating_Shop
             // btnAddItem
             // 
             this.btnAddItem.Depth = 0;
-            this.btnAddItem.Icon = ((System.Drawing.Image)(resources.GetObject("btnAddItem.Icon")));
+            this.btnAddItem.Icon = global::Abhi_Silver_Plating_Shop.Properties.Resources.add_item;
             this.btnAddItem.Location = new System.Drawing.Point(280, 242);
             this.btnAddItem.Mini = true;
             this.btnAddItem.MouseState = MaterialSkin.MouseState.HOVER;

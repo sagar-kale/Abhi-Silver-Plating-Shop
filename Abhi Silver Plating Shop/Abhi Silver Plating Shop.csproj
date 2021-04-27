@@ -11,6 +11,10 @@
     <Copyright>by sagarkale.com 2021</Copyright>
     <ApplicationIcon>setupIcon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
 	
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.78" />

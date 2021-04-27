@@ -139,7 +139,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustAddr.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCustAddr.ForeColor = System.Drawing.Color.Crimson;
             this.txtCustAddr.Hint = "Address";
-            this.txtCustAddr.Location = new System.Drawing.Point(53, 229);
+            this.txtCustAddr.Location = new System.Drawing.Point(53, 254);
             this.txtCustAddr.MaxLength = 50;
             this.txtCustAddr.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustAddr.Multiline = false;
@@ -155,7 +155,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustEmail.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCustEmail.ForeColor = System.Drawing.Color.Crimson;
             this.txtCustEmail.Hint = "Email";
-            this.txtCustEmail.Location = new System.Drawing.Point(53, 285);
+            this.txtCustEmail.Location = new System.Drawing.Point(53, 337);
             this.txtCustEmail.MaxLength = 50;
             this.txtCustEmail.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustEmail.Multiline = false;
@@ -171,7 +171,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustMob.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCustMob.ForeColor = System.Drawing.Color.Crimson;
             this.txtCustMob.Hint = "Mobile";
-            this.txtCustMob.Location = new System.Drawing.Point(53, 341);
+            this.txtCustMob.Location = new System.Drawing.Point(53, 425);
             this.txtCustMob.MaxLength = 10;
             this.txtCustMob.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustMob.Multiline = false;
@@ -191,7 +191,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.DrawShadows = true;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(51, 421);
+            this.btnAdd.Location = new System.Drawing.Point(53, 520);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -213,7 +213,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(147, 421);
+            this.btnEdit.Location = new System.Drawing.Point(149, 520);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -235,7 +235,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnDelete.DrawShadows = true;
             this.btnDelete.HighEmphasis = true;
             this.btnDelete.Icon = null;
-            this.btnDelete.Location = new System.Drawing.Point(241, 421);
+            this.btnDelete.Location = new System.Drawing.Point(243, 520);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
@@ -257,7 +257,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(51, 467);
+            this.btnClear.Location = new System.Drawing.Point(53, 566);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -292,7 +292,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnBack.DrawShadows = true;
             this.btnBack.HighEmphasis = true;
             this.btnBack.Icon = null;
-            this.btnBack.Location = new System.Drawing.Point(241, 467);
+            this.btnBack.Location = new System.Drawing.Point(243, 566);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";

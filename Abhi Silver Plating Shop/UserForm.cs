@@ -1,11 +1,10 @@
-﻿using MaterialSkin;
+﻿using Abhi_Silver_Plating_Shop.Utils;
+using Abhi_Silver_Plating_Shop.Validator;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Reactive.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -14,10 +13,12 @@ namespace Abhi_Silver_Plating_Shop
     public partial class UserForm : Form
     {
         private Service.UserService userService = null;
+        readonly UserValidator validator;
         public UserForm()
         {
             InitializeComponent();
             userService = new Service.UserService();
+            validator = new UserValidator();
         }
 
         void DelayTextBoxTyping()
@@ -87,46 +88,34 @@ namespace Abhi_Silver_Plating_Shop
             btnAdd.Enabled = true;
         }
 
-        bool CheckIfUserExits()
+        bool CheckIfUserExits(Model.User user)
         {
-            bool isExists = false;
-            if (!String.IsNullOrWhiteSpace(txtUsername.Text))
-            {
-                bool isExits = new Repository.BaseDao().IsRecordExits("user_auth", "username", txtUsername.Text.Trim());
-                if (isExits)
-                {
-                    MessageBox.Show("Username already exists! , Please use another username");
-                    txtUsername.Focus();
-                    txtUsername.Text = "";
-                    isExists = true;
-                }
-                else
-                {
-                    isExists = false;
-                }
+            bool isAvailable = new Repository.BaseDao().IsRecordExits("user_auth", "username", txtUsername.Text.Trim());
 
-            }
-            return isExists;
-        }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            if (isAvailable)
             {
-                MessageBox.Show("Please Enter User Name");
-                ClearForm();
+                MessageBox.Show("Username already exists! , Please use another username");
                 txtUsername.Focus();
                 txtUsername.Text = "";
             }
-            else
-            {
-                if (CheckIfUserExits()) return;
 
-                Model.User user = new Model.User(
-                    txtUsername.Text,
-                    cmbRole.Text,
-                    txtName.Text,
-                    txtPassword.Text
-                    );
+            return isAvailable;
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Model.User user = new Model.User(
+                   txtUsername.Text,
+                   cmbRole.Text,
+                   txtName.Text,
+                   txtPassword.Text
+                   );
+
+
+
+            if (!validator.Validate(user).ShowWarningIfNotValid())
+            {
+
+                if (CheckIfUserExits(user)) return;
 
                 bool isAdded = userService.AddUser(user);
                 if (isAdded)
@@ -139,7 +128,6 @@ namespace Abhi_Silver_Plating_Shop
                     MessageBox.Show("User adding failed..");
                 }
                 PopulateUserGrid();
-
             }
         }
 
@@ -172,6 +160,9 @@ namespace Abhi_Silver_Plating_Shop
                     txtPassword.Text
                     );
 
+                if (validator.Validate(user).ShowWarningIfNotValid())
+                    return;
+
                 userService.UpdateUser(user);
                 MessageBox.Show("User Updated Success.");
                 PopulateUserGrid();
@@ -203,6 +194,15 @@ namespace Abhi_Silver_Plating_Shop
             {
                 MessageBox.Show("Please select user from list in order to delete.");
             }
+        }
+
+        private void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToLower(e.KeyChar);
         }
     }
 }

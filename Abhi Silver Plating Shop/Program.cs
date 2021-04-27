@@ -24,8 +24,9 @@ namespace Abhi_Silver_Plating_Shop
                 bool isFirstTimeOpened = Convert.ToBoolean(ConfigurationManager.AppSettings["isFirstTimeOpened"]);
                 if (isFirstTimeOpened)
                     Application.Run(new StartupSetupForm());
+                // Application.Run(new MainForm());
                 else
-                    Application.Run(new MainForm());
+                    Application.Run(new LoginForm());
             }
             else
             {

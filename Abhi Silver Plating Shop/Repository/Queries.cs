@@ -68,25 +68,25 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 "(@orderId,\n" +
                 "@itemId,\n" +
                 "@customerId,\n" +
-                "@in_weight,\n" +
-                "@out_weight,\n" +
+                "@inWeight,\n" +
+                "@outWeight,\n" +
                 "@fine,\n" +
-                "@labour_rate,\n" +
+                "@labourRate,\n" +
                 "@date,\n" +
                 "@status,\n" +
-                "@total_amount);";
+                "@totalAmount);";
 
         public const string ORDER_UPDATE_QUERY = "UPDATE `orders`\n" +
         "SET\n" +
         "`itemId` = @itemId,\n" +
         "`customerId` = @customerId,\n" +
-        "`in_weight` = @in_weight,\n" +
-        "`out_weight` = @out_weight,\n" +
+        "`in_weight` = @inWeight,\n" +
+        "`out_weight` = @outWeight,\n" +
         "`fine` = @fine,\n" +
-        "`labour_rate` = @labour_rate,\n" +
+        "`labour_rate` = @labourRate,\n" +
         "`date` = @date,\n" +
         "`status` = @status,\n" +
-        "`total_amount` = @total_amount\n" +
+        "`total_amount` = @totalAmount\n" +
         "WHERE `orderId` = @orderId;";
 
         public const string ORDER_DELETE_QUERY = "DELETE FROM orders WHERE orderId=@orderId;";

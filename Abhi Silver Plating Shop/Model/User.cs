@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Abhi_Silver_Plating_Shop.Model
 {
-    class User
+    public class User
     {
         private string username;
         private string role;

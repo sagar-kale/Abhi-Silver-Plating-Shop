@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FluentValidation;
+using FluentValidation.Results;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -75,6 +77,17 @@ namespace Abhi_Silver_Plating_Shop.Utils
         public static string GetEnvironmentProperty(string key)
         {
             return ConfigurationManager.AppSettings[key];
+        }
+        public static bool ShowWarningIfNotValid(this ValidationResult result)
+        {
+            bool showWarn = false;
+            if (result.IsValid == false)
+            {
+                List<ValidationFailure> errors = result.Errors;
+                showWarn = true;
+                errors.ForEach(err => MessageBox.Show($"{err.ErrorMessage}", "Validation Failed !!", MessageBoxButtons.OK, MessageBoxIcon.Warning));
+            }
+            return showWarn;
         }
     }
 }
