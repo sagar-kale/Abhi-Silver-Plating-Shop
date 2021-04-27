@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Globalization;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
 {
     public static class Utility
     {
+        public static readonly string connectionString = ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
         public static string UniqueId()
         {
             StringBuilder builder = new StringBuilder();
@@ -64,6 +66,15 @@ namespace Abhi_Silver_Plating_Shop.Utils
         public static string ZeroIfEmpty(this string s)
         {
             return string.IsNullOrWhiteSpace(s) ? "0" : s;
+        }
+        public static string FormatConnectionString(string database, string user, string password, string server = "localhost")
+        {
+            return String.Format("server={0};database={1};userid={2};password={3};", server.Trim(), database.Trim(), user.Trim(), password.Trim());
+        }
+
+        public static string GetEnvironmentProperty(string key)
+        {
+            return ConfigurationManager.AppSettings[key];
         }
     }
 }

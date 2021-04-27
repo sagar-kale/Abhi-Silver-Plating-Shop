@@ -22,14 +22,5 @@ namespace Abhi_Silver_Plating_Shop.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Mangalmurti Vibrator Shop")]
-        public string AppName {
-            get {
-                return ((string)(this["AppName"]));
-            }
-        }
     }
 }

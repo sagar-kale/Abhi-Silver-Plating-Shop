@@ -1,12 +1,6 @@
 ﻿using Abhi_Silver_Plating_Shop.Utils;
 using MaterialSkin;
-using MaterialSkin.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -25,6 +19,7 @@ namespace Abhi_Silver_Plating_Shop
                 TextShade.WHITE
                 );
             manager.EnforceBackcolorOnAllComponents = false;
+            this.Text = Utility.GetEnvironmentProperty("AppName");
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

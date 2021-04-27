@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -23,7 +21,11 @@ namespace Abhi_Silver_Plating_Shop
                 Application.SetHighDpiMode(HighDpiMode.SystemAware);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new LoginForm());
+                bool isFirstTimeOpened = Convert.ToBoolean(ConfigurationManager.AppSettings["isFirstTimeOpened"]);
+                if (isFirstTimeOpened)
+                    Application.Run(new StartupSetupForm());
+                else
+                    Application.Run(new MainForm());
             }
             else
             {
