@@ -40,6 +40,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateCustomerGrid();
             ClearForm();
+            label1.Text = Utils.Utility.appName;
         }
 
         private void customerGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

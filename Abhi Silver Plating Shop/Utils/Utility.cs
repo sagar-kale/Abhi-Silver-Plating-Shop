@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using Abhi_Silver_Plating_Shop.Enum;
+using FluentValidation;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
     public static class Utility
     {
         public static readonly string connectionString = Decrypt(ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString);
+        public static readonly string appName = GetEnvironmentProperty("AppName");
         public static string UniqueId()
         {
             StringBuilder builder = new StringBuilder();
@@ -102,6 +104,29 @@ namespace Abhi_Silver_Plating_Shop.Utils
             string developer = GetEnvironmentProperty("developer");
             string decryptedString = Encryption.Decrypt(cipher, developer);
             return decryptedString;
+        }
+
+        public static void ConvertToPounds(double weight, WeightType type)
+        {
+            switch (type)
+            {
+                case WeightType.GRAM:
+                    {
+                        double pounds = weight * 2.20462d;
+                        double ounces = pounds - Math.Floor(pounds);
+                        pounds -= ounces;
+                        ounces *= 16;
+                        Console.WriteLine("{0} lbs and {1} oz.", pounds, ounces);
+                        break;
+                    }
+                default:
+                    throw new Exception("Weight type not supported");
+            }
+        }
+
+        public static double ConvertElseZero(this string input)
+        {
+            return Double.TryParse(input, out _) == true ? Double.Parse(input) : 0;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Abhi_Silver_Plating_Shop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            label1.Text = Utility.appName;
         }
 
         private void button2_Click(object sender, EventArgs e)

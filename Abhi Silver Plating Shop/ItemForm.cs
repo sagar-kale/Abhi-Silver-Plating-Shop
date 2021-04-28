@@ -41,6 +41,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateItemGrid();
             ClearForm();
+            label1.Text = Utils.Utility.appName;
         }
         void PopulateItemGrid()
         {

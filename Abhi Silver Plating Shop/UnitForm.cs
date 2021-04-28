@@ -45,6 +45,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateUnitGrid();
             ClearForm();
+            label1.Text = Utils.Utility.appName;
         }
 
         bool RecordExists()

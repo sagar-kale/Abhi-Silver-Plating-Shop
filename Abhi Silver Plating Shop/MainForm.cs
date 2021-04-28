@@ -19,7 +19,7 @@ namespace Abhi_Silver_Plating_Shop
                 TextShade.WHITE
                 );
             manager.EnforceBackcolorOnAllComponents = false;
-            this.Text = Utility.GetEnvironmentProperty("AppName");
+            this.Text = Utility.appName;
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

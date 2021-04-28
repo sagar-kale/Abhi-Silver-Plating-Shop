@@ -67,6 +67,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             // DelayTextBoxTyping();
             PopulateUserGrid();
+            label1.Text = Utility.appName;
             ClearForm();
         }
 

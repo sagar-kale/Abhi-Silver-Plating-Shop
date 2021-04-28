@@ -98,7 +98,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES ('pljfgf','BCGRZVTx1gc','NBJ8htVz2OP',200,400,200,150,'2021-04-26 12:01:32','2021-04-26 12:01:32','2021-04-15 00:00:00','CANCELLED',0),('sdsd','BCGRZVTx1gc','4mrMxNc3dqV',100,200,100,150,'2021-04-26 07:00:23','2021-04-26 11:56:40','2021-04-26 00:00:00','IN PROGRESS',0),('sdsdss1','58AXLYDPg9w','4mrMxNc3dqV',250,255,5,150,'2021-04-26 06:18:59','2021-04-26 11:57:09','2021-04-26 00:00:00','COMPLETED',0),('sS9w5fn7dI8','95VGFqwQeuU','sYJr6TDSUoC',2200,2300,100,150,'2021-04-26 16:18:48','2021-04-27 11:44:57','2020-01-11 21:48:16','COMPLETED',345000);
+INSERT INTO `orders` VALUES ('pljfgf','BCGRZVTx1gc','NBJ8htVz2OP',200,400,200,150,'2021-04-26 12:01:32','2021-04-28 04:38:39','2021-04-15 00:00:00','CANCELLED',60000),('sdsd','BCGRZVTx1gc','4mrMxNc3dqV',100,116,16,150,'2021-04-26 07:00:23','2021-04-28 07:18:24','2021-04-26 00:00:00','IN PROGRESS',17400),('sdsdss1','58AXLYDPg9w','4mrMxNc3dqV',250,255,5,150,'2021-04-26 06:18:59','2021-04-28 04:38:20','2021-04-26 00:00:00','COMPLETED',38250),('sS9w5fn7dI8','95VGFqwQeuU','sYJr6TDSUoC',2200,2300,100,150,'2021-04-26 16:18:48','2021-04-28 04:38:12','2020-01-11 21:48:16','COMPLETED',345000);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,7 +136,7 @@ DROP TABLE IF EXISTS `user_auth`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user_auth` (
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` longtext COLLATE utf8mb4_unicode_ci,
   `name` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `role` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`username`)
@@ -149,7 +149,7 @@ CREATE TABLE `user_auth` (
 
 LOCK TABLES `user_auth` WRITE;
 /*!40000 ALTER TABLE `user_auth` DISABLE KEYS */;
-INSERT INTO `user_auth` VALUES ('rahul','rahul','Rahul','USER'),('sagar','sagar','Sagar Kale','ADMIN'),('sohan','sohan','Sohan Khot','ADMIN');
+INSERT INTO `user_auth` VALUES ('sagar','HcQ1m3Qjd5bdBbyrU8yJuPTuuqKmvTqYVkqNx+1RvajuqpEF7jIgYpSCRDo1Q0CT','Sagar Kale','ADMIN'),('sohan','w0wyAvdSvXwxj0xNqpeS5jlyu7KNI7PVZy2soFqvlj1D6p0g5GtJ7HmHiKkGHwbn','Sohan Khot','ADMIN');
 /*!40000 ALTER TABLE `user_auth` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-27 20:28:22
+-- Dump completed on 2021-04-28 13:13:09
