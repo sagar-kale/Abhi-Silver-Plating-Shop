@@ -39,6 +39,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         /// </summary>
 
         public const string USER_SELECT_QUERY = "Select * from user_auth;";
+        public const string USER_SELECT_BY_USERNAME = "Select * from user_auth where username=@username;";
         public const string USER_INSERT_QUERY = "INSERT INTO user_auth VALUES(@username, @password, @name, @role);";
         public const string USER_UPDATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
         public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";        

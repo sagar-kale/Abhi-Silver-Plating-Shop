@@ -140,6 +140,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtUsr.Size = new System.Drawing.Size(198, 50);
             this.txtUsr.TabIndex = 1;
             this.txtUsr.Text = "";
+            this.txtUsr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsr_KeyPress);
             // 
             // label1
             // 

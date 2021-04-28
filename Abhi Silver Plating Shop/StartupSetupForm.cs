@@ -1,4 +1,5 @@
 ﻿using Abhi_Silver_Plating_Shop.Model;
+using Abhi_Silver_Plating_Shop.Utils;
 using Abhi_Silver_Plating_Shop.Validator;
 using FluentValidation.Results;
 using MaterialSkin;
@@ -79,7 +80,7 @@ namespace Abhi_Silver_Plating_Shop
                 var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 config.AppSettings.Settings["isFirstTimeOpened"].Value = "false";
                 config.AppSettings.Settings["AppName"].Value = shopName;
-                config.ConnectionStrings.ConnectionStrings["defaultConnection"].ConnectionString = connectionString;
+                config.ConnectionStrings.ConnectionStrings["defaultConnection"].ConnectionString = connectionString.Encrypt();
                 config.Save();
                 ConfigurationManager.RefreshSection("appSettings");
                 ConfigurationManager.RefreshSection("connectionStrings");
@@ -123,7 +124,7 @@ namespace Abhi_Silver_Plating_Shop
             {
                 // settting connection string so i can use it to set app config 
 
-                connectionString = Utils.Utility.FormatConnectionString(
+                connectionString = Utility.FormatConnectionString(
                 connectionModel.Database,
                 connectionModel.Username,
                 connectionModel.Password,
@@ -158,6 +159,11 @@ namespace Abhi_Silver_Plating_Shop
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }

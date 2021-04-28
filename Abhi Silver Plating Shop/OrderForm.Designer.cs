@@ -113,7 +113,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.RowTemplate.Height = 29;
             this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGridView.ShowEditingIcon = false;
-            this.orderGridView.Size = new System.Drawing.Size(999, 483);
+            this.orderGridView.Size = new System.Drawing.Size(999, 513);
             this.orderGridView.TabIndex = 29;
             this.orderGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.orderGridView_FilterStringChanged);
             this.orderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
@@ -184,7 +184,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.DrawShadows = true;
             this.btnAdd.HighEmphasis = true;
             this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(15, 779);
+            this.btnAdd.Location = new System.Drawing.Point(14, 801);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
@@ -206,7 +206,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.DrawShadows = true;
             this.btnEdit.HighEmphasis = true;
             this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(128, 779);
+            this.btnEdit.Location = new System.Drawing.Point(129, 801);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
@@ -228,7 +228,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.DrawShadows = true;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(240, 779);
+            this.btnClear.Location = new System.Drawing.Point(239, 801);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -244,7 +244,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.panel2.BackColor = System.Drawing.Color.Crimson;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 857);
+            this.panel2.Location = new System.Drawing.Point(0, 887);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1393, 21);
             this.panel2.TabIndex = 25;
@@ -377,7 +377,7 @@ namespace Abhi_Silver_Plating_Shop
             "IN PROGRESS",
             "COMPLETED",
             "CANCELLED"});
-            this.statusCombo.Location = new System.Drawing.Point(12, 684);
+            this.statusCombo.Location = new System.Drawing.Point(13, 710);
             this.statusCombo.MaxDropDownItems = 4;
             this.statusCombo.MouseState = MaterialSkin.MouseState.OUT;
             this.statusCombo.Name = "statusCombo";
@@ -390,7 +390,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel3.BackColor = System.Drawing.Color.MediumVioletRed;
             this.panel3.Controls.Add(this.lblCount);
             this.panel3.Controls.Add(this.label12);
-            this.panel3.Location = new System.Drawing.Point(373, 706);
+            this.panel3.Location = new System.Drawing.Point(373, 728);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(207, 107);
             this.panel3.TabIndex = 45;
@@ -423,7 +423,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel4.BackColor = System.Drawing.Color.ForestGreen;
             this.panel4.Controls.Add(this.lblAmt);
             this.panel4.Controls.Add(this.label15);
-            this.panel4.Location = new System.Drawing.Point(625, 706);
+            this.panel4.Location = new System.Drawing.Point(623, 728);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(207, 107);
             this.panel4.TabIndex = 46;
@@ -456,7 +456,7 @@ namespace Abhi_Silver_Plating_Shop
             this.panel5.BackColor = System.Drawing.Color.RoyalBlue;
             this.panel5.Controls.Add(this.lblFine);
             this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(872, 706);
+            this.panel5.Location = new System.Drawing.Point(872, 728);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(207, 107);
             this.panel5.TabIndex = 47;
@@ -542,7 +542,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtTotalAmt.Enabled = false;
             this.txtTotalAmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtTotalAmt.Hint = "Total Amount (Rs.)";
-            this.txtTotalAmt.Location = new System.Drawing.Point(15, 616);
+            this.txtTotalAmt.Location = new System.Drawing.Point(13, 629);
             this.txtTotalAmt.MaxLength = 50;
             this.txtTotalAmt.MouseState = MaterialSkin.MouseState.OUT;
             this.txtTotalAmt.Multiline = false;
@@ -555,7 +555,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1393, 878);
+            this.ClientSize = new System.Drawing.Size(1393, 908);
             this.Controls.Add(this.txtTotalAmt);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.btnAddCust);

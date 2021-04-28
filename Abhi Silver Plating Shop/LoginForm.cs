@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Abhi_Silver_Plating_Shop.Utils;
+using System;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -12,7 +13,7 @@ namespace Abhi_Silver_Plating_Shop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -40,18 +41,15 @@ namespace Abhi_Silver_Plating_Shop
         {
             string username = txtUsr.Text;
             string password = txtPwd.Text;
-            Repository.BaseDao baseDao = new Repository.BaseDao();
+            Repository.BaseDao baseDao = new();
 
-            Model.User user = baseDao.FetchUser(username, password);
+            bool isAuthenticated = baseDao.Authenticate(new Model.User { Username = username, Password = password });
 
-            if (user != null && user.Username != null)
+            if (isAuthenticated)
             {
-                MessageBox.Show("Welcome " + user.Name);
-                Model.LoginInfo.UserID = user.Username;
-                Model.LoginInfo.UserRole = user.Role;
                 this.Hide();
                 ResetMyForm();
-                MainForm mainForm = new MainForm();
+                MainForm mainForm = new();
                 mainForm.Show();
             }
             else
@@ -101,6 +99,10 @@ namespace Abhi_Silver_Plating_Shop
             {
                 txtPwd.Password = true;
             }
+        }
+        private void txtUsr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToLower(e.KeyChar);
         }
     }
 }

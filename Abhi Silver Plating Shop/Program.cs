@@ -26,7 +26,7 @@ namespace Abhi_Silver_Plating_Shop
                     Application.Run(new StartupSetupForm());
                 // Application.Run(new MainForm());
                 else
-                    Application.Run(new LoginForm());
+                    Application.Run(new MainForm());
             }
             else
             {

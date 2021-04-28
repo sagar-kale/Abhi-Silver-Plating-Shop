@@ -103,11 +103,11 @@ namespace Abhi_Silver_Plating_Shop
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Model.User user = new Model.User(
+            Model.User user = new(
                    txtUsername.Text,
                    cmbRole.Text,
                    txtName.Text,
-                   txtPassword.Text
+                   txtPassword.Text.Encrypt()
                    );
 
 
@@ -137,10 +137,10 @@ namespace Abhi_Silver_Plating_Shop
             btnAdd.Enabled = false;
             btnEdit.Enabled = true;
             txtUsername.Enabled = false;
-            txtUsername.Text = Utils.Utility.CellValueByIndex(0, userGridView);
-            txtName.Text = Utils.Utility.CellValueByIndex(2, userGridView);
-            txtPassword.Text = Utils.Utility.CellValueByIndex(1, userGridView);
-            cmbRole.Text = Utils.Utility.CellValueByIndex(3, userGridView);
+            txtUsername.Text = Utility.CellValueByIndex(0, userGridView);
+            txtName.Text = Utility.CellValueByIndex(2, userGridView);
+            txtPassword.Text = Utility.CellValueByIndex(1, userGridView);
+            cmbRole.Text = Utility.CellValueByIndex(3, userGridView);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -153,11 +153,11 @@ namespace Abhi_Silver_Plating_Shop
             if (!String.IsNullOrWhiteSpace(txtUsername.Text))
             {
 
-                Model.User user = new Model.User(
+                Model.User user = new(
                     txtUsername.Text,
                     cmbRole.Text,
                     txtName.Text,
-                    txtPassword.Text
+                    txtPassword.Text.Encrypt()
                     );
 
                 if (validator.Validate(user).ShowWarningIfNotValid())
@@ -178,7 +178,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             if (!String.IsNullOrWhiteSpace(txtUsername.Text))
             {
-                Model.User user = new Model.User
+                Model.User user = new()
                 {
                     Username = txtUsername.Text
                 };

@@ -3,6 +3,8 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Collections.Generic;
+using Abhi_Silver_Plating_Shop.Utils;
 
 namespace Abhi_Silver_Plating_Shop.Repository
 {
@@ -11,10 +13,12 @@ namespace Abhi_Silver_Plating_Shop.Repository
         MySqlConnection connection;
 
         public MySqlConnection Connection { get => connection; }
-
+        readonly IDataAccess dataAccess;
         public BaseDao()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            dataAccess = DataAccess.Instance;
+
         }
         public static bool TestConnection(string connectionString)
         {
@@ -39,7 +43,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         {
             try
             {
-                connection = new MySqlConnection(Utils.Utility.connectionString);
+                connection = new MySqlConnection(Utility.connectionString);
                 connection.Open();
                 return true;
             }
@@ -73,8 +77,8 @@ namespace Abhi_Silver_Plating_Shop.Repository
         {
             try
             {
-                DataSet ds = new DataSet();
-                MySqlDataAdapter da = new MySqlDataAdapter(sql, connection);
+                DataSet ds = new();
+                MySqlDataAdapter da = new(sql, connection);
                 da.Fill(ds, "result");
                 return ds;
             }
@@ -92,7 +96,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 MySqlDataReader reader;
 
                 //Create Command
-                MySqlCommand cmd = new MySqlCommand(sql, connection);
+                MySqlCommand cmd = new(sql, connection);
 
                 //Create a data reader and Execute the command
                 reader = cmd.ExecuteReader();
@@ -123,40 +127,20 @@ namespace Abhi_Silver_Plating_Shop.Repository
             return -1;
         }
 
-        //Select statement
-        public Model.User FetchUser(string username, string password)
+        // Authenticate user
+        public bool Authenticate(Model.User user)
         {
-            string query = "SELECT * FROM user_auth where username=@val1 and password=@val2";
-
-            //Create a user to store the result
-            Model.User user = new Model.User();
-
+            bool isAuthenticated = false;
             try
             {
-                //Open connection
-                if (this.OpenConnection() == true)
+                List<Model.User> users = dataAccess.LoadData<Model.User, Model.User>(Queries.USER_SELECT_BY_USERNAME, user);
+                Model.User loggedInUser = users.Find(usr => usr.Username == user.Username && usr.Password.Trim().Decrypt() == user.Password.Trim());
+                if (loggedInUser != null && !String.IsNullOrWhiteSpace(loggedInUser.Username))
                 {
-                    Console.WriteLine("conection.....opened");
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@val1", username);
-                    cmd.Parameters.AddWithValue("@val2", password);
-                    cmd.Prepare();
-
-                    MySqlDataReader dataReader = cmd.ExecuteReader();
-                    //Read the data and store them in the list
-                    while (dataReader.Read())
-                    {
-                        user.Name = dataReader["name"] + "";
-                        user.Role = dataReader["role"] + "";
-                        user.Username = dataReader["username"] + "";
-                        user.Password = dataReader["password"] + "";
-                    }
-
-                    //close Data Reader
-                    dataReader.Close();
-
-                    //close Connection
-                    this.CloseConnection();
+                    isAuthenticated = true;
+                    loggedInUser.Password = null;
+                    Model.LoginInfo.UserID = loggedInUser.Username;
+                    Model.LoginInfo.UserRole = loggedInUser.Role;
                 }
             }
             catch (Exception ex)
@@ -164,7 +148,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 MessageBox.Show(ex.Message);
             }
 
-            return user;
+            return isAuthenticated;
 
         }
 
@@ -179,7 +163,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
                 if (this.OpenConnection() == true)
                 {
                     Console.WriteLine("conection.....opened");
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlCommand cmd = new(query, connection);
                     cmd.Parameters.AddWithValue("@" + column, value);
                     cmd.Prepare();
 
@@ -207,21 +191,24 @@ namespace Abhi_Silver_Plating_Shop.Repository
 
         public DataTable PopulateDataSourceData(string query)
         {
-            DataTable dataTable = new DataTable();
+            DataTable dataTable = new();
             try
             {
                 if (this.OpenConnection() == true)
                 {
-                    MySqlCommand command = new MySqlCommand(query, connection);
+                    MySqlCommand command = new(query, connection);
                     MySqlDataReader reader = command.ExecuteReader();
                     dataTable.Load(reader);
-                    this.CloseConnection();
                     return dataTable;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
             }
             return dataTable;
         }

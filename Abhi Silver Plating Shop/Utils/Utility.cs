@@ -13,7 +13,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
 {
     public static class Utility
     {
-        public static readonly string connectionString = ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString;
+        public static readonly string connectionString = Decrypt(ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString);
         public static string UniqueId()
         {
             StringBuilder builder = new StringBuilder();
@@ -88,6 +88,20 @@ namespace Abhi_Silver_Plating_Shop.Utils
                 errors.ForEach(err => MessageBox.Show($"{err.ErrorMessage}", "Validation Failed !!", MessageBoxButtons.OK, MessageBoxIcon.Warning));
             }
             return showWarn;
+        }
+
+        public static string Encrypt(this string encryptString)
+        {
+            string developer = GetEnvironmentProperty("developer");
+            string encryptedCipher = Encryption.Encrypt(encryptString, developer);
+            return encryptedCipher;
+        }
+
+        public static string Decrypt(this string cipher)
+        {
+            string developer = GetEnvironmentProperty("developer");
+            string decryptedString = Encryption.Decrypt(cipher, developer);
+            return decryptedString;
         }
     }
 }
