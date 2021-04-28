@@ -13,7 +13,7 @@ namespace Abhi_Silver_Plating_Shop
     public partial class OrderForm : Form
     {
         private const int ZERO = 0;
-        private OrderService orderService = null;
+        private readonly OrderService orderService = null;
         Model.Unit unit = null;
         public OrderForm()
         {
@@ -86,19 +86,14 @@ namespace Abhi_Silver_Plating_Shop
             LoadStats();
         }
 
-        string GetOrderStatus(string outWeight)
-        {
-            return (!String.IsNullOrWhiteSpace(outWeight) && outWeight != "0") ? "Completed" : "In Progress";
-        }
-
         void ClearForm()
         {
             btnEdit.Enabled = false;
             btnAdd.Enabled = true;
             txtOrderId.Clear();
-            txtFine.Text = "0";
-            txtInWeight.Text = "0";
-            txtOutWeight.Text = "0";
+            txtFine.Clear();
+            txtInWeight.Clear();
+            txtOutWeight.Clear();
             dateTimePicker.Value = DateTime.Now;
 
         }
@@ -117,7 +112,7 @@ namespace Abhi_Silver_Plating_Shop
                 DateTime.Now,
                 DateTime.Now,
                 dateTimePicker.Value,
-                GetOrderStatus(txtOutWeight.Text)
+                Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero())
                 );
 
             bool isAdded = orderService.AddOrder(order);
@@ -147,6 +142,7 @@ namespace Abhi_Silver_Plating_Shop
             PopulateOrderGrid();
             ClearForm();
             label1.Text = Utility.appName;
+            dateTimePicker.MaxDate = DateTime.Now;
         }
 
         private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -212,7 +208,7 @@ namespace Abhi_Silver_Plating_Shop
                 DateTime.Now,
                 DateTime.Now,
                 dateTimePicker.Value,
-                GetOrderStatus(txtOutWeight.Text)
+                Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero())
                 );
 
                 orderService.UpdateOrder(order);
@@ -233,29 +229,23 @@ namespace Abhi_Silver_Plating_Shop
 
         void CalculateTotalAmtAndFine()
         {
-            if (!String.IsNullOrWhiteSpace(txtInWeight.Text) && !String.IsNullOrWhiteSpace(txtOutWeight.Text))
-            {
-                double fine;
-                double inWeight = txtInWeight.Text.ConvertElseZero();
-                double outWeight = txtOutWeight.Text.ConvertElseZero();
-                double labourRate = txtLabourRate.Text.ConvertElseZero();
 
-                if (outWeight != ZERO)
-                    fine = outWeight - inWeight;
-                else
-                    fine = ZERO;
+            double fine;
+            double inWeight = txtInWeight.Text.ConvertElseZero();
+            double outWeight = txtOutWeight.Text.ConvertElseZero();
+            double labourRate = txtLabourRate.Text.ConvertElseZero();
 
-                fine = Math.Round(fine, 2);
-                txtFine.Text = fine.ToString();
-                double sum = inWeight * (labourRate / 1000);
-                sum = Math.Round(sum, 2);
-                txtTotalAmt.Text = sum.ToString();
-            }
+            if (outWeight != ZERO)
+                fine = outWeight - inWeight;
             else
-            {
-                txtFine.Text = "0";
-                txtTotalAmt.Text = "0";
-            }
+                fine = ZERO;
+
+            fine = Math.Round(fine, 2);
+            txtFine.Text = fine.ToString();
+            double sum = inWeight * (labourRate / 1000);
+            sum = Math.Round(sum, 2);
+            txtTotalAmt.Text = sum.ToString();
+
         }
 
         private void txtInWeight_TextChanged(object sender, EventArgs e)

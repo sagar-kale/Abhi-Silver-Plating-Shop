@@ -15,7 +15,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
     public static class Utility
     {
         public static readonly string connectionString = Decrypt(ConfigurationManager.ConnectionStrings["defaultConnection"].ConnectionString);
-        public static readonly string appName = GetEnvironmentProperty("AppName");
+        public static readonly string appName = GetEnvironmentProperty("AppName").ToUpper();
         public static string UniqueId()
         {
             StringBuilder builder = new StringBuilder();
@@ -127,6 +127,11 @@ namespace Abhi_Silver_Plating_Shop.Utils
         public static double ConvertElseZero(this string input)
         {
             return Double.TryParse(input, out _) == true ? Double.Parse(input) : 0;
+        }
+
+        public static string GetOrderStatus(double outWeight)
+        {
+            return outWeight != 0 ? "Completed" : "In Progress";
         }
     }
 }
