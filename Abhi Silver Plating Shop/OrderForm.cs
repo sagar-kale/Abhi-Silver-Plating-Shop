@@ -77,6 +77,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Repository.Queries.ORDER_SELECT_QUERY);
             orderGridView.DataSource = dataTable;
+            orderGridView.Columns["date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
             orderGridView.Columns["orderId"].Visible = false;
             orderGridView.Columns["customerId"].Visible = false;
             orderGridView.Columns["itemId"].Visible = false;
@@ -95,7 +96,28 @@ namespace Abhi_Silver_Plating_Shop
             txtInWeight.Clear();
             txtOutWeight.Clear();
             dateTimePicker.Value = DateTime.Now;
+            lblCreated.Text = "date";
+            lblUpdate.Text = "date";
 
+        }
+
+        static bool CheckValidCustomerAndItem(Model.Order order)
+        {
+            bool valid = true;
+            if (String.IsNullOrWhiteSpace(order.ItemId))
+            {
+                valid = false;
+                MessageBox.Show("Item does not exists !", "Invalid Item", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return valid;
+            }
+
+            if (String.IsNullOrWhiteSpace(order.CustomerId))
+            {
+                valid = false;
+                MessageBox.Show("Customer does not exists !", "Invalid Customer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return valid;
+            }
+            return valid;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -111,9 +133,12 @@ namespace Abhi_Silver_Plating_Shop
                 txtLabourRate.Text.ConvertElseZero(),
                 DateTime.Now,
                 DateTime.Now,
-                dateTimePicker.Value,
+                dateTimePicker.Value.Date,
                 Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero())
                 );
+
+            if (!CheckValidCustomerAndItem(order))
+                return;
 
             bool isAdded = orderService.AddOrder(order);
             if (isAdded)
@@ -142,7 +167,6 @@ namespace Abhi_Silver_Plating_Shop
             PopulateOrderGrid();
             ClearForm();
             label1.Text = Utility.appName;
-            dateTimePicker.MaxDate = DateTime.Now;
         }
 
         private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -157,8 +181,14 @@ namespace Abhi_Silver_Plating_Shop
             txtOutWeight.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("out_weight");
             txtFine.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("fine");
             txtLabourRate.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("labour_rate");
-            dateTimePicker.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("date");
+            dateTimePicker.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("date").FormatDate();
             txtTotalAmt.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("total_amount");
+
+            DateTime creationDate = ((DateTime)Utility.GetCells(orderGridView)["creation_date"].Value);
+            DateTime upadtedDate = ((DateTime)Utility.GetCells(orderGridView)["last_modified"].Value);
+
+            lblCreated.Text = creationDate.TimeAgo();
+            lblUpdate.Text = upadtedDate.TimeAgo();
 
         }
 
@@ -207,9 +237,12 @@ namespace Abhi_Silver_Plating_Shop
                 txtLabourRate.Text.ConvertElseZero(),
                 DateTime.Now,
                 DateTime.Now,
-                dateTimePicker.Value,
+                dateTimePicker.Value.Date,
                 Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero())
                 );
+
+                if (!CheckValidCustomerAndItem(order))
+                    return;
 
                 orderService.UpdateOrder(order);
                 MessageBox.Show("Order Updated Success.");

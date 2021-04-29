@@ -70,6 +70,10 @@ namespace Abhi_Silver_Plating_Shop
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblOutWeight = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblCreated = new System.Windows.Forms.Label();
+            this.lblUpdate = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -463,6 +467,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             // dateTimePicker
             // 
+            this.dateTimePicker.CustomFormat = "";
             this.dateTimePicker.Location = new System.Drawing.Point(118, 509);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(213, 27);
@@ -561,11 +566,55 @@ namespace Abhi_Silver_Plating_Shop
             this.label14.TabIndex = 46;
             this.label14.Text = "Total Out Weight";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(373, 597);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 20);
+            this.label13.TabIndex = 55;
+            this.label13.Text = "Created :";
+            // 
+            // lblCreated
+            // 
+            this.lblCreated.AutoSize = true;
+            this.lblCreated.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCreated.Location = new System.Drawing.Point(444, 597);
+            this.lblCreated.Name = "lblCreated";
+            this.lblCreated.Size = new System.Drawing.Size(39, 20);
+            this.lblCreated.TabIndex = 56;
+            this.lblCreated.Text = "date";
+            // 
+            // lblUpdate
+            // 
+            this.lblUpdate.AutoSize = true;
+            this.lblUpdate.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUpdate.Location = new System.Drawing.Point(744, 597);
+            this.lblUpdate.Name = "lblUpdate";
+            this.lblUpdate.Size = new System.Drawing.Size(39, 20);
+            this.lblUpdate.TabIndex = 58;
+            this.lblUpdate.Text = "date";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(628, 597);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(110, 20);
+            this.label19.TabIndex = 57;
+            this.label19.Text = "Last Updated :";
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.lblUpdate);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.lblCreated);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.txtTotalAmt);
             this.Controls.Add(this.btnAddItem);
@@ -658,5 +707,9 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lblOutWeight;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblCreated;
+        private System.Windows.Forms.Label lblUpdate;
+        private System.Windows.Forms.Label label19;
     }
 }

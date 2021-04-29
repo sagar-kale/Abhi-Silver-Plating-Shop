@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `plating_shop` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `plating_shop`;
--- MySQL dump 10.13  Distrib 8.0.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.24, for Win64 (x86_64)
 --
 -- Host: localhost    Database: plating_shop
 -- ------------------------------------------------------
--- Server version	8.0.17
+-- Server version	8.0.24
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,7 +26,7 @@ CREATE TABLE `customers` (
   `customerId` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mobile` bigint(10) DEFAULT NULL,
+  `mobile` bigint DEFAULT NULL,
   `address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`customerId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -40,7 +38,6 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES ('4mrMxNc3dqV','sohan','ss@ss.com',2666662262,'rajkot'),('NBJ8htVz2OP','dilip','dilip@dilip.com',1234567800,'rajkot'),('sYJr6TDSUoC','Raju Patel','',7777777777,'rajkot');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -64,7 +61,6 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES ('58AXLYDPg9w','Kada'),('95VGFqwQeuU','Ring'),('BCGRZVTx1gc','Payal'),('QljzxY8fWUL','Ear Ring');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +94,6 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES ('pljfgf','BCGRZVTx1gc','NBJ8htVz2OP',200,400,200,150,'2021-04-26 12:01:32','2021-04-28 04:38:39','2021-04-15 00:00:00','CANCELLED',60000),('sdsd','BCGRZVTx1gc','4mrMxNc3dqV',100,116,16,150,'2021-04-26 07:00:23','2021-04-28 07:18:24','2021-04-26 00:00:00','IN PROGRESS',17400),('sdsdss1','58AXLYDPg9w','4mrMxNc3dqV',250,255,5,150,'2021-04-26 06:18:59','2021-04-28 04:38:20','2021-04-26 00:00:00','COMPLETED',38250),('sS9w5fn7dI8','95VGFqwQeuU','sYJr6TDSUoC',2200,2300,100,150,'2021-04-26 16:18:48','2021-04-28 04:38:12','2020-01-11 21:48:16','COMPLETED',345000);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,14 +147,6 @@ LOCK TABLES `user_auth` WRITE;
 INSERT INTO `user_auth` VALUES ('sagar','HcQ1m3Qjd5bdBbyrU8yJuPTuuqKmvTqYVkqNx+1RvajuqpEF7jIgYpSCRDo1Q0CT','Sagar Kale','ADMIN'),('sohan','w0wyAvdSvXwxj0xNqpeS5jlyu7KNI7PVZy2soFqvlj1D6p0g5GtJ7HmHiKkGHwbn','Sohan Khot','ADMIN');
 /*!40000 ALTER TABLE `user_auth` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'plating_shop'
---
-
---
--- Dumping routines for database 'plating_shop'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -170,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-28 13:13:09
+-- Dump completed on 2021-04-29 11:44:43

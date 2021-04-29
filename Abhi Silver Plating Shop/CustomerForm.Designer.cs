@@ -131,6 +131,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustName.Size = new System.Drawing.Size(278, 50);
             this.txtCustName.TabIndex = 4;
             this.txtCustName.Text = "";
+            this.txtCustName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustName_KeyPress);
             // 
             // txtCustAddr
             // 
@@ -147,6 +148,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustAddr.Size = new System.Drawing.Size(278, 50);
             this.txtCustAddr.TabIndex = 5;
             this.txtCustAddr.Text = "";
+            this.txtCustAddr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustAddr_KeyPress);
             // 
             // txtCustEmail
             // 
@@ -163,6 +165,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustEmail.Size = new System.Drawing.Size(278, 50);
             this.txtCustEmail.TabIndex = 6;
             this.txtCustEmail.Text = "";
+            this.txtCustEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustEmail_KeyPress);
             // 
             // txtCustMob
             // 

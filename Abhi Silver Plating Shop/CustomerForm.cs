@@ -161,5 +161,20 @@ namespace Abhi_Silver_Plating_Shop
         {
             this.DialogResult = DialogResult.OK;
         }
+
+        private void txtCustName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToLower(e.KeyChar);
+        }
+
+        private void txtCustAddr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToLower(e.KeyChar);
+        }
+
+        private void txtCustEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToLower(e.KeyChar);
+        }
     }
 }
