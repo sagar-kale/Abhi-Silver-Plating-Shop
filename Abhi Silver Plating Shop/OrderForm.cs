@@ -1,11 +1,7 @@
 ﻿using Abhi_Silver_Plating_Shop.Service;
 using Abhi_Silver_Plating_Shop.Utils;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -38,7 +34,7 @@ namespace Abhi_Silver_Plating_Shop
         }
         void LoadLabour()
         {
-            UnitService unitService = new UnitService();
+            UnitService unitService = new();
             unit = unitService.FetchRate(new Model.Unit(null, "KG", ZERO));
             txtLabourRate.Text = unit.Rate.ToString();
         }
@@ -47,15 +43,28 @@ namespace Abhi_Silver_Plating_Shop
         {
             // double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
             // double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
+            Model.Stat stat = CalculateStats();
+            lblAmt.Text = "Rs. " + stat.TotalAmt;
+            lblInWeight.Text = stat.TotalInWeight.ToString();
+            lblOutWeight.Text = stat.TotalOutWeight.ToString();
+            lblFine.Text = stat.TotalFine.ToString();
+
+        }
+
+        Model.Stat CalculateStats()
+        {
+            Model.Stat stat = new();
 
             double totalOutWeight = ZERO, totalFine = ZERO, totalInWeight = ZERO, totalAmt = ZERO;
             for (int i = ZERO; i < orderGridView.RowCount; i++)
             {
+
                 DataGridViewRow dataGridViewRow = orderGridView.Rows[i];
                 string outWeightStr = dataGridViewRow.Cells["out_weight"].Value.ToString();
                 string inWeightStr = dataGridViewRow.Cells["in_weight"].Value.ToString();
                 string fineStr = dataGridViewRow.Cells["fine"].Value.ToString();
                 string amtStr = dataGridViewRow.Cells["total_amount"].Value.ToString();
+
                 double outWeight = outWeightStr.ConvertElseZero();
                 double inWeight = inWeightStr.ConvertElseZero();
                 double fine = fineStr.ConvertElseZero();
@@ -66,11 +75,11 @@ namespace Abhi_Silver_Plating_Shop
                 totalFine += fine;
                 totalAmt += amt;
             }
-            lblAmt.Text = "Rs. " + totalAmt;
-            lblInWeight.Text = totalInWeight.ToString();
-            lblOutWeight.Text = totalOutWeight.ToString();
-            lblFine.Text = totalFine.ToString();
-
+            stat.TotalInWeight = totalInWeight;
+            stat.TotalOutWeight = totalOutWeight;
+            stat.TotalFine = totalFine;
+            stat.TotalAmt = totalAmt;
+            return stat;
         }
 
         void PopulateOrderGrid()
@@ -226,7 +235,7 @@ namespace Abhi_Silver_Plating_Shop
             if (!String.IsNullOrWhiteSpace(txtOrderId.Text))
             {
 
-                Model.Order order = new Model.Order(
+                Model.Order order = new(
                 txtOrderId.Text,
                 itemCombo.SelectedValue.ToString(),
                 customerCombo.SelectedValue.ToString(),
@@ -285,5 +294,10 @@ namespace Abhi_Silver_Plating_Shop
         {
             CalculateTotalAmtAndFine();
         }
+
+        private void orderGridView_DoubleClick(object sender, EventArgs e)
+        {
+        }
+
     }
 }

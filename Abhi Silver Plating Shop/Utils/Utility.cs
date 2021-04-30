@@ -136,7 +136,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
 
         public static string FormatDate(this string input)
         {
-            return Convert.ToDateTime(input, CultureInfo.GetCultureInfo("hi-IN").DateTimeFormat).ToString();
+            return DateTime.ParseExact(input, "MM/dd/yyyy hh:mm:ss", CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy hh:mm tt");
         }
 
         public static string TimeAgo(this DateTime dateTime)
@@ -181,6 +181,10 @@ namespace Abhi_Silver_Plating_Shop.Utils
                 int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
                 return years <= 1 ? "one year ago" : years + " years ago";
             }
+        }
+        public static string Capitalize(this string text)
+        {
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
         }
     }
 }

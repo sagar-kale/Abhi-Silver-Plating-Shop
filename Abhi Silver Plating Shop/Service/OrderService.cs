@@ -61,7 +61,7 @@ namespace Abhi_Silver_Plating_Shop.Service
             {
                 if (baseDao.OpenConnection() == true)
                 {
-                    string query = isAmount ? Repository.Queries.ORDER_TOTAL_AMOUNT : Repository.Queries.ORDER_TOTAL_FINE;
+                    string query = isAmount ? Queries.ORDER_TOTAL_AMOUNT : Repository.Queries.ORDER_TOTAL_FINE;
                     MySqlCommand selectCommand = new(query, baseDao.Connection);
                     MySqlDataReader mySqlDataReader = selectCommand.ExecuteReader();
                     while (mySqlDataReader.Read())

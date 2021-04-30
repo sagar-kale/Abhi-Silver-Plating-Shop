@@ -102,6 +102,7 @@ namespace Abhi_Silver_Plating_Shop
             this.tabPage1.Size = new System.Drawing.Size(897, 542);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Welcome";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // linkLabel2
             // 
@@ -266,7 +267,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.txtAppName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAppName.Depth = 0;
-            this.txtAppName.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtAppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtAppName.Hint = "Shop Name";
             this.txtAppName.Location = new System.Drawing.Point(16, 25);
             this.txtAppName.MaxLength = 50;
@@ -305,7 +306,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.txtServer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtServer.Depth = 0;
-            this.txtServer.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtServer.Hint = "Server";
             this.txtServer.Location = new System.Drawing.Point(16, 81);
             this.txtServer.MaxLength = 50;
@@ -320,7 +321,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Depth = 0;
-            this.txtUser.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUser.Hint = "User Id";
             this.txtUser.Location = new System.Drawing.Point(16, 149);
             this.txtUser.MaxLength = 50;
@@ -354,7 +355,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.txtDb.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDb.Depth = 0;
-            this.txtDb.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtDb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDb.Hint = "Database Name";
             this.txtDb.Location = new System.Drawing.Point(223, 81);
             this.txtDb.MaxLength = 50;
@@ -389,7 +390,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Depth = 0;
-            this.txtPassword.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Hint = "Password";
             this.txtPassword.Location = new System.Drawing.Point(223, 149);
             this.txtPassword.MaxLength = 50;

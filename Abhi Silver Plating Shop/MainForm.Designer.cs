@@ -32,12 +32,12 @@ namespace Abhi_Silver_Plating_Shop
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenuClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUser = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCustomer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuRate = new System.Windows.Forms.ToolStripMenuItem();
             this.menuReports = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuOrder = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,13 @@ namespace Abhi_Silver_Plating_Shop
             this.fileMenuClose.Text = "Close";
             this.fileMenuClose.Click += new System.EventHandler(this.fileMenuClose_Click);
             // 
+            // menuOrder
+            // 
+            this.menuOrder.Name = "menuOrder";
+            this.menuOrder.Size = new System.Drawing.Size(67, 24);
+            this.menuOrder.Text = "Orders";
+            this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
+            // 
             // menuUser
             // 
             this.menuUser.Name = "menuUser";
@@ -106,13 +113,7 @@ namespace Abhi_Silver_Plating_Shop
             this.menuReports.Name = "menuReports";
             this.menuReports.Size = new System.Drawing.Size(74, 24);
             this.menuReports.Text = "Reports";
-            // 
-            // menuOrder
-            // 
-            this.menuOrder.Name = "menuOrder";
-            this.menuOrder.Size = new System.Drawing.Size(67, 24);
-            this.menuOrder.Text = "Orders";
-            this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
+            this.menuReports.Click += new System.EventHandler(this.menuReports_Click);
             // 
             // MainForm
             // 

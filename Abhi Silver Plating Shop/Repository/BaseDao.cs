@@ -213,6 +213,33 @@ namespace Abhi_Silver_Plating_Shop.Repository
             return dataTable;
         }
 
+        public DataTable PopulateReportData(string query, string customerId,DateTime fromDate,DateTime toDate)
+        {
+            DataTable dataTable = new();
+            try
+            {
+                if (this.OpenConnection() == true)
+                {
+                    using MySqlCommand command = new(query, connection);
+                    command.Parameters.AddWithValue("@customerId", customerId);
+                    command.Parameters.AddWithValue("@fromDate", fromDate);
+                    command.Parameters.AddWithValue("@toDate", toDate);
+                    command.Prepare();
+                    using MySqlDataReader reader = command.ExecuteReader();
+                    dataTable.Load(reader);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return dataTable;
+        }
 
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Abhi_Silver_Plating_Shop.Model
 {
-    class Order
+    public class Order
     {
 
         private string orderId;
@@ -17,6 +17,8 @@ namespace Abhi_Silver_Plating_Shop.Model
         private DateTime lasModifiedDate;
         private DateTime date;
         private string status;
+        private Stat stat;
+        private string itemName;
 
         public Order()
         {
@@ -50,5 +52,7 @@ namespace Abhi_Silver_Plating_Shop.Model
         public DateTime Date { get => date; set => date = value; }
         public string Status { get => status; set => status = value; }
         public double TotalAmount { get => totalAmount; set => totalAmount = value; }
+        public Stat Stat { get => stat; set => stat = value; }
+        public string ItemName { get => itemName; set => itemName = value; }
     }
 }

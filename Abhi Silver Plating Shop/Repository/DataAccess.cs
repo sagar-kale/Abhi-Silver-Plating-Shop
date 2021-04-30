@@ -31,6 +31,13 @@ namespace Abhi_Silver_Plating_Shop.Repository
             return rows;
         }
 
+        public T LoadSingleData<T, U>(string sql, U parameters)
+        {
+            using IDbConnection connection = new MySqlConnection(connectionString);
+            T res = connection.QuerySingle<T>(sql, parameters);
+            return res;
+        }
+
         public void SaveData<T>(string sql, T parameters)
         {
             using IDbConnection connection = new MySqlConnection(connectionString);

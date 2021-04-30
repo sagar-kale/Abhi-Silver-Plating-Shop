@@ -69,5 +69,10 @@ namespace Abhi_Silver_Plating_Shop
         {
             new OrderForm().Show();
         }
+
+        private void menuReports_Click(object sender, EventArgs e)
+        {
+            new ReportForm().Show();
+        }
     }
 }

@@ -167,5 +167,10 @@ namespace Abhi_Silver_Plating_Shop
         {
 
         }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
