@@ -181,7 +181,7 @@ namespace Abhi_Silver_Plating_Shop
             txtOutWeight.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("out_weight");
             txtFine.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("fine");
             txtLabourRate.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("labour_rate");
-            dateTimePicker.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("date").FormatDate();
+            dateTimePicker.Value = ((DateTime)Utility.GetCells(orderGridView)["date"].Value);
             txtTotalAmt.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("total_amount");
 
             DateTime creationDate = ((DateTime)Utility.GetCells(orderGridView)["creation_date"].Value);
