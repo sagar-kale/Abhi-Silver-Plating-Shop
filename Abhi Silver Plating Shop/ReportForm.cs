@@ -149,10 +149,10 @@ namespace Abhi_Silver_Plating_Shop
             };
             Model.Address address = new()
             {
-                City = "Rajkot",
-                Pincode = "413304",
-                Street = "Lalit road rajpa nagar",
-                Phone = "1234567890"
+                City = Utility.GetEnvironmentProperty("city"),
+                Pincode = Utility.GetEnvironmentProperty("pin"),
+                Street = Utility.GetEnvironmentProperty("street"),
+                Phone = Utility.GetEnvironmentProperty("phone"),
             };
             stat.Address = address;
             stat.FromDate = fromDatePicker.Value.ToString("MMMM dd, yyyy");
