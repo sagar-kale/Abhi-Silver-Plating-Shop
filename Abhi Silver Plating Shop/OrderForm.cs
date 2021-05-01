@@ -104,7 +104,7 @@ namespace Abhi_Silver_Plating_Shop
             txtFine.Clear();
             txtInWeight.Clear();
             txtOutWeight.Clear();
-            dateTimePicker.Value = DateTime.Now;
+            dateTimePicker.Value = DateTime.Now.Date;
             lblCreated.Text = "date";
             lblUpdate.Text = "date";
 
@@ -176,6 +176,7 @@ namespace Abhi_Silver_Plating_Shop
             PopulateOrderGrid();
             ClearForm();
             label1.Text = Utility.appName;
+            dateTimePicker.MaxDate = DateTime.Now.Date;
         }
 
         private void orderGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -29,12 +29,14 @@ namespace Abhi_Silver_Plating_Shop
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
+            Environment.Exit(0);
         }
 
         private void fileMenuClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.ExitThread();
+            Environment.Exit(0);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

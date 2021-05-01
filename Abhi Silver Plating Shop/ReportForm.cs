@@ -128,6 +128,8 @@ namespace Abhi_Silver_Plating_Shop
             LoadCustomers();
             PopulateReportGrid();
             ClearForm();
+            fromDatePicker.MaxDate = DateTime.Today;
+            toDatePicker.MaxDate = DateTime.Today;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -145,11 +147,13 @@ namespace Abhi_Silver_Plating_Shop
                 Name = Utility.appName,
                 Obj = stat
             };
-            Model.Address address = new Model.Address();
-            address.City = "Rajkot";
-            address.Pincode = "413304";
-            address.Street = "Lalit road rajpa nagar";
-            address.Phone = "1234567890";
+            Model.Address address = new()
+            {
+                City = "Rajkot",
+                Pincode = "413304",
+                Street = "Lalit road rajpa nagar",
+                Phone = "1234567890"
+            };
             stat.Address = address;
             stat.FromDate = fromDatePicker.Value.ToString("MMMM dd, yyyy");
             stat.ToDate = toDatePicker.Value.ToString("MMMM dd, yyyy");
@@ -166,8 +170,8 @@ namespace Abhi_Silver_Plating_Shop
                     ConverterProperties converter = new();
                     HtmlConverter.ConvertToPdf(htmlReport, stream);
                     System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
-                    string fullPath = System.IO.Path.GetFullPath(sdf.FileName);
-                    MessageBox.Show("PDF path: " + fullPath,"Report Generated");
+                    string fullPath = Path.GetFullPath(sdf.FileName);
+                    MessageBox.Show("PDF path: " + fullPath, "Report Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     webbrowser.Navigate(fullPath);
 
                 }
