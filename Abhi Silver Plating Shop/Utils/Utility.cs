@@ -136,7 +136,11 @@ namespace Abhi_Silver_Plating_Shop.Utils
 
         public static string FormatDate(this string input)
         {
-            return DateTime.ParseExact(input, "MM/dd/yyyy hh:mm:ss", CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy hh:mm tt");
+            if (DateTime.TryParse(input, out _))
+            {
+                return DateTime.ParseExact(input, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy hh:mm tt");
+            }
+            return input;
         }
 
         public static string TimeAgo(this DateTime dateTime)

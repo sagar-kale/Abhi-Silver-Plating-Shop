@@ -32,6 +32,7 @@ namespace Abhi_Silver_Plating_Shop
                 string inWeightStr = dataGridViewRow.Cells["in_weight"].Value.ToString();
                 string fineStr = dataGridViewRow.Cells["fine"].Value.ToString();
                 string amtStr = dataGridViewRow.Cells["total_amount"].Value.ToString();
+                DateTime date = ((DateTime)dataGridViewRow.Cells["date"].Value).Date;
                 string customerName = dataGridViewRow.Cells.GetCellValueFromColumnHeader("Customer Name");
                 string itemName = dataGridViewRow.Cells.GetCellValueFromColumnHeader("Item Name");
 
@@ -48,7 +49,8 @@ namespace Abhi_Silver_Plating_Shop
                     InWeight = inWeight,
                     Fine = fine,
                     TotalAmount = amt,
-                    ItemName = itemName
+                    ItemName = itemName,
+                    Date = date
                 };
                 orderList.Add(order);
 
@@ -75,8 +77,8 @@ namespace Abhi_Silver_Plating_Shop
         void ClearForm()
         {
 
-            fromDatePicker.Value = DateTime.Now;
-            toDatePicker.Value = DateTime.Now;
+            fromDatePicker.Value = DateTime.Now.Date;
+            toDatePicker.Value = DateTime.Now.Date;
             btnGenerate.Enabled = false;
         }
         void LoadStats()
@@ -128,8 +130,8 @@ namespace Abhi_Silver_Plating_Shop
             LoadCustomers();
             PopulateReportGrid();
             ClearForm();
-            fromDatePicker.MaxDate = DateTime.Today;
-            toDatePicker.MaxDate = DateTime.Today;
+            fromDatePicker.MaxDate = DateTime.Now.Date;
+            toDatePicker.MaxDate = DateTime.Now.Date;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
