@@ -4,11 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using iText.Kernel.Geom;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Layout.Properties;
 using System.IO;
 using iText.Html2pdf;
 
@@ -172,57 +167,8 @@ namespace Abhi_Silver_Plating_Shop
                     HtmlConverter.ConvertToPdf(htmlReport, stream);
                     System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
                     string fullPath = System.IO.Path.GetFullPath(sdf.FileName);
-                    MessageBox.Show("Report Generated: " + fullPath);
+                    MessageBox.Show("PDF path: " + fullPath,"Report Generated");
                     webbrowser.Navigate(fullPath);
-
-                    /*  using PdfWriter pdfWriter = new(stream);
-
-                      using Document document = new(new PdfDocument(pdfWriter), PageSize.A4.Rotate(), false);
-                      document.Add(new Paragraph(Utility.appName)
-                              .SetFontSize(30)
-                              .SetTextAlignment(TextAlignment.CENTER)
-                              .SetBold());
-
-                      document.Add(new Paragraph("Report of " + stat.CustomerName.Capitalize())
-                              .SetFontSize(20)
-                              .SetTextAlignment(TextAlignment.CENTER)
-                              .SetBold())
-                              .Add(new Paragraph("Date :" + stat.FromDate))
-                              .SetTextAlignment(TextAlignment.RIGHT)
-                              .SetFontSize(10)
-                              .SetBold();
-
-                      document.Add(new Paragraph("Total Fine")
-                              .SetTextAlignment(TextAlignment.CENTER)
-                              .SetBold());
-                      Text textTotalfineDesc = new(stat.TotalFine.ToString());
-                      document.Add(new Paragraph(textTotalfineDesc)
-                              .SetTextAlignment(TextAlignment.CENTER));
-
-
-                      document.Add(new Paragraph("Total Incoming Weight")
-                            .SetTextAlignment(TextAlignment.CENTER)
-                            .SetBold());
-                      Text totalInWeighteDesc = new(stat.TotalInWeight.ToString());
-                      document.Add(new Paragraph(totalInWeighteDesc)
-                              .SetTextAlignment(TextAlignment.CENTER));
-
-
-                      document.Add(new Paragraph("Total Outgoing Weight")
-                            .SetTextAlignment(TextAlignment.CENTER)
-                            .SetBold());
-                      Text totlOutWeightDesc = new(stat.TotalOutWeight.ToString());
-                      document.Add(new Paragraph(totlOutWeightDesc)
-                              .SetTextAlignment(TextAlignment.CENTER));
-
-                      document.Add(new Paragraph("Total Amount")
-                            .SetTextAlignment(TextAlignment.CENTER)
-                            .SetBold());
-                      Text totalAmtDesc = new("Rs." + stat.TotalAmt.ToString());
-                      document.Add(new Paragraph(totalAmtDesc)
-                              .SetTextAlignment(TextAlignment.CENTER));*/
-
-
 
                 }
                 catch (Exception ex)
