@@ -1,9 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Dapper;
 using System.Data;
 
@@ -42,6 +40,15 @@ namespace Abhi_Silver_Plating_Shop.Repository
         {
             using IDbConnection connection = new MySqlConnection(connectionString);
             connection.Execute(sql, parameters);
+        }
+
+        public DataTable PopulateGrid<T>(string sql, T parameters)
+        {
+            using IDbConnection connection = new MySqlConnection(connectionString);
+            IDataReader dataReader = connection.ExecuteReader(sql, parameters);
+            DataTable d = new();
+            d.Load(dataReader);
+            return d;
         }
     }
 }

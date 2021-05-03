@@ -185,7 +185,7 @@ namespace Abhi_Silver_Plating_Shop
             this.fromDatePicker.Location = new System.Drawing.Point(182, 280);
             this.fromDatePicker.Name = "fromDatePicker";
             this.fromDatePicker.Size = new System.Drawing.Size(185, 27);
-            this.fromDatePicker.TabIndex = 65;
+            this.fromDatePicker.TabIndex = 1;
             // 
             // panel4
             // 
@@ -235,7 +235,7 @@ namespace Abhi_Silver_Plating_Shop
             this.customerCombo.Location = new System.Drawing.Point(182, 205);
             this.customerCombo.Name = "customerCombo";
             this.customerCombo.Size = new System.Drawing.Size(185, 28);
-            this.customerCombo.TabIndex = 60;
+            this.customerCombo.TabIndex = 0;
             // 
             // label3
             // 
@@ -298,7 +298,7 @@ namespace Abhi_Silver_Plating_Shop
             this.toDatePicker.Location = new System.Drawing.Point(182, 360);
             this.toDatePicker.Name = "toDatePicker";
             this.toDatePicker.Size = new System.Drawing.Size(185, 27);
-            this.toDatePicker.TabIndex = 92;
+            this.toDatePicker.TabIndex = 2;
             // 
             // label4
             // 
@@ -351,7 +351,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnGenerate.Location = new System.Drawing.Point(182, 441);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(185, 49);
-            this.btnGenerate.TabIndex = 95;
+            this.btnGenerate.TabIndex = 4;
             this.btnGenerate.Text = "Generate Report";
             this.btnGenerate.UseVisualStyleBackColor = false;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
@@ -364,7 +364,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnLoadData.Location = new System.Drawing.Point(35, 441);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(115, 49);
-            this.btnLoadData.TabIndex = 96;
+            this.btnLoadData.TabIndex = 3;
             this.btnLoadData.Text = "Load Data";
             this.btnLoadData.UseVisualStyleBackColor = false;
             this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
@@ -384,7 +384,7 @@ namespace Abhi_Silver_Plating_Shop
             this.reportGridView.RowTemplate.Height = 29;
             this.reportGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.reportGridView.Size = new System.Drawing.Size(918, 409);
-            this.reportGridView.TabIndex = 97;
+            this.reportGridView.TabIndex = 5;
             // 
             // ReportForm
             // 

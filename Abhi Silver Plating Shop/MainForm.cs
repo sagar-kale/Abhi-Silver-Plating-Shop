@@ -1,6 +1,7 @@
 ﻿using Abhi_Silver_Plating_Shop.Utils;
 using MaterialSkin;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -45,6 +46,7 @@ namespace Abhi_Silver_Plating_Shop
             {
                 menuUser.Enabled = false;
             }
+            menuStrip1.Renderer = new MenuRenderer();
         }
 
         private void menuCustomer_Click(object sender, EventArgs e)
@@ -70,11 +72,41 @@ namespace Abhi_Silver_Plating_Shop
         private void menuOrder_Click(object sender, EventArgs e)
         {
             new OrderForm().Show();
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void menuReports_Click(object sender, EventArgs e)
         {
             new ReportForm().Show();
+        }
+
+        private class MenuRenderer : ToolStripProfessionalRenderer
+        {
+            public MenuRenderer() : base(new MyColors()) { }
+        }
+
+        private class MyColors : ProfessionalColorTable
+        {
+            public override Color MenuItemSelectedGradientBegin
+            {
+                get { return Color.Orange; }
+            }
+            public override Color MenuItemSelectedGradientEnd
+            {
+                get { return Color.Yellow; }
+            }
+            public override Color MenuItemPressedGradientBegin
+            {
+                get { return Color.Yellow; }
+            }
+            public override Color MenuItemPressedGradientEnd
+            {
+                get { return Color.Orange; }
+            }
+            public override Color MenuItemSelected
+            {
+                get { return Color.Gold; }
+            }
         }
     }
 }

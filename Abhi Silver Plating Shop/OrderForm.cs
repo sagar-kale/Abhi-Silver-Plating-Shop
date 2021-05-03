@@ -2,6 +2,7 @@
 using Abhi_Silver_Plating_Shop.Utils;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -15,6 +16,7 @@ namespace Abhi_Silver_Plating_Shop
         {
             InitializeComponent();
             orderService = new OrderService();
+            Cursor.Current = Cursors.Default;
         }
 
         void LoadItems()
@@ -44,7 +46,7 @@ namespace Abhi_Silver_Plating_Shop
             // double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
             // double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
             Model.Stat stat = CalculateStats();
-            lblAmt.Text = "Rs. " + stat.TotalAmt;
+            lblAmt.Text = "Rs. " + Math.Round(stat.TotalAmt,2);
             lblInWeight.Text = stat.TotalInWeight.ToString();
             lblOutWeight.Text = stat.TotalOutWeight.ToString();
             lblFine.Text = stat.TotalFine.ToString();
@@ -300,5 +302,34 @@ namespace Abhi_Silver_Plating_Shop
         {
         }
 
+        private void btnAdd_Enter(object sender, EventArgs e)
+        {
+            btnAdd.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnAdd_Leave(object sender, EventArgs e)
+        {
+            btnAdd.BackColor = Control.DefaultBackColor;
+        }
+
+        private void btnEdit_Enter(object sender, EventArgs e)
+        {
+            btnEdit.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnEdit_Leave(object sender, EventArgs e)
+        {
+            btnEdit.BackColor = Control.DefaultBackColor;
+        }
+
+        private void btnClear_Enter(object sender, EventArgs e)
+        {
+            btnClear.BackColor = Color.CornflowerBlue;
+        }
+
+        private void btnClear_Leave(object sender, EventArgs e)
+        {
+            btnClear.BackColor = Control.DefaultBackColor;
+        }
     }
 }

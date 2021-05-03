@@ -90,7 +90,7 @@ namespace Abhi_Silver_Plating_Shop
             this.ckbkShowPwd.Location = new System.Drawing.Point(76, 286);
             this.ckbkShowPwd.Name = "ckbkShowPwd";
             this.ckbkShowPwd.Size = new System.Drawing.Size(145, 24);
-            this.ckbkShowPwd.TabIndex = 8;
+            this.ckbkShowPwd.TabIndex = 5;
             this.ckbkShowPwd.Text = "Show Password";
             this.ckbkShowPwd.UseVisualStyleBackColor = true;
             this.ckbkShowPwd.CheckedChanged += new System.EventHandler(this.ckbkShowPwd_CheckedChanged);
@@ -103,7 +103,7 @@ namespace Abhi_Silver_Plating_Shop
             this.lblClear.Location = new System.Drawing.Point(21, 287);
             this.lblClear.Name = "lblClear";
             this.lblClear.Size = new System.Drawing.Size(49, 20);
-            this.lblClear.TabIndex = 7;
+            this.lblClear.TabIndex = 4;
             this.lblClear.Text = "Clear";
             this.lblClear.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -162,7 +162,7 @@ namespace Abhi_Silver_Plating_Shop
             this.lblCancel.Location = new System.Drawing.Point(476, 0);
             this.lblCancel.Name = "lblCancel";
             this.lblCancel.Size = new System.Drawing.Size(35, 38);
-            this.lblCancel.TabIndex = 9;
+            this.lblCancel.TabIndex = 6;
             this.lblCancel.Text = "X";
             this.lblCancel.Click += new System.EventHandler(this.lblCancel_Click);
             // 

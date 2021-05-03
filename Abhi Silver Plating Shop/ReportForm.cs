@@ -6,6 +6,7 @@ using System.Data;
 using System.Windows.Forms;
 using System.IO;
 using iText.Html2pdf;
+using Abhi_Silver_Plating_Shop.Repository;
 
 namespace Abhi_Silver_Plating_Shop
 {
@@ -69,7 +70,7 @@ namespace Abhi_Silver_Plating_Shop
         }
         void LoadCustomers()
         {
-            DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Repository.Queries.CUSTOMER_SELECT_QUERY);
+            DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Queries.CUSTOMER_SELECT_QUERY);
             this.customerCombo.DataSource = dataTable;
             this.customerCombo.DisplayMember = "name";
             this.customerCombo.ValueMember = "customerId";
@@ -86,13 +87,13 @@ namespace Abhi_Silver_Plating_Shop
             // double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
             // double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
             Model.Stat stat = CalculateStats();
-            lblAmt.Text = "Rs. " + stat.TotalAmt;
+            lblAmt.Text = "Rs. " + Math.Round(stat.TotalAmt,2); ;
             lblInWeight.Text = stat.TotalInWeight.ToString();
             lblOutWeight.Text = stat.TotalOutWeight.ToString();
             lblFine.Text = stat.TotalFine.ToString();
 
-            string date = Repository.DataAccess.Instance.LoadSingleData<string, dynamic>(
-              Repository.Queries.ORDER_LAST_PLACED_BY_CUSTOMER,
+            string date = DataAccess.Instance.LoadSingleData<string, dynamic>(
+              Queries.ORDER_LAST_PLACED_BY_CUSTOMER,
               new { customerId = customerCombo.SelectedValue.ToString() });
 
             lblLastOrderPlaced.Text = date.FormatDate();
@@ -102,11 +103,21 @@ namespace Abhi_Silver_Plating_Shop
 
         void PopulateReportGrid()
         {
-            DataTable dataTable = new Repository.BaseDao()
+            /*DataTable dataTable = new Repository.BaseDao()
                 .PopulateReportData(Repository.Queries.ORDER_SELECT_QUERY_BY_CUSTOMER,
                                     customerCombo.SelectedValue.ToString(),
                                     fromDatePicker.Value.Date,
-                                    toDatePicker.Value.Date);
+            
+            toDatePicker.Value.Date); */
+
+            DataTable dataTable = DataAccess.Instance.PopulateGrid<dynamic>(
+                Queries.ORDER_SELECT_QUERY_BY_CUSTOMER,
+                new
+                {
+                    customerId = customerCombo.SelectedValue.ToString(),
+                    fromDate = fromDatePicker.Value.Date,
+                    toDate = toDatePicker.Value.Date
+                });
 
             reportGridView.DataSource = dataTable;
             reportGridView.Columns["date"].DefaultCellStyle.Format = "dd-MMM-yyyy";

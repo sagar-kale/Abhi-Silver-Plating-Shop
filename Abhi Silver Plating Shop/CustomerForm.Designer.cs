@@ -35,6 +35,7 @@ namespace Abhi_Silver_Plating_Shop
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.customerGridView = new System.Windows.Forms.DataGridView();
+            this.combo = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.txtCustName = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCustAddr = new MaterialSkin.Controls.MaterialTextBox();
             this.txtCustEmail = new MaterialSkin.Controls.MaterialTextBox();
@@ -106,6 +107,8 @@ namespace Abhi_Silver_Plating_Shop
             this.customerGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.customerGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.customerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customerGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.combo});
             this.customerGridView.Location = new System.Drawing.Point(386, 173);
             this.customerGridView.Name = "customerGridView";
             this.customerGridView.ReadOnly = true;
@@ -113,8 +116,15 @@ namespace Abhi_Silver_Plating_Shop
             this.customerGridView.RowTemplate.Height = 29;
             this.customerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customerGridView.Size = new System.Drawing.Size(666, 512);
-            this.customerGridView.TabIndex = 3;
+            this.customerGridView.TabIndex = 10;
             this.customerGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.customerGridView_CellContentClick);
+            // 
+            // combo
+            // 
+            this.combo.HeaderText = "Commbo";
+            this.combo.MinimumWidth = 6;
+            this.combo.Name = "combo";
+            this.combo.ReadOnly = true;
             // 
             // txtCustName
             // 
@@ -129,7 +139,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustName.Multiline = false;
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(278, 50);
-            this.txtCustName.TabIndex = 4;
+            this.txtCustName.TabIndex = 1;
             this.txtCustName.Text = "";
             this.txtCustName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustName_KeyPress);
             // 
@@ -146,7 +156,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustAddr.Multiline = false;
             this.txtCustAddr.Name = "txtCustAddr";
             this.txtCustAddr.Size = new System.Drawing.Size(278, 50);
-            this.txtCustAddr.TabIndex = 5;
+            this.txtCustAddr.TabIndex = 2;
             this.txtCustAddr.Text = "";
             this.txtCustAddr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustAddr_KeyPress);
             // 
@@ -163,7 +173,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustEmail.Multiline = false;
             this.txtCustEmail.Name = "txtCustEmail";
             this.txtCustEmail.Size = new System.Drawing.Size(278, 50);
-            this.txtCustEmail.TabIndex = 6;
+            this.txtCustEmail.TabIndex = 3;
             this.txtCustEmail.Text = "";
             this.txtCustEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustEmail_KeyPress);
             // 
@@ -180,7 +190,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustMob.Multiline = false;
             this.txtCustMob.Name = "txtCustMob";
             this.txtCustMob.Size = new System.Drawing.Size(278, 50);
-            this.txtCustMob.TabIndex = 7;
+            this.txtCustMob.TabIndex = 4;
             this.txtCustMob.Text = "";
             this.txtCustMob.TextChanged += new System.EventHandler(this.txtCustMob_TextChanged);
             // 
@@ -199,7 +209,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 34);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Add";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = true;
@@ -221,7 +231,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 34);
-            this.btnEdit.TabIndex = 9;
+            this.btnEdit.TabIndex = 6;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEdit.UseAccentColor = true;
@@ -243,7 +253,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(88, 34);
-            this.btnDelete.TabIndex = 10;
+            this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = true;
@@ -265,7 +275,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 34);
-            this.btnClear.TabIndex = 11;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnClear.UseAccentColor = true;
@@ -300,7 +310,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(88, 34);
-            this.btnBack.TabIndex = 13;
+            this.btnBack.TabIndex = 9;
             this.btnBack.Text = "BACK";
             this.btnBack.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnBack.UseAccentColor = true;
@@ -369,5 +379,6 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialButton btnBack;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn combo;
     }
 }

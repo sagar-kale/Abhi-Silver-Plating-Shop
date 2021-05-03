@@ -89,7 +89,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(88, 34);
-            this.btnBack.TabIndex = 26;
+            this.btnBack.TabIndex = 6;
             this.btnBack.Text = "BACK";
             this.btnBack.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnBack.UseAccentColor = true;
@@ -111,7 +111,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(88, 34);
-            this.btnClear.TabIndex = 24;
+            this.btnClear.TabIndex = 5;
             this.btnClear.Text = "Clear";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnClear.UseAccentColor = true;
@@ -133,7 +133,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(88, 34);
-            this.btnDelete.TabIndex = 23;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnDelete.UseAccentColor = true;
@@ -155,7 +155,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(88, 34);
-            this.btnEdit.TabIndex = 22;
+            this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnEdit.UseAccentColor = true;
@@ -177,7 +177,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(88, 34);
-            this.btnAdd.TabIndex = 21;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Add";
             this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnAdd.UseAccentColor = true;
@@ -199,7 +199,7 @@ namespace Abhi_Silver_Plating_Shop
             this.itemGridView.RowTemplate.Height = 29;
             this.itemGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.itemGridView.Size = new System.Drawing.Size(666, 512);
-            this.itemGridView.TabIndex = 16;
+            this.itemGridView.TabIndex = 7;
             this.itemGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemGridView_CellContentClick);
             // 
             // label3
@@ -253,7 +253,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtItemName.Location = new System.Drawing.Point(51, 335);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(278, 27);
-            this.txtItemName.TabIndex = 28;
+            this.txtItemName.TabIndex = 1;
             this.txtItemName.TextChanged += new System.EventHandler(this.txtItemName_TextChanged);
             this.txtItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemName_KeyPress);
             // 

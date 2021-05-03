@@ -37,9 +37,6 @@ namespace Abhi_Silver_Plating_Shop
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAdd = new MaterialSkin.Controls.MaterialButton();
-            this.btnEdit = new MaterialSkin.Controls.MaterialButton();
-            this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.customerCombo = new System.Windows.Forms.ComboBox();
@@ -74,6 +71,9 @@ namespace Abhi_Silver_Plating_Shop
             this.lblCreated = new System.Windows.Forms.Label();
             this.lblUpdate = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.orderGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -121,7 +121,7 @@ namespace Abhi_Silver_Plating_Shop
             this.orderGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGridView.ShowEditingIcon = false;
             this.orderGridView.Size = new System.Drawing.Size(981, 402);
-            this.orderGridView.TabIndex = 29;
+            this.orderGridView.TabIndex = 14;
             this.orderGridView.FilterStringChanged += new System.EventHandler<Zuby.ADGV.AdvancedDataGridView.FilterEventArgs>(this.orderGridView_FilterStringChanged);
             this.orderGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderGridView_CellContentClick);
             this.orderGridView.DoubleClick += new System.EventHandler(this.orderGridView_DoubleClick);
@@ -181,72 +181,6 @@ namespace Abhi_Silver_Plating_Shop
             this.label1.Size = new System.Drawing.Size(571, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "MANGALMURTI VIBRATOR SHOP";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoSize = false;
-            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnAdd.BackColor = System.Drawing.Color.Crimson;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAdd.Depth = 0;
-            this.btnAdd.DrawShadows = true;
-            this.btnAdd.HighEmphasis = true;
-            this.btnAdd.Icon = null;
-            this.btnAdd.Location = new System.Drawing.Point(16, 663);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(88, 34);
-            this.btnAdd.TabIndex = 9;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnAdd.UseAccentColor = true;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.AutoSize = false;
-            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnEdit.BackColor = System.Drawing.Color.Crimson;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnEdit.Depth = 0;
-            this.btnEdit.DrawShadows = true;
-            this.btnEdit.HighEmphasis = true;
-            this.btnEdit.Icon = null;
-            this.btnEdit.Location = new System.Drawing.Point(128, 663);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(88, 34);
-            this.btnEdit.TabIndex = 10;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnEdit.UseAccentColor = true;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.AutoSize = false;
-            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnClear.BackColor = System.Drawing.Color.Crimson;
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClear.Depth = 0;
-            this.btnClear.DrawShadows = true;
-            this.btnClear.HighEmphasis = true;
-            this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(239, 663);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(88, 34);
-            this.btnClear.TabIndex = 11;
-            this.btnClear.Text = "Clear";
-            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Outlined;
-            this.btnClear.UseAccentColor = true;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panel2
             // 
@@ -499,7 +433,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAddCust.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddCust.Name = "btnAddCust";
             this.btnAddCust.Size = new System.Drawing.Size(40, 51);
-            this.btnAddCust.TabIndex = 51;
+            this.btnAddCust.TabIndex = 13;
             this.btnAddCust.Text = "Add";
             this.btnAddCust.UseVisualStyleBackColor = true;
             this.btnAddCust.Click += new System.EventHandler(this.btnAddCust_Click);
@@ -513,7 +447,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnAddItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddItem.Name = "btnAddItem";
             this.btnAddItem.Size = new System.Drawing.Size(40, 51);
-            this.btnAddItem.TabIndex = 52;
+            this.btnAddItem.TabIndex = 12;
             this.btnAddItem.Text = "Add";
             this.btnAddItem.UseVisualStyleBackColor = true;
             this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
@@ -531,7 +465,7 @@ namespace Abhi_Silver_Plating_Shop
             this.txtTotalAmt.Multiline = false;
             this.txtTotalAmt.Name = "txtTotalAmt";
             this.txtTotalAmt.Size = new System.Drawing.Size(315, 50);
-            this.txtTotalAmt.TabIndex = 53;
+            this.txtTotalAmt.TabIndex = 8;
             this.txtTotalAmt.Text = "0";
             // 
             // panel6
@@ -607,11 +541,66 @@ namespace Abhi_Silver_Plating_Shop
             this.label19.TabIndex = 57;
             this.label19.Text = "Last Updated :";
             // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAdd.Location = new System.Drawing.Point(16, 663);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(94, 34);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Enter += new System.EventHandler(this.btnAdd_Enter);
+            this.btnAdd.Leave += new System.EventHandler(this.btnAdd_Leave);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.SystemColors.Control;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnClear.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnClear.Location = new System.Drawing.Point(237, 663);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(94, 34);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.Enter += new System.EventHandler(this.btnClear_Enter);
+            this.btnClear.Leave += new System.EventHandler(this.btnClear_Leave);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CornflowerBlue;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEdit.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEdit.Location = new System.Drawing.Point(128, 663);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(94, 34);
+            this.btnEdit.TabIndex = 10;
+            this.btnEdit.Text = "EDIT";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEdit.Enter += new System.EventHandler(this.btnEdit_Enter);
+            this.btnEdit.Leave += new System.EventHandler(this.btnEdit_Leave);
+            // 
             // OrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblUpdate);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.lblCreated);
@@ -641,9 +630,6 @@ namespace Abhi_Silver_Plating_Shop
             this.Controls.Add(this.itemCombo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnEdit);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OrderForm";
@@ -676,9 +662,6 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialButton btnAdd;
-        private MaterialSkin.Controls.MaterialButton btnEdit;
-        private MaterialSkin.Controls.MaterialButton btnClear;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox customerCombo;
@@ -713,5 +696,8 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Label lblCreated;
         private System.Windows.Forms.Label lblUpdate;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnEdit;
     }
 }
