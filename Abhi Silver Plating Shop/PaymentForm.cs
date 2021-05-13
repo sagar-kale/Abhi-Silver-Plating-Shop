@@ -13,9 +13,18 @@ namespace Abhi_Silver_Plating_Shop
     public partial class PaymentForm : Form
     {
         Dictionary<String, String> reportFormValues = null;
+        private bool isPaymentCompleted = false;
         public void SetValuesFromReport(Dictionary<String, String> reportForm)
         {
             this.reportFormValues = reportForm;
+        }
+
+        public bool IsPaymentCompleted // retrieving a value from
+        {
+            get
+            {
+                return this.isPaymentCompleted;
+            }
         }
         public PaymentForm()
         {
@@ -39,7 +48,14 @@ namespace Abhi_Silver_Plating_Shop
 
         private void label2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnPayFull_Click(object sender, EventArgs e)
+        {
+            isPaymentCompleted = true;
+            MessageBox.Show("Payment completed...");
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

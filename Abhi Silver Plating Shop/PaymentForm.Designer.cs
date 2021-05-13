@@ -129,6 +129,7 @@ namespace Abhi_Silver_Plating_Shop
             this.btnPayFull.TabIndex = 98;
             this.btnPayFull.Text = "Pay Full";
             this.btnPayFull.UseVisualStyleBackColor = false;
+            this.btnPayFull.Click += new System.EventHandler(this.btnPayFull_Click);
             // 
             // label11
             // 

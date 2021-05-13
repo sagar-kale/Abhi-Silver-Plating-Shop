@@ -14,6 +14,7 @@ namespace Abhi_Silver_Plating_Shop
     {
         private readonly int ZERO = 0;
         private Model.Stat statastics = null;
+        private bool isPaymentDone = false;
 
         public ReportForm()
         {
@@ -38,7 +39,11 @@ namespace Abhi_Silver_Plating_Shop
                 reportForm.Add("totalAmount", statastics.TotalAmt.ToString());
                 reportForm.Add("totalFine", statastics.TotalFine.ToString());
                 paymentForm.SetValuesFromReport(reportForm);
-                paymentForm.ShowDialog(this);
+                paymentForm.ShowDialog();
+                isPaymentDone = paymentForm.IsPaymentCompleted;
+                if (reportGridView.RowCount > 0 && isPaymentDone == true)
+                    btnGenerate.Enabled = true;
+                this.Show();
 
                 return true;
             }
@@ -110,6 +115,7 @@ namespace Abhi_Silver_Plating_Shop
             toDatePicker.Value = DateTime.Now.Date;
             btnGenerate.Enabled = false;
             statastics = null;
+            isPaymentDone = false;
         }
         void LoadStats()
         {
@@ -201,7 +207,7 @@ namespace Abhi_Silver_Plating_Shop
         void GeneratePdf()
         {
 
-
+            isPaymentDone = false;
             Engine templateEngine = new();
 
             Model.ReportViewModel<Model.Stat> reportViewModel = new()
@@ -243,8 +249,6 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateReportGrid();
             setStat();
-            if (reportGridView.RowCount > 0)
-                btnGenerate.Enabled = true;
         }
     }
 }
