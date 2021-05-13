@@ -127,6 +127,10 @@
         table td.grand {
             border-top: 1px solid #5D6975;
         }
+		
+		table td.subcol {
+			text-align: right !important;
+		}
 
         #notices .notice {
             color: #5D6975;
@@ -199,16 +203,31 @@
                             <td class="unit">@order.Fine</td>
                             <td class="unit">@order.InWeight</td>
                             <td class="qty">@order.OutWeight</td>
-                            <td class="total">@order.TotalAmount</td>
+                            <td class="total subcol">@order.TotalAmount.ToString("F")</td>
                         </tr>
                     }
-
+					<tr>
+						<td class="subcol" colspan="5">TOTAL AMOUNT</td>
+						<td class="total subcol"><span>&#8377;</span>@Model.Obj.TotalAmt.ToString("F")</td>
+					</tr>
+					<tr>
+						<td class="subcol" colspan="5">TOTAL FINE</td>
+						<td class="total subcol">@Model.Obj.TotalFine</td>
+					</tr>
+					<tr>
+						<td class="subcol" colspan="5">PAID FINE</td>
+						<td class="total subcol">1300.00</td>
+					</tr>
+					<tr>
+						<td class="subcol" colspan="5">PAID AMONT</td>
+						<td class="total subcol"><span>&#8377;</span>1,300.00</td>
+					</tr>
                     <tr>
                         <td colspan="2" class="grand total">GRAND TOTAL</td>
                         <td class="grand total unit">@Model.Obj.TotalFine</td>
                         <td class="grand total unit">@Model.Obj.TotalInWeight</td>
                         <td class="grand total qty">@Model.Obj.TotalOutWeight</td>
-                        <td class="grand total qty"><span>&#8377;</span>@Math.Round(@Model.Obj.TotalAmt,2)</td>
+                        <td class="grand total qty subcol"><span>&#8377;</span>@Model.Obj.TotalAmt.ToString("F")</td>
                     </tr>
                 }
 

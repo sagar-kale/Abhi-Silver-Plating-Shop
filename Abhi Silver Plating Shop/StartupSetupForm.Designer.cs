@@ -57,17 +57,30 @@ namespace Abhi_Silver_Plating_Shop
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox();
             this.btnReset = new MaterialSkin.Controls.MaterialButton();
             this.btnTest = new MaterialSkin.Controls.MaterialButton();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtPin = new System.Windows.Forms.TextBox();
+            this.txtCity = new System.Windows.Forms.TextBox();
+            this.txtStreet = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.materialCard1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
             // 
             this.materialTabControl1.Controls.Add(this.tabPage1);
+            this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -156,8 +169,8 @@ namespace Abhi_Silver_Plating_Shop
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(374, 104);
             this.label5.TabIndex = 5;
-            this.label5.Text = "In order to start application please GO to menu and click on DB SETUP and enter d" +
-    "atabase details.";
+            this.label5.Text = "In order to start application please GO to menu and click on ADDRESS SETUP, DB SE" +
+    "TUP and enter database details.";
             // 
             // label4
             // 
@@ -443,6 +456,120 @@ namespace Abhi_Silver_Plating_Shop
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.txtPhone);
+            this.tabPage3.Controls.Add(this.txtPin);
+            this.tabPage3.Controls.Add(this.txtCity);
+            this.tabPage3.Controls.Add(this.txtStreet);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Controls.Add(this.label10);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.ImageKey = "icons8-address-100.png";
+            this.tabPage3.Location = new System.Drawing.Point(4, 37);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(897, 542);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Address Setup";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(274, 450);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(438, 44);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Add Address";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(274, 374);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(438, 27);
+            this.txtPhone.TabIndex = 8;
+            // 
+            // txtPin
+            // 
+            this.txtPin.Location = new System.Drawing.Point(274, 304);
+            this.txtPin.Name = "txtPin";
+            this.txtPin.Size = new System.Drawing.Size(438, 27);
+            this.txtPin.TabIndex = 7;
+            // 
+            // txtCity
+            // 
+            this.txtCity.Location = new System.Drawing.Point(274, 239);
+            this.txtCity.Name = "txtCity";
+            this.txtCity.Size = new System.Drawing.Size(438, 27);
+            this.txtCity.TabIndex = 6;
+            // 
+            // txtStreet
+            // 
+            this.txtStreet.Location = new System.Drawing.Point(274, 171);
+            this.txtStreet.Name = "txtStreet";
+            this.txtStreet.Size = new System.Drawing.Size(438, 27);
+            this.txtStreet.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(88, 374);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(53, 20);
+            this.label12.TabIndex = 4;
+            this.label12.Text = "Phone";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(88, 304);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 20);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Pincode";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(88, 242);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(35, 20);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "City";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(88, 174);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Address";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label8.Location = new System.Drawing.Point(287, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(221, 41);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Address Setup";
+            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -450,6 +577,7 @@ namespace Abhi_Silver_Plating_Shop
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "icons8-add-database-30.png");
             this.imageList1.Images.SetKeyName(1, "icons8-salute-50.png");
+            this.imageList1.Images.SetKeyName(2, "icons8-address-100.png");
             // 
             // StartupSetupForm
             // 
@@ -470,6 +598,8 @@ namespace Abhi_Silver_Plating_Shop
             this.tabPage2.PerformLayout();
             this.materialCard1.ResumeLayout(false);
             this.materialCard1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -503,5 +633,16 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.ListBox listBox1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialTextBox txtAppName;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtPin;
+        private System.Windows.Forms.TextBox txtCity;
+        private System.Windows.Forms.TextBox txtStreet;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }

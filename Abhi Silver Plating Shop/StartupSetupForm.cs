@@ -172,5 +172,17 @@ namespace Abhi_Silver_Plating_Shop
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            config.AppSettings.Settings["street"].Value = txtStreet.Text;
+            config.AppSettings.Settings["city"].Value = txtCity.Text;
+            config.AppSettings.Settings["pin"].Value = txtPin.Text;
+            config.AppSettings.Settings["phone"].Value = txtPhone.Text;
+            config.Save();
+            ConfigurationManager.RefreshSection("appSettings");
+            MessageBox.Show("Address stored success.");
+        }
     }
 }

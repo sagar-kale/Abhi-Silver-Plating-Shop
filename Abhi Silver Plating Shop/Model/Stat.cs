@@ -20,6 +20,7 @@ namespace Abhi_Silver_Plating_Shop.Model
         public double TotalFine { get; set; }
         public double TotalAmt { get; set; }
         public string CustomerName { get; set; }
+        public string CustomerId { get; set; }
         public string LastOrderPlaced { get; set; }
         public string FromDate { get; set; }
         public string ToDate { get; set; }
