@@ -27,6 +27,7 @@
 		<PackageReference Include="MaterialSkin.2" Version="2.1.4" />
 		<PackageReference Include="MuPDF.NET" Version="1.0.3" />
 		<PackageReference Include="MySql.Data" Version="8.0.24" />
+		<PackageReference Include="RawPrint" Version="0.5.0" />
 		<PackageReference Include="RazorEngineCore" Version="2021.3.1" />
 		<PackageReference Include="ReactiveUI.WinForms" Version="13.2.18" />
 		<PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />

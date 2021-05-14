@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using System.IO;
 using iText.Html2pdf;
 using Abhi_Silver_Plating_Shop.Repository;
+using iText.Kernel.Pdf;
+using RawPrint;
 
 namespace Abhi_Silver_Plating_Shop
 {
@@ -218,26 +220,44 @@ namespace Abhi_Silver_Plating_Shop
 
             string htmlReport = templateEngine.RenderHtmlTemplate(reportViewModel);
             Clipboard.SetText(htmlReport);
+            MemoryStream memory = new MemoryStream();
+            ConverterProperties converter = new();
 
-            using SaveFileDialog sdf = new() { Filter = "PDF file|*.pdf", ValidateNames = true };
-            if (sdf.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    using FileStream stream = new(sdf.FileName, FileMode.OpenOrCreate);
-                    ConverterProperties converter = new();
-                    HtmlConverter.ConvertToPdf(htmlReport, stream);
-                    System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
-                    string fullPath = Path.GetFullPath(sdf.FileName);
-                    MessageBox.Show("PDF path: " + fullPath, "Report Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    webbrowser.Navigate(fullPath);
+            using FileStream fs = File.Create(Path.GetTempPath() + "temp.pdf");
+            HtmlConverter.ConvertToPdf(htmlReport, fs);
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+            // IPrinter printer = new Printer();
+            // printer.PrintRawFile("sagar", fs.Name);
+
+            System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
+            webbrowser.Navigate(fs.Name);
+            fs.Close();
+            // File.Delete(fs.Name);
+
+
+
+
+
+
+            /*  using SaveFileDialog sdf = new() { Filter = "PDF file|*.pdf", ValidateNames = true };
+              if (sdf.ShowDialog() == DialogResult.OK)
+              {
+                  try
+                  {
+                      using FileStream stream = new(sdf.FileName, FileMode.OpenOrCreate);
+                      ConverterProperties converter = new();
+                      HtmlConverter.ConvertToPdf(htmlReport, stream);
+                      System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
+                      string fullPath = Path.GetFullPath(sdf.FileName);
+                      MessageBox.Show("PDF path: " + fullPath, "Report Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      webbrowser.Navigate(fullPath);
+
+                  }
+                  catch (Exception ex)
+                  {
+                      MessageBox.Show(ex.Message);
+                  }
+              }*/
         }
 
         private void label2_Click(object sender, EventArgs e)
