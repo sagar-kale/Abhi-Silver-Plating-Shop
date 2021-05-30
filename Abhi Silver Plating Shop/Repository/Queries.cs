@@ -42,7 +42,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         public const string USER_SELECT_BY_USERNAME = "Select * from user_auth where username=@username;";
         public const string USER_INSERT_QUERY = "INSERT INTO user_auth VALUES(@username, @password, @name, @role);";
         public const string USER_UPDATE_QUERY = "UPDATE user_auth SET password = @password, name = @name, role = @role WHERE username = @username;";
-        public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";        
+        public const string USER_DELETE_QUERY = "DELETE FROM user_auth WHERE username = @username;";
 
         /// <summary>
         /// orders table queries
@@ -54,13 +54,22 @@ namespace Abhi_Silver_Plating_Shop.Repository
         " FROM orders o" + " INNER JOIN customers c ON o.customerId=c.customerId" +
         " INNER JOIN items i ON o.itemId=i.itemId;";
 
-        public const string ORDER_SELECT_QUERY_BY_CUSTOMER = "SELECT o.orderId, c.name as 'Customer Name'," +
+        public const string ORDER_SELECT_QUERY_BY_CUSTOMER_AND_DATE = "SELECT o.orderId, c.name as 'Customer Name'," +
         " i.name as 'Item Name', o.itemId, o.customerId,  o.in_weight, o.out_weight," +
         " o.fine, o.labour_rate, o.date, o.creation_date, o.last_modified, o.status, o.total_amount" +
         " FROM orders o" + " INNER JOIN customers c ON o.customerId=c.customerId" +
         " INNER JOIN items i ON o.itemId=i.itemId" +
         " WHERE o.customerId = @customerId" +
         " AND (o.date between @fromDate and @toDate);";
+
+        public const string ORDER_SELECT_QUERY_BY_CUSTOMER = "SELECT o.orderId, c.name as 'Customer Name'," +
+       " i.name as 'Item Name', o.itemId, o.customerId,  o.in_weight, o.out_weight," +
+       " o.fine, o.labour_rate, o.date, o.creation_date, o.last_modified, o.status, o.total_amount" +
+       " FROM orders o" + " INNER JOIN customers c ON o.customerId=c.customerId" +
+       " INNER JOIN items i ON o.itemId=i.itemId" +
+       " WHERE o.customerId = @customerId;";
+
+
 
         public const string ORDER_INSERT_QUERY = "INSERT INTO `orders`\n" +
                 "(`orderId`,\n" +
@@ -102,5 +111,12 @@ namespace Abhi_Silver_Plating_Shop.Repository
         public const string ORDER_TOTAL_FINE = "select sum(fine) as total_fine from orders; ";
         public const string ORDER_TOTAL_AMOUNT = "select sum(total_amount) as total_amount from orders; ";
         public const string ORDER_LAST_PLACED_BY_CUSTOMER = "select Max(creation_date) last_order_placed from orders where customerId=@customerId; ";
+
+        public const string SELECT_AMT_INVENTORY = "SELECT `amountId`, `customerId`, `amount`, `remainingFine`, `type`, `orderTotalAmt` FROM `amount_inventory`;";
+        public const string SELECT_AMT_INVENTORY_BY_CUSTOMER = "SELECT `amountId`, `customerId`, `amount`, `remainingFine`, `type`, `orderTotalAmt` FROM `amount_inventory` where customerId = @customerId;";
+        public const string AMT_INVENTORY_UPDATE_BY_CUSTOMER = "UPDATE `amount_inventory` SET `orderTotalAmt` = @orderTotalAmt, `amount` = @amount, `remainingFine` = @remainingFine, `type` = @type  WHERE customerId = @customerId;";
+        public const string AMT_INVENTORY_UPDATE_ORDER_AMT_FINE_BY_CUSTOMER = "UPDATE `amount_inventory` SET `orderTotalAmt` = @orderTotalAmt, `remainingFine` = @remainingFine WHERE customerId = @customerId;";
+
+        public const string PAYMENT_INSERT_QUERY = "INSERT INTO `payment_history` (`orderId`,`amountId`,`amount_paid`,`fine_paid`) VALUES (@orderId, @amountId, @amount_paid, @fine_paid);";
     }
 }

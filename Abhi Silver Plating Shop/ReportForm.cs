@@ -17,6 +17,7 @@ namespace Abhi_Silver_Plating_Shop
         private readonly int ZERO = 0;
         private Model.Stat statastics = null;
         private bool isPaymentDone = false;
+        private Model.CustomerAccount customerAccount = null;
 
         public ReportForm()
         {
@@ -25,7 +26,7 @@ namespace Abhi_Silver_Plating_Shop
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.F4))
+            if (keyData == (Keys.F5))
             {
                 if (statastics == null)
                 {
@@ -38,8 +39,9 @@ namespace Abhi_Silver_Plating_Shop
                 reportForm.Add("customerId", statastics.CustomerId);
                 reportForm.Add("fromDate", statastics.FromDate);
                 reportForm.Add("toDate", statastics.ToDate);
-                reportForm.Add("totalAmount", statastics.TotalAmt.ToString());
+                reportForm.Add("totalAmount", statastics.TotalAmt.ToString("F"));
                 reportForm.Add("totalFine", statastics.TotalFine.ToString());
+                reportForm.Add("routedFromOrder", "false");
                 paymentForm.SetValuesFromReport(reportForm);
                 paymentForm.ShowDialog();
                 isPaymentDone = paymentForm.IsPaymentCompleted;
@@ -110,6 +112,17 @@ namespace Abhi_Silver_Plating_Shop
             this.customerCombo.ValueMember = "customerId";
 
         }
+
+        void LoadCustomerAccount()
+        {
+
+            customerAccount = DataAccess.Instance.LoadSingleData<Model.CustomerAccount, dynamic>(
+                 Queries.SELECT_AMT_INVENTORY_BY_CUSTOMER,
+                 new { CustomerId = customerCombo.SelectedValue.ToString() });
+            int res = Utility.checkAccountTypeAndReturnValue(customerAccount.Type);
+            lblAmt.Text = "Rs. " + customerAccount.OrderTotalAmt.ToString("F");
+            lblFine.Text = customerAccount.RemainingFine.ToString();
+        }
         void ClearForm()
         {
 
@@ -124,7 +137,7 @@ namespace Abhi_Silver_Plating_Shop
             // double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
             // double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
             Model.Stat stat = CalculateStats();
-            lblAmt.Text = "Rs. " + Math.Round(stat.TotalAmt, 2); ;
+            lblAmt.Text = "Rs. " + stat.TotalAmt.ToString("F");
             lblInWeight.Text = stat.TotalInWeight.ToString();
             lblOutWeight.Text = stat.TotalOutWeight.ToString();
             lblFine.Text = stat.TotalFine.ToString();
@@ -140,21 +153,28 @@ namespace Abhi_Silver_Plating_Shop
 
         void PopulateReportGrid()
         {
-            /*DataTable dataTable = new Repository.BaseDao()
-                .PopulateReportData(Repository.Queries.ORDER_SELECT_QUERY_BY_CUSTOMER,
-                                    customerCombo.SelectedValue.ToString(),
-                                    fromDatePicker.Value.Date,
-            
-            toDatePicker.Value.Date); */
+            DataTable dataTable;
+            if (cmbType.SelectedItem.ToString() == "ALL")
+            {
+                dataTable = DataAccess.Instance.PopulateGrid<dynamic>(
+                  Queries.ORDER_SELECT_QUERY_BY_CUSTOMER,
+                  new
+                  {
+                      customerId = customerCombo.SelectedValue.ToString()
+                  });
 
-            DataTable dataTable = DataAccess.Instance.PopulateGrid<dynamic>(
-                Queries.ORDER_SELECT_QUERY_BY_CUSTOMER,
-                new
-                {
-                    customerId = customerCombo.SelectedValue.ToString(),
-                    fromDate = fromDatePicker.Value.Date,
-                    toDate = toDatePicker.Value.Date
-                });
+            }
+            else
+            {
+                dataTable = DataAccess.Instance.PopulateGrid<dynamic>(
+                  Queries.ORDER_SELECT_QUERY_BY_CUSTOMER_AND_DATE,
+                  new
+                  {
+                      customerId = customerCombo.SelectedValue.ToString(),
+                      fromDate = fromDatePicker.Value.Date,
+                      toDate = toDatePicker.Value.Date
+                  });
+            }
 
             reportGridView.DataSource = dataTable;
             reportGridView.Columns["date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
@@ -169,6 +189,7 @@ namespace Abhi_Silver_Plating_Shop
             reportGridView.Columns["status"].Visible = false;
 
             LoadStats();
+            LoadCustomerAccount();
         }
 
 
@@ -176,11 +197,14 @@ namespace Abhi_Silver_Plating_Shop
         private void ReportForm_Load(object sender, EventArgs e)
         {
             LoadCustomers();
+            cmbType.SelectedItem = "ALL";
             PopulateReportGrid();
             ClearForm();
             fromDatePicker.MaxDate = DateTime.Now.Date;
             toDatePicker.MaxDate = DateTime.Now.Date;
             label1.Text = Utility.appName;
+            toDatePicker.Enabled = false;
+            fromDatePicker.Enabled = false;
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -192,16 +216,7 @@ namespace Abhi_Silver_Plating_Shop
         void setStat()
         {
             statastics = CalculateStats();
-
-
-            Model.Address address = new()
-            {
-                City = Utility.GetEnvironmentProperty("city"),
-                Pincode = Utility.GetEnvironmentProperty("pin"),
-                Street = Utility.GetEnvironmentProperty("street"),
-                Phone = Utility.GetEnvironmentProperty("phone"),
-            };
-            statastics.Address = address;
+            statastics.Address = Utility.GetShopAddress();
             statastics.FromDate = fromDatePicker.Value.ToString("MMMM dd, yyyy");
             statastics.ToDate = toDatePicker.Value.ToString("MMMM dd, yyyy");
         }
@@ -210,54 +225,7 @@ namespace Abhi_Silver_Plating_Shop
         {
 
             isPaymentDone = false;
-            Engine templateEngine = new();
-
-            Model.ReportViewModel<Model.Stat> reportViewModel = new()
-            {
-                Name = Utility.appName,
-                Obj = statastics
-            };
-
-            string htmlReport = templateEngine.RenderHtmlTemplate(reportViewModel);
-            Clipboard.SetText(htmlReport);
-            MemoryStream memory = new MemoryStream();
-            ConverterProperties converter = new();
-
-            using FileStream fs = File.Create(Path.GetTempPath() + "temp.pdf");
-            HtmlConverter.ConvertToPdf(htmlReport, fs);
-
-            // IPrinter printer = new Printer();
-            // printer.PrintRawFile("sagar", fs.Name);
-
-            System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
-            webbrowser.Navigate(fs.Name);
-            fs.Close();
-            // File.Delete(fs.Name);
-
-
-
-
-
-
-            /*  using SaveFileDialog sdf = new() { Filter = "PDF file|*.pdf", ValidateNames = true };
-              if (sdf.ShowDialog() == DialogResult.OK)
-              {
-                  try
-                  {
-                      using FileStream stream = new(sdf.FileName, FileMode.OpenOrCreate);
-                      ConverterProperties converter = new();
-                      HtmlConverter.ConvertToPdf(htmlReport, stream);
-                      System.Windows.Controls.WebBrowser webbrowser = new System.Windows.Controls.WebBrowser();
-                      string fullPath = Path.GetFullPath(sdf.FileName);
-                      MessageBox.Show("PDF path: " + fullPath, "Report Generated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                      webbrowser.Navigate(fullPath);
-
-                  }
-                  catch (Exception ex)
-                  {
-                      MessageBox.Show(ex.Message);
-                  }
-              }*/
+            Utility.GeneratePdf(statastics);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -269,6 +237,20 @@ namespace Abhi_Silver_Plating_Shop
         {
             PopulateReportGrid();
             setStat();
+        }
+
+        private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbType.SelectedItem.ToString() == "DATEWISE")
+            {
+                fromDatePicker.Enabled = true;
+                toDatePicker.Enabled = true;
+            }
+            else
+            {
+                fromDatePicker.Enabled = false;
+                toDatePicker.Enabled = false;
+            }
         }
     }
 }

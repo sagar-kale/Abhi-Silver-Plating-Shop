@@ -172,10 +172,7 @@
                 <span>REPORT DT </span> @DateTime.Now.ToString("MMMM dd, yyyy")
             </div>
             <div>
-                <span>DATE FROM </span> @Model.Obj.FromDate
-            </div>
-            <div>
-                <span>DATE TO </span> @Model.Obj.ToDate
+                <span>PAYMENT </span> <b>NOT DONE </b>
             </div>
         </div>
     </header>
@@ -221,14 +218,6 @@
 					<tr>
 						<td class="subcol" colspan="5">TOTAL FINE</td>
 						<td class="total subcol">@Model.Obj.TotalFine.ToString("F")</td>
-					</tr>
-					<tr>
-						<td class="subcol" colspan="5">PAID FINE</td>
-						<td class="total subcol">@Model.Obj.PaidFine.ToString("F")</td>
-					</tr>
-					<tr>
-						<td class="subcol" colspan="5">PAID AMONT</td>
-						<td class="total subcol"><span>&#8377;</span>@Model.Obj.PaidAmt.ToString("F")</td>
 					</tr>
                     <tr>
                         <td colspan="2" class="grand total">GRAND TOTAL</td>

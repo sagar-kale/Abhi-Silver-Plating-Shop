@@ -10,9 +10,16 @@ namespace Abhi_Silver_Plating_Shop.TemplateEngine
         public Engine()
         {
         }
-        public string RenderHtmlTemplate<T>(ReportViewModel<T> reportViewModel)
+        public string RenderHtmlTemplate<T>(ReportViewModel<T> reportViewModel, string type = "DEFAULT")
         {
-            string path = string.Format("{0}\\templates\\default-report.cshtml", Directory.GetCurrentDirectory());
+            string path = null;
+            if (type == "DEFAULT")
+            {
+                path = string.Format("{0}\\templates\\default-report.cshtml", Directory.GetCurrentDirectory());
+            } else
+            {
+                path = string.Format("{0}\\templates\\single-order-report.cshtml", Directory.GetCurrentDirectory());
+            }
             string razorHtml = System.Text.Encoding.UTF8.GetString(File.ReadAllBytes(path));
             IRazorEngine razorEngine = new RazorEngine();
             IRazorEngineCompiledTemplate template = razorEngine.Compile(razorHtml, builder =>

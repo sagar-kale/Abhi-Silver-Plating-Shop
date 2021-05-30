@@ -2,6 +2,7 @@
 using MaterialSkin;
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Abhi_Silver_Plating_Shop
@@ -71,12 +72,20 @@ namespace Abhi_Silver_Plating_Shop
 
         private void menuOrder_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<OrderForm>().Count() == 1)
+            {
+                Application.OpenForms.OfType<OrderForm>().First().Close();
+            }
             new OrderForm().Show();
             Cursor.Current = Cursors.WaitCursor;
         }
 
         private void menuReports_Click(object sender, EventArgs e)
         {
+            if (Application.OpenForms.OfType<ReportForm>().Count() == 1)
+            {
+                Application.OpenForms.OfType<ReportForm>().First().Close();
+            }
             new ReportForm().Show();
         }
 

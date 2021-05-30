@@ -1,11 +1,14 @@
 ﻿using Abhi_Silver_Plating_Shop.Enum;
+using Abhi_Silver_Plating_Shop.TemplateEngine;
 using FluentValidation;
 using FluentValidation.Results;
+using iText.Html2pdf;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -189,6 +192,66 @@ namespace Abhi_Silver_Plating_Shop.Utils
         public static string Capitalize(this string text)
         {
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
+        }
+
+        public static int checkAccountTypeAndReturnValue(string type)
+        {
+            if (type.ToUpper() == "DEBIT")
+            {
+                return 1;
+            }
+            else if (type.ToUpper() == "CREDIT")
+            {
+                return 2;
+            }
+            else if (type.ToUpper() == "N") // N is for if first payment done then show balance
+            {
+                return 3;
+            }
+            else
+            {
+                return 0; // NA type is for intial check.
+            }
+        }
+
+        public static Model.Address GetShopAddress()
+        {
+            Model.Address address = new()
+            {
+                City = GetEnvironmentProperty("city"),
+                Pincode = GetEnvironmentProperty("pin"),
+                Street = GetEnvironmentProperty("street"),
+                Phone = GetEnvironmentProperty("phone"),
+            };
+            return address;
+        }
+
+        public static void GeneratePdf(Model.Stat statastics, string type = "DEFAULT")
+        {
+            Engine templateEngine = new();
+
+            Model.ReportViewModel<Model.Stat> reportViewModel = new()
+            {
+                Name = appName,
+                Obj = statastics
+            };
+
+            string htmlReport;
+
+            if (type == "DEFAULT")
+                htmlReport = templateEngine.RenderHtmlTemplate(reportViewModel);
+            else
+                htmlReport = templateEngine.RenderHtmlTemplate(reportViewModel, type);
+
+            using FileStream fs = File.Create(Path.GetTempPath() + "report.pdf");
+            HtmlConverter.ConvertToPdf(htmlReport, fs);
+
+            // IPrinter printer = new Printer();
+            // printer.PrintRawFile("sagar", fs.Name);
+
+            System.Windows.Controls.WebBrowser webbrowser = new();
+            webbrowser.Navigate(fs.Name);
+            fs.Close();
         }
     }
 }

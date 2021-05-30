@@ -58,6 +58,8 @@ namespace Abhi_Silver_Plating_Shop
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnLoadData = new System.Windows.Forms.Button();
             this.reportGridView = new System.Windows.Forms.DataGridView();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -182,7 +184,7 @@ namespace Abhi_Silver_Plating_Shop
             // fromDatePicker
             // 
             this.fromDatePicker.CustomFormat = "";
-            this.fromDatePicker.Location = new System.Drawing.Point(182, 280);
+            this.fromDatePicker.Location = new System.Drawing.Point(182, 309);
             this.fromDatePicker.Name = "fromDatePicker";
             this.fromDatePicker.Size = new System.Drawing.Size(185, 27);
             this.fromDatePicker.TabIndex = 1;
@@ -211,7 +213,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(32, 280);
+            this.label11.Location = new System.Drawing.Point(32, 309);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(112, 28);
             this.label11.TabIndex = 79;
@@ -386,11 +388,35 @@ namespace Abhi_Silver_Plating_Shop
             this.reportGridView.Size = new System.Drawing.Size(918, 409);
             this.reportGridView.TabIndex = 5;
             // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "ALL",
+            "DATEWISE"});
+            this.cmbType.Location = new System.Drawing.Point(182, 257);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(185, 28);
+            this.cmbType.TabIndex = 95;
+            this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(32, 257);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 28);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "Type:";
+            // 
             // ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.reportGridView);
             this.Controls.Add(this.btnLoadData);
             this.Controls.Add(this.btnGenerate);
@@ -460,5 +486,7 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.Button btnGenerate;
         private System.Windows.Forms.Button btnLoadData;
         private System.Windows.Forms.DataGridView reportGridView;
+        private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Label label5;
     }
 }

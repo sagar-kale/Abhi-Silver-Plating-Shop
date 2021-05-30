@@ -29,23 +29,13 @@ namespace Abhi_Silver_Plating_Shop
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblLastOrderPlaced = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPayFull = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblAmt = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblFine = new System.Windows.Forms.Label();
-            this.btnPaySome = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotalAmt = new System.Windows.Forms.TextBox();
             this.txtTotalFine = new System.Windows.Forms.TextBox();
@@ -55,34 +45,20 @@ namespace Abhi_Silver_Plating_Shop
             this.txtCustId = new System.Windows.Forms.TextBox();
             this.txtFromDate = new System.Windows.Forms.TextBox();
             this.txtToDate = new System.Windows.Forms.TextBox();
-            this.panel7.SuspendLayout();
+            this.txtCreditAmt = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtDebitAmt = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPaidFine = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblLastOrderPlaced = new System.Windows.Forms.Label();
+            this.checkBoxUseCredit = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtPaidAmt = new System.Windows.Forms.TextBox();
+            this.btnPayLater = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblLastOrderPlaced
-            // 
-            this.lblLastOrderPlaced.AutoSize = true;
-            this.lblLastOrderPlaced.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblLastOrderPlaced.ForeColor = System.Drawing.Color.White;
-            this.lblLastOrderPlaced.Location = new System.Drawing.Point(24, 45);
-            this.lblLastOrderPlaced.Name = "lblLastOrderPlaced";
-            this.lblLastOrderPlaced.Size = new System.Drawing.Size(53, 21);
-            this.lblLastOrderPlaced.TabIndex = 46;
-            this.lblLastOrderPlaced.Text = "date";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(5, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(197, 23);
-            this.label7.TabIndex = 46;
-            this.label7.Text = "Last Payment Done";
             // 
             // label3
             // 
@@ -123,11 +99,11 @@ namespace Abhi_Silver_Plating_Shop
             this.btnPayFull.BackColor = System.Drawing.SystemColors.Control;
             this.btnPayFull.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnPayFull.ForeColor = System.Drawing.Color.Crimson;
-            this.btnPayFull.Location = new System.Drawing.Point(39, 441);
+            this.btnPayFull.Location = new System.Drawing.Point(188, 592);
             this.btnPayFull.Name = "btnPayFull";
-            this.btnPayFull.Size = new System.Drawing.Size(115, 49);
+            this.btnPayFull.Size = new System.Drawing.Size(239, 49);
             this.btnPayFull.TabIndex = 98;
-            this.btnPayFull.Text = "Pay Full";
+            this.btnPayFull.Text = "Make Payment";
             this.btnPayFull.UseVisualStyleBackColor = false;
             this.btnPayFull.Click += new System.EventHandler(this.btnPayFull_Click);
             // 
@@ -135,21 +111,11 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(34, 329);
+            this.label11.Location = new System.Drawing.Point(20, 373);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(104, 28);
             this.label11.TabIndex = 104;
             this.label11.Text = "Total Fine:";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.Crimson;
-            this.panel7.Controls.Add(this.lblLastOrderPlaced);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(668, 578);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(247, 107);
-            this.panel7.TabIndex = 110;
             // 
             // panel2
             // 
@@ -172,106 +138,30 @@ namespace Abhi_Silver_Plating_Shop
             this.panel1.Size = new System.Drawing.Size(1006, 105);
             this.panel1.TabIndex = 101;
             // 
-            // lblAmt
-            // 
-            this.lblAmt.AutoSize = true;
-            this.lblAmt.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAmt.ForeColor = System.Drawing.Color.White;
-            this.lblAmt.Location = new System.Drawing.Point(26, 45);
-            this.lblAmt.Name = "lblAmt";
-            this.lblAmt.Size = new System.Drawing.Size(83, 21);
-            this.lblAmt.TabIndex = 46;
-            this.lblAmt.Text = "Amount";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(5, 4);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(157, 23);
-            this.label15.TabIndex = 46;
-            this.label15.Text = "Orders Amount";
-            // 
-            // lblFine
-            // 
-            this.lblFine.AutoSize = true;
-            this.lblFine.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFine.ForeColor = System.Drawing.Color.White;
-            this.lblFine.Location = new System.Drawing.Point(24, 45);
-            this.lblFine.Name = "lblFine";
-            this.lblFine.Size = new System.Drawing.Size(45, 21);
-            this.lblFine.TabIndex = 46;
-            this.lblFine.Text = "Fine";
-            // 
-            // btnPaySome
-            // 
-            this.btnPaySome.BackColor = System.Drawing.SystemColors.Control;
-            this.btnPaySome.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPaySome.ForeColor = System.Drawing.Color.Crimson;
-            this.btnPaySome.Location = new System.Drawing.Point(251, 441);
-            this.btnPaySome.Name = "btnPaySome";
-            this.btnPaySome.Size = new System.Drawing.Size(185, 49);
-            this.btnPaySome.TabIndex = 99;
-            this.btnPaySome.Text = "Pay Some";
-            this.btnPaySome.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.RoyalBlue;
-            this.panel5.Controls.Add(this.lblFine);
-            this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(362, 582);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(216, 107);
-            this.panel5.TabIndex = 107;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(5, 4);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(101, 23);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Total Fine";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.ForestGreen;
-            this.panel4.Controls.Add(this.lblAmt);
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Location = new System.Drawing.Point(34, 582);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(216, 107);
-            this.panel4.TabIndex = 106;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(34, 257);
+            this.label6.Location = new System.Drawing.Point(20, 323);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(140, 28);
             this.label6.TabIndex = 103;
             this.label6.Text = "Total Amount:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtTotalAmt
             // 
             this.txtTotalAmt.Enabled = false;
-            this.txtTotalAmt.Location = new System.Drawing.Point(246, 257);
+            this.txtTotalAmt.Location = new System.Drawing.Point(232, 326);
             this.txtTotalAmt.Name = "txtTotalAmt";
             this.txtTotalAmt.Size = new System.Drawing.Size(183, 27);
             this.txtTotalAmt.TabIndex = 111;
+            this.txtTotalAmt.TextChanged += new System.EventHandler(this.txtTotalAmt_TextChanged);
             // 
             // txtTotalFine
             // 
             this.txtTotalFine.Enabled = false;
-            this.txtTotalFine.Location = new System.Drawing.Point(246, 329);
+            this.txtTotalFine.Location = new System.Drawing.Point(232, 376);
             this.txtTotalFine.Name = "txtTotalFine";
             this.txtTotalFine.Size = new System.Drawing.Size(183, 27);
             this.txtTotalFine.TabIndex = 112;
@@ -280,7 +170,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(518, 329);
+            this.label4.Location = new System.Drawing.Point(504, 320);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 28);
             this.label4.TabIndex = 116;
@@ -290,7 +180,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(518, 257);
+            this.label5.Location = new System.Drawing.Point(504, 269);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 28);
             this.label5.TabIndex = 115;
@@ -300,7 +190,7 @@ namespace Abhi_Silver_Plating_Shop
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(32, 174);
+            this.label8.Location = new System.Drawing.Point(18, 267);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 28);
             this.label8.TabIndex = 118;
@@ -309,7 +199,7 @@ namespace Abhi_Silver_Plating_Shop
             // txtCustId
             // 
             this.txtCustId.Enabled = false;
-            this.txtCustId.Location = new System.Drawing.Point(246, 178);
+            this.txtCustId.Location = new System.Drawing.Point(232, 271);
             this.txtCustId.Name = "txtCustId";
             this.txtCustId.Size = new System.Drawing.Size(183, 27);
             this.txtCustId.TabIndex = 119;
@@ -317,7 +207,7 @@ namespace Abhi_Silver_Plating_Shop
             // txtFromDate
             // 
             this.txtFromDate.Enabled = false;
-            this.txtFromDate.Location = new System.Drawing.Point(668, 258);
+            this.txtFromDate.Location = new System.Drawing.Point(654, 270);
             this.txtFromDate.Name = "txtFromDate";
             this.txtFromDate.Size = new System.Drawing.Size(202, 27);
             this.txtFromDate.TabIndex = 120;
@@ -325,16 +215,146 @@ namespace Abhi_Silver_Plating_Shop
             // txtToDate
             // 
             this.txtToDate.Enabled = false;
-            this.txtToDate.Location = new System.Drawing.Point(668, 333);
+            this.txtToDate.Location = new System.Drawing.Point(654, 322);
             this.txtToDate.Name = "txtToDate";
             this.txtToDate.Size = new System.Drawing.Size(202, 27);
             this.txtToDate.TabIndex = 121;
+            // 
+            // txtCreditAmt
+            // 
+            this.txtCreditAmt.Enabled = false;
+            this.txtCreditAmt.Location = new System.Drawing.Point(232, 429);
+            this.txtCreditAmt.Name = "txtCreditAmt";
+            this.txtCreditAmt.Size = new System.Drawing.Size(183, 27);
+            this.txtCreditAmt.TabIndex = 122;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(20, 425);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 28);
+            this.label9.TabIndex = 123;
+            this.label9.Text = "जमा :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(21, 480);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 28);
+            this.label10.TabIndex = 125;
+            this.label10.Text = "ऊधार :";
+            // 
+            // txtDebitAmt
+            // 
+            this.txtDebitAmt.Enabled = false;
+            this.txtDebitAmt.Location = new System.Drawing.Point(232, 484);
+            this.txtDebitAmt.Name = "txtDebitAmt";
+            this.txtDebitAmt.Size = new System.Drawing.Size(183, 27);
+            this.txtDebitAmt.TabIndex = 124;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.Location = new System.Drawing.Point(504, 377);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(99, 28);
+            this.label13.TabIndex = 129;
+            this.label13.Text = "Paid Fine:";
+            // 
+            // txtPaidFine
+            // 
+            this.txtPaidFine.Location = new System.Drawing.Point(654, 377);
+            this.txtPaidFine.Name = "txtPaidFine";
+            this.txtPaidFine.Size = new System.Drawing.Size(202, 27);
+            this.txtPaidFine.TabIndex = 128;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(329, 157);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(197, 23);
+            this.label7.TabIndex = 130;
+            this.label7.Text = "Last Payment Done";
+            // 
+            // lblLastOrderPlaced
+            // 
+            this.lblLastOrderPlaced.AutoSize = true;
+            this.lblLastOrderPlaced.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblLastOrderPlaced.ForeColor = System.Drawing.Color.Black;
+            this.lblLastOrderPlaced.Location = new System.Drawing.Point(543, 159);
+            this.lblLastOrderPlaced.Name = "lblLastOrderPlaced";
+            this.lblLastOrderPlaced.Size = new System.Drawing.Size(53, 21);
+            this.lblLastOrderPlaced.TabIndex = 47;
+            this.lblLastOrderPlaced.Text = "date";
+            // 
+            // checkBoxUseCredit
+            // 
+            this.checkBoxUseCredit.AutoSize = true;
+            this.checkBoxUseCredit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxUseCredit.Location = new System.Drawing.Point(654, 432);
+            this.checkBoxUseCredit.Name = "checkBoxUseCredit";
+            this.checkBoxUseCredit.Size = new System.Drawing.Size(190, 32);
+            this.checkBoxUseCredit.TabIndex = 131;
+            this.checkBoxUseCredit.Text = "Use जमा Amount";
+            this.checkBoxUseCredit.UseVisualStyleBackColor = true;
+            this.checkBoxUseCredit.CheckedChanged += new System.EventHandler(this.checkBoxUseCredit_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.Location = new System.Drawing.Point(504, 484);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 28);
+            this.label12.TabIndex = 133;
+            this.label12.Text = "Paid Amt:";
+            // 
+            // txtPaidAmt
+            // 
+            this.txtPaidAmt.Location = new System.Drawing.Point(654, 484);
+            this.txtPaidAmt.Name = "txtPaidAmt";
+            this.txtPaidAmt.Size = new System.Drawing.Size(202, 27);
+            this.txtPaidAmt.TabIndex = 132;
+            // 
+            // btnPayLater
+            // 
+            this.btnPayLater.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPayLater.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPayLater.ForeColor = System.Drawing.Color.Crimson;
+            this.btnPayLater.Location = new System.Drawing.Point(532, 592);
+            this.btnPayLater.Name = "btnPayLater";
+            this.btnPayLater.Size = new System.Drawing.Size(253, 49);
+            this.btnPayLater.TabIndex = 134;
+            this.btnPayLater.Text = "Pay Later";
+            this.btnPayLater.UseVisualStyleBackColor = false;
+            this.btnPayLater.Click += new System.EventHandler(this.btnPayLater_Click);
             // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 768);
+            this.Controls.Add(this.btnPayLater);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtPaidAmt);
+            this.Controls.Add(this.checkBoxUseCredit);
+            this.Controls.Add(this.lblLastOrderPlaced);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.txtPaidFine);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtDebitAmt);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtCreditAmt);
             this.Controls.Add(this.txtToDate);
             this.Controls.Add(this.txtFromDate);
             this.Controls.Add(this.txtCustId);
@@ -345,49 +365,29 @@ namespace Abhi_Silver_Plating_Shop
             this.Controls.Add(this.txtTotalAmt);
             this.Controls.Add(this.btnPayFull);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnPaySome);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.label6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "PaymentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PaymentForm";
             this.Load += new System.EventHandler(this.PaymentForm_Load);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label lblLastOrderPlaced;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnPayFull;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblAmt;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label lblFine;
-        private System.Windows.Forms.Button btnPaySome;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotalAmt;
         private System.Windows.Forms.TextBox txtTotalFine;
@@ -397,5 +397,17 @@ namespace Abhi_Silver_Plating_Shop
         private System.Windows.Forms.TextBox txtCustId;
         private System.Windows.Forms.TextBox txtFromDate;
         private System.Windows.Forms.TextBox txtToDate;
+        private System.Windows.Forms.TextBox txtCreditAmt;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtDebitAmt;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtPaidFine;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblLastOrderPlaced;
+        private System.Windows.Forms.CheckBox checkBoxUseCredit;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtPaidAmt;
+        private System.Windows.Forms.Button btnPayLater;
     }
 }

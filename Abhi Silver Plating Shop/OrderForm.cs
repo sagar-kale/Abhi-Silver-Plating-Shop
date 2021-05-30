@@ -1,6 +1,7 @@
 ﻿using Abhi_Silver_Plating_Shop.Service;
 using Abhi_Silver_Plating_Shop.Utils;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -12,11 +13,102 @@ namespace Abhi_Silver_Plating_Shop
         private const int ZERO = 0;
         private readonly OrderService orderService = null;
         Model.Unit unit = null;
+        private static Model.Stat statastics = null;
+        private bool isPaymentDone = false;
         public OrderForm()
         {
             InitializeComponent();
             orderService = new OrderService();
             Cursor.Current = Cursors.Default;
+        }
+
+        void FillStat()
+        {
+            Model.CustomerAccount customerAccount = Repository
+                    .DataAccess.Instance.LoadSingleData<Model.CustomerAccount, dynamic>(
+               Repository.Queries.SELECT_AMT_INVENTORY_BY_CUSTOMER,
+               new { statastics.CustomerId });
+
+            int res = Utility.checkAccountTypeAndReturnValue(customerAccount.Type);
+            statastics.DebitAmt = res == 1 ? customerAccount.Amount : 0;
+            statastics.CreditAmt = res == 2 ? customerAccount.Amount : 0;
+            statastics.GrandAmt = res == 3 ? "0" : customerAccount.Amount.ToString("F") + "-" + customerAccount.Type;
+            statastics.RemainingFine = customerAccount.RemainingFine;
+            statastics.TotalAmt = customerAccount.OrderTotalAmt;
+            if (res == 0)
+            {
+                statastics.GrandAmt = txtTotalAmt.Text.ConvertElseZero().ToString("F");
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.F5))
+            {
+                if (statastics == null)
+                {
+                    MessageBox.Show("Please load data first");
+                    return true;
+                }
+                if (statastics.OrderStatus == "In Progress")
+                {
+                    MessageBox.Show("Can not proceed to payment with in progress order!!");
+                    return true;
+                }
+                this.Hide();
+                using PaymentForm paymentForm = new();
+                Dictionary<String, String> reportForm = new();
+                reportForm.Add("customerId", statastics.CustomerId);
+                reportForm.Add("fromDate", statastics.FromDate);
+                reportForm.Add("toDate", statastics.ToDate);
+                reportForm.Add("totalAmount", statastics.TotalAmt.ToString("F"));
+                reportForm.Add("totalFine", statastics.TotalFine.ToString());
+                reportForm.Add("routedFromOrder", "true");
+                reportForm.Add("orderId", statastics.Orders[0].OrderId);
+
+                paymentForm.SetValuesFromReport(reportForm);
+                paymentForm.ShowDialog();
+                if (paymentForm.DialogResult == DialogResult.OK)
+                {
+                    isPaymentDone = paymentForm.IsOrderPaymentCompleted;
+                    statastics.PaidAmt = paymentForm.GetPaymentStat.PaidAmt;
+                    statastics.PaidFine = paymentForm.GetPaymentStat.PaidFine;
+                    statastics.TotalFine = paymentForm.GetPaymentStat.TotalFine;
+                }
+
+                FillStat(); //making db call to amount_inventory table and fetching data assinging to stat obj
+
+                if (orderGridView.RowCount > 0 && isPaymentDone == true)
+                {
+                    // to-do print the payment receipt
+                    Cursor.Current = Cursors.WaitCursor;
+                    MessageBox.Show("printing ...");
+                    Utility.GeneratePdf(statastics);
+                    ClearForm();
+                }
+                this.Show();
+                Cursor.Current = Cursors.Default;
+
+                return true;
+            }
+
+            if (keyData == (Keys.F4)) // this key is used only to print the current order
+            {
+                if (statastics == null)
+                {
+                    MessageBox.Show("Please load data first");
+                    return true;
+                }
+
+                FillStat(); //making db call to amount_inventory table and fetching data assinging to stat obj
+                statastics.TotalFine = statastics.RemainingFine;
+                MessageBox.Show("printing ...");
+                Utility.GeneratePdf(statastics, "OTHER");
+                ClearForm();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         void LoadItems()
@@ -46,7 +138,7 @@ namespace Abhi_Silver_Plating_Shop
             // double totalAmt = orderService.FetchOrderByType(AppConstants.TOTAL_AMOUNT);
             // double totalFine = orderService.FetchOrderByType(AppConstants.TOTAL_FINE);
             Model.Stat stat = CalculateStats();
-            lblAmt.Text = "Rs. " + Math.Round(stat.TotalAmt,2);
+            lblAmt.Text = "Rs. " + Math.Round(stat.TotalAmt, 2);
             lblInWeight.Text = stat.TotalInWeight.ToString();
             lblOutWeight.Text = stat.TotalOutWeight.ToString();
             lblFine.Text = stat.TotalFine.ToString();
@@ -87,6 +179,7 @@ namespace Abhi_Silver_Plating_Shop
         void PopulateOrderGrid()
         {
             DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Repository.Queries.ORDER_SELECT_QUERY);
+            dataTable.DefaultView.Sort = "creation_date desc";
             orderGridView.DataSource = dataTable;
             orderGridView.Columns["date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
             orderGridView.Columns["orderId"].Visible = false;
@@ -109,7 +202,8 @@ namespace Abhi_Silver_Plating_Shop
             dateTimePicker.Value = DateTime.Now.Date;
             lblCreated.Text = "date";
             lblUpdate.Text = "date";
-
+            statastics = null;
+            isPaymentDone = false;
         }
 
         static bool CheckValidCustomerAndItem(Model.Order order)
@@ -195,6 +289,8 @@ namespace Abhi_Silver_Plating_Shop
             txtLabourRate.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("labour_rate");
             dateTimePicker.Value = ((DateTime)Utility.GetCells(orderGridView)["date"].Value);
             txtTotalAmt.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("total_amount");
+            string customerName = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("Customer Name");
+            string itemName = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("Item Name");
 
             DateTime creationDate = ((DateTime)Utility.GetCells(orderGridView)["creation_date"].Value);
             DateTime upadtedDate = ((DateTime)Utility.GetCells(orderGridView)["last_modified"].Value);
@@ -202,6 +298,38 @@ namespace Abhi_Silver_Plating_Shop
             lblCreated.Text = creationDate.TimeAgo();
             lblUpdate.Text = upadtedDate.TimeAgo();
 
+
+            Model.Order order = new Model.Order
+            {
+                OrderId = txtOrderId.Text,
+                InWeight = txtInWeight.Text.ConvertElseZero(),
+                ItemId = itemCombo.SelectedValue.ToString(),
+                ItemName = itemName,
+                CustomerId = customerCombo.SelectedValue.ToString(),
+                OutWeight = txtOutWeight.Text.ConvertElseZero(),
+                Fine = txtFine.Text.ConvertElseZero(),
+                TotalAmount = txtTotalAmt.Text.ConvertElseZero(),
+                LabourRate = txtLabourRate.Text.ConvertElseZero(),
+                Status = Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero()),
+                Date = dateTimePicker.Value,
+                CreatedDate = creationDate
+            };
+            List<Model.Order> orders = new();
+            orders.Add(order);
+            statastics = new Model.Stat
+            {
+                CustomerId = customerCombo.SelectedValue.ToString(),
+                CustomerName = customerName,
+                TotalAmt = txtTotalAmt.Text.ConvertElseZero(),
+                TotalFine = txtFine.Text.ConvertElseZero(),
+                TotalInWeight = txtInWeight.Text.ConvertElseZero(),
+                TotalOutWeight = txtOutWeight.Text.ConvertElseZero(),
+                FromDate = DateTime.Now.ToString("MMMM dd, yyyy"),
+                ToDate = DateTime.Now.ToString("MMMM dd, yyyy"),
+                OrderStatus = Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero()),
+                Orders = orders,
+                Address = Utility.GetShopAddress()
+            };
         }
 
         private void orderGridView_FilterStringChanged(object sender, Zuby.ADGV.AdvancedDataGridView.FilterEventArgs e)
@@ -235,6 +363,12 @@ namespace Abhi_Silver_Plating_Shop
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero()) == "Completed")
+            {
+                MessageBox.Show("Completed order can not be edited !!");
+                return;
+            }
+
             if (!String.IsNullOrWhiteSpace(txtOrderId.Text))
             {
 
