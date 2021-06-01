@@ -3,6 +3,7 @@ using Abhi_Silver_Plating_Shop.TemplateEngine;
 using FluentValidation;
 using FluentValidation.Results;
 using iText.Html2pdf;
+using RawPrint;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -246,11 +247,11 @@ namespace Abhi_Silver_Plating_Shop.Utils
             using FileStream fs = File.Create(Path.GetTempPath() + "report.pdf");
             HtmlConverter.ConvertToPdf(htmlReport, fs);
 
-            // IPrinter printer = new Printer();
-            // printer.PrintRawFile("sagar", fs.Name);
+            IPrinter printer = new Printer();
+            printer.PrintRawFile("Canon MF3010", fs.Name);
 
-            System.Windows.Controls.WebBrowser webbrowser = new();
-            webbrowser.Navigate(fs.Name);
+            /* System.Windows.Controls.WebBrowser webbrowser = new();
+             webbrowser.Navigate(fs.Name);*/
             fs.Close();
         }
     }

@@ -97,6 +97,12 @@ namespace Abhi_Silver_Plating_Shop
             txtTotalAmt.Text = customerAccount.OrderTotalAmt.ToString("F");
             txtTotalFine.Text = customerAccount.RemainingFine.ToString();
             txtPaidFine.Text = txtTotalFine.Text;
+
+            String date = dataAccess.LoadSingleData<String, dynamic>(Repository.Queries.PAYMENT_LAST_DATE, new { customerId = txtCustId.Text });
+            if (date != null)
+            {
+                lblLastOrderPlaced.Text = DateTime.ParseExact(date, "MM/dd/yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture).ToString("MMM dd, yyyy hh:mm tt");
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -167,7 +173,8 @@ namespace Abhi_Silver_Plating_Shop
                 OrderId = reportFormValues["orderId"],
                 customerAccount.AmountId,
                 amount_paid = paymentStat.PaidAmt,
-                fine_paid = paymentStat.PaidFine
+                fine_paid = paymentStat.PaidFine,
+                customerId = customerAccount.CustomerId
             });
 
             MessageBox.Show("Payment completed...");

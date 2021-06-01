@@ -42,6 +42,7 @@ namespace Abhi_Silver_Plating_Shop
                 reportForm.Add("totalAmount", statastics.TotalAmt.ToString("F"));
                 reportForm.Add("totalFine", statastics.TotalFine.ToString());
                 reportForm.Add("routedFromOrder", "false");
+                reportForm.Add("orderId", statastics.Orders[0].OrderId);
                 paymentForm.SetValuesFromReport(reportForm);
                 paymentForm.ShowDialog();
                 isPaymentDone = paymentForm.IsPaymentCompleted;
@@ -49,6 +50,19 @@ namespace Abhi_Silver_Plating_Shop
                     btnGenerate.Enabled = true;
                 this.Show();
 
+                return true;
+            }
+            else if (keyData == (Keys.F4))
+            {
+                if (statastics == null)
+                {
+                    MessageBox.Show("Please load data first");
+                    return true;
+                }
+
+                MessageBox.Show("Printing report...");
+                GeneratePdf(true);
+                ClearForm();
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);
@@ -102,6 +116,7 @@ namespace Abhi_Silver_Plating_Shop
             stat.TotalFine = totalFine;
             stat.TotalAmt = totalAmt;
             stat.Orders = orderList;
+
             return stat;
         }
         void LoadCustomers()
@@ -216,16 +231,32 @@ namespace Abhi_Silver_Plating_Shop
         void setStat()
         {
             statastics = CalculateStats();
+            if (customerAccount != null)
+            {
+                int res = Utility.checkAccountTypeAndReturnValue(customerAccount.Type);
+                statastics.DebitAmt = res == 1 ? customerAccount.Amount : 0;
+                statastics.CreditAmt = res == 2 ? customerAccount.Amount : 0;
+                statastics.GrandAmt = res == 3 ? "0" : customerAccount.Amount.ToString("F") + "-" + customerAccount.Type;
+                statastics.RemainingFine = customerAccount.RemainingFine;
+                statastics.TotalAmt = customerAccount.OrderTotalAmt;
+                statastics.TotalFine = statastics.RemainingFine;
+                if (res == 0)
+                {
+
+                    statastics.GrandAmt = statastics.TotalAmt.ToString("F");
+                }
+            }
+
             statastics.Address = Utility.GetShopAddress();
             statastics.FromDate = fromDatePicker.Value.ToString("MMMM dd, yyyy");
             statastics.ToDate = toDatePicker.Value.ToString("MMMM dd, yyyy");
         }
 
-        void GeneratePdf()
+        void GeneratePdf(bool isf4 = false)
         {
-
-            isPaymentDone = false;
-            Utility.GeneratePdf(statastics);
+            if (isf4 == false)
+                isPaymentDone = false;
+            Utility.GeneratePdf(statastics, "NOT_PAID_REPORT");
         }
 
         private void label2_Click(object sender, EventArgs e)

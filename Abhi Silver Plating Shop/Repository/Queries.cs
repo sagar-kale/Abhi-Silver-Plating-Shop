@@ -117,6 +117,7 @@ namespace Abhi_Silver_Plating_Shop.Repository
         public const string AMT_INVENTORY_UPDATE_BY_CUSTOMER = "UPDATE `amount_inventory` SET `orderTotalAmt` = @orderTotalAmt, `amount` = @amount, `remainingFine` = @remainingFine, `type` = @type  WHERE customerId = @customerId;";
         public const string AMT_INVENTORY_UPDATE_ORDER_AMT_FINE_BY_CUSTOMER = "UPDATE `amount_inventory` SET `orderTotalAmt` = @orderTotalAmt, `remainingFine` = @remainingFine WHERE customerId = @customerId;";
 
-        public const string PAYMENT_INSERT_QUERY = "INSERT INTO `payment_history` (`orderId`,`amountId`,`amount_paid`,`fine_paid`) VALUES (@orderId, @amountId, @amount_paid, @fine_paid);";
+        public const string PAYMENT_INSERT_QUERY = "INSERT INTO `payment_history` (`orderId`,`amountId`,`amount_paid`,`fine_paid`,`customerId`) VALUES (@orderId, @amountId, @amount_paid, @fine_paid, @customerId);";
+        public const string PAYMENT_LAST_DATE = "select Max(date) last_payment from payment_history where customerId=@customerId;";
     }
 }

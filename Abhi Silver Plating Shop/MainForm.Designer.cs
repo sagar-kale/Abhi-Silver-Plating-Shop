@@ -54,7 +54,8 @@ namespace Abhi_Silver_Plating_Shop
             this.menuReports});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1130, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(989, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -63,66 +64,67 @@ namespace Abhi_Silver_Plating_Shop
             this.menuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuClose});
             this.menuFile.Name = "menuFile";
-            this.menuFile.Size = new System.Drawing.Size(46, 24);
+            this.menuFile.Size = new System.Drawing.Size(37, 20);
             this.menuFile.Text = "File";
             // 
             // fileMenuClose
             // 
             this.fileMenuClose.Name = "fileMenuClose";
-            this.fileMenuClose.Size = new System.Drawing.Size(128, 26);
+            this.fileMenuClose.Size = new System.Drawing.Size(103, 22);
             this.fileMenuClose.Text = "Close";
             this.fileMenuClose.Click += new System.EventHandler(this.fileMenuClose_Click);
             // 
             // menuOrder
             // 
             this.menuOrder.Name = "menuOrder";
-            this.menuOrder.Size = new System.Drawing.Size(67, 24);
+            this.menuOrder.Size = new System.Drawing.Size(54, 20);
             this.menuOrder.Text = "Orders";
             this.menuOrder.Click += new System.EventHandler(this.menuOrder_Click);
             // 
             // menuUser
             // 
             this.menuUser.Name = "menuUser";
-            this.menuUser.Size = new System.Drawing.Size(58, 24);
+            this.menuUser.Size = new System.Drawing.Size(47, 20);
             this.menuUser.Text = "Users";
             this.menuUser.Click += new System.EventHandler(this.menuUser_Click);
             // 
             // menuCustomer
             // 
             this.menuCustomer.Name = "menuCustomer";
-            this.menuCustomer.Size = new System.Drawing.Size(86, 24);
+            this.menuCustomer.Size = new System.Drawing.Size(71, 20);
             this.menuCustomer.Text = "Customer";
             this.menuCustomer.Click += new System.EventHandler(this.menuCustomer_Click);
             // 
             // menuItem
             // 
             this.menuItem.Name = "menuItem";
-            this.menuItem.Size = new System.Drawing.Size(59, 24);
+            this.menuItem.Size = new System.Drawing.Size(48, 20);
             this.menuItem.Text = "Items";
             this.menuItem.Click += new System.EventHandler(this.menuItem_Click);
             // 
             // menuRate
             // 
             this.menuRate.Name = "menuRate";
-            this.menuRate.Size = new System.Drawing.Size(59, 24);
+            this.menuRate.Size = new System.Drawing.Size(47, 20);
             this.menuRate.Text = "Rates";
             this.menuRate.Click += new System.EventHandler(this.menuRate_Click);
             // 
             // menuReports
             // 
             this.menuReports.Name = "menuReports";
-            this.menuReports.Size = new System.Drawing.Size(74, 24);
+            this.menuReports.Size = new System.Drawing.Size(59, 20);
             this.menuReports.Text = "Reports";
             this.menuReports.Click += new System.EventHandler(this.menuReports_Click);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Abhi_Silver_Plating_Shop.Properties.Resources.eberhard_grossgasteiger_S_2Ukb_VqpA_unsplash;
+            this.BackgroundImage = global::Abhi_Silver_Plating_Shop.Properties.Resources.amanda_phung_1w2xsyc2wwI_unsplash;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1130, 732);
+            this.ClientSize = new System.Drawing.Size(989, 549);
             this.Controls.Add(this.menuStrip1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";

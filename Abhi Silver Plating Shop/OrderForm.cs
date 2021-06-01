@@ -291,6 +291,7 @@ namespace Abhi_Silver_Plating_Shop
             txtTotalAmt.Text = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("total_amount");
             string customerName = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("Customer Name");
             string itemName = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("Item Name");
+            string status = Utility.GetCells(orderGridView).GetCellValueFromColumnHeader("status");
 
             DateTime creationDate = ((DateTime)Utility.GetCells(orderGridView)["creation_date"].Value);
             DateTime upadtedDate = ((DateTime)Utility.GetCells(orderGridView)["last_modified"].Value);
@@ -326,7 +327,7 @@ namespace Abhi_Silver_Plating_Shop
                 TotalOutWeight = txtOutWeight.Text.ConvertElseZero(),
                 FromDate = DateTime.Now.ToString("MMMM dd, yyyy"),
                 ToDate = DateTime.Now.ToString("MMMM dd, yyyy"),
-                OrderStatus = Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero()),
+                OrderStatus = status,
                 Orders = orders,
                 Address = Utility.GetShopAddress()
             };
@@ -363,7 +364,7 @@ namespace Abhi_Silver_Plating_Shop
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (Utility.GetOrderStatus(txtOutWeight.Text.ConvertElseZero()) == "Completed")
+            if (statastics.OrderStatus == "Completed")
             {
                 MessageBox.Show("Completed order can not be edited !!");
                 return;
