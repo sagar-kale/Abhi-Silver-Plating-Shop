@@ -65,6 +65,20 @@ namespace Abhi_Silver_Plating_Shop
                 ClearForm();
                 return true;
             }
+
+            if (keyData == (Keys.F8))
+            {
+                if (statastics == null)
+                {
+                    MessageBox.Show("Please load data first");
+                    return true;
+                }
+
+                MessageBox.Show("Printing report...");
+                GeneratePdf(true, false);
+                ClearForm();
+                return true;
+            }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -252,11 +266,15 @@ namespace Abhi_Silver_Plating_Shop
             statastics.ToDate = toDatePicker.Value.ToString("MMMM dd, yyyy");
         }
 
-        void GeneratePdf(bool isf4 = false)
+        void GeneratePdf(bool isf4 = false, bool isSilentPrint = true)
         {
             if (isf4 == false)
                 isPaymentDone = false;
-            Utility.GeneratePdf(statastics, "NOT_PAID_REPORT");
+
+            if (isSilentPrint)
+                Utility.GeneratePdf(statastics, "NOT_PAID_REPORT");
+            else
+                Utility.GeneratePdf(statastics, "NOT_PAID_REPORT", false);
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -227,7 +227,7 @@ namespace Abhi_Silver_Plating_Shop.Utils
             return address;
         }
 
-        public static void GeneratePdf(Model.Stat statastics, string type = "DEFAULT")
+        public static void GeneratePdf(Model.Stat statastics, string type = "DEFAULT", bool useSilentPrinter = true)
         {
             Engine templateEngine = new();
 
@@ -247,11 +247,16 @@ namespace Abhi_Silver_Plating_Shop.Utils
             using FileStream fs = File.Create(Path.GetTempPath() + "report.pdf");
             HtmlConverter.ConvertToPdf(htmlReport, fs);
 
-            IPrinter printer = new Printer();
-            printer.PrintRawFile("Canon MF3010", fs.Name);
-
-            /* System.Windows.Controls.WebBrowser webbrowser = new();
-             webbrowser.Navigate(fs.Name);*/
+            if (useSilentPrinter)
+            {
+                IPrinter printer = new Printer();
+                printer.PrintRawFile("Canon MF3010", fs.Name);
+            }
+            else
+            {
+                System.Windows.Controls.WebBrowser webbrowser = new();
+                webbrowser.Navigate(fs.Name);
+            }
             fs.Close();
         }
     }

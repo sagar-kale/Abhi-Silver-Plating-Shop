@@ -108,6 +108,22 @@ namespace Abhi_Silver_Plating_Shop
                 return true;
             }
 
+            if (keyData == (Keys.F8)) // this key is used only to print using ctrl+ p printer dialog
+            {
+                if (statastics == null)
+                {
+                    MessageBox.Show("Please load data first");
+                    return true;
+                }
+
+                FillStat(); //making db call to amount_inventory table and fetching data assinging to stat obj
+                statastics.TotalFine = statastics.RemainingFine;
+                MessageBox.Show("printing ...");
+                Utility.GeneratePdf(statastics, "OTHER", false);
+                ClearForm();
+                return true;
+            }
+
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
