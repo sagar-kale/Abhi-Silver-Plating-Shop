@@ -195,7 +195,7 @@ namespace Abhi_Silver_Plating_Shop
         void PopulateOrderGrid()
         {
             DataTable dataTable = new Repository.BaseDao().PopulateDataSourceData(Repository.Queries.ORDER_SELECT_QUERY);
-            dataTable.DefaultView.Sort = "creation_date desc";
+            dataTable.DefaultView.Sort = "date desc";
             orderGridView.DataSource = dataTable;
             orderGridView.Columns["date"].DefaultCellStyle.Format = "dd-MMM-yyyy";
             orderGridView.Columns["orderId"].Visible = false;

@@ -23,7 +23,7 @@ namespace Abhi_Silver_Plating_Shop
                 Application.SetCompatibleTextRenderingDefault(false);
                 bool isFirstTimeOpened = Convert.ToBoolean(ConfigurationManager.AppSettings["isFirstTimeOpened"]);
                 if (isFirstTimeOpened)
-                    Application.Run(new StartupSetupForm());
+                     Application.Run(new StartupSetupForm());
                 //Application.Run(new MainForm());
                 else
                     Application.Run(new LoginForm());
